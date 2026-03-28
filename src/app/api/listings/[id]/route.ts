@@ -1,0 +1,63 @@
+import { NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+
+export async function GET(
+  _request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const { id } = await params;
+  const listing = await prisma.listing.findUnique({
+    where: { id },
+    include: { user: { select: { id: true, name: true, image: true, email: true } } },
+  });
+
+  if (!listing || !listing.isActive) {
+    return NextResponse.json({ error: "Annonse ikke funnet" }, { status: 404 });
+  }
+
+  return NextResponse.json({ listing });
+}
+
+export async function PATCH(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Ikke innlogget" }, { status: 401 });
+  }
+
+  const { id } = await params;
+  const existing = await prisma.listing.findUnique({ where: { id }, select: { userId: true } });
+  if (!existing || existing.userId !== session.user.id) {
+    return NextResponse.json({ error: "Ikke autorisert" }, { status: 403 });
+  }
+
+  const body = await request.json();
+  const listing = await prisma.listing.update({
+    where: { id },
+    data: body,
+  });
+
+  return NextResponse.json({ listing });
+}
+
+export async function DELETE(
+  _request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Ikke innlogget" }, { status: 401 });
+  }
+
+  const { id } = await params;
+  const existing = await prisma.listing.findUnique({ where: { id }, select: { userId: true } });
+  if (!existing || existing.userId !== session.user.id) {
+    return NextResponse.json({ error: "Ikke autorisert" }, { status: 403 });
+  }
+
+  await prisma.listing.update({ where: { id }, data: { isActive: false } });
+  return NextResponse.json({ success: true });
+}
