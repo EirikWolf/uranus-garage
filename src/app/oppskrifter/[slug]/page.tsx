@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DifficultyBadge } from "@/components/difficulty-badge";
 import { RecipeScaler } from "@/components/recipe-scaler";
 import { getAllRecipes, getRecipeBySlug } from "@/lib/sanity";
+import { BeerXmlExportButton } from "@/components/beerxml-export-button";
 
 export const revalidate = 60;
 
@@ -43,6 +44,9 @@ export default async function RecipePage({
             Se ølet: {recipe.beer.name} →
           </Link>
         )}
+        <div className="mt-4">
+          <BeerXmlExportButton recipe={recipe} />
+        </div>
       </header>
 
       <RecipeScaler recipe={recipe} />
