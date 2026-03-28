@@ -7,9 +7,9 @@ datasource db {
 }
 
 model User {
-  id            String       @id @default(cuid())
+  id            String            @id @default(cuid())
   name          String?
-  email         String?      @unique
+  email         String?           @unique
   emailVerified DateTime?
   image         String?
   bio           String?
@@ -17,7 +17,57 @@ model User {
   sessions      Session[]
   forks         RecipeFork[]
   ratings       Rating[]
-  createdAt     DateTime     @default(now())
+  listings      Listing[]
+  brewSwaps     BrewSwap[]
+  swapSignups   SwapParticipant[]
+  createdAt     DateTime          @default(now())
+}
+
+model Listing {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  type        String   // selger, kjoper, bytter
+  price       String?
+  location    String
+  imageUrl    String?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BrewSwap {
+  id              String            @id @default(cuid())
+  title           String
+  description     String
+  baseRecipe      String?
+  totalLiters     Float
+  portionSize     Float
+  maxParticipants Int
+  brewDate        DateTime
+  location        String
+  status          String            @default("planlagt")
+  userId          String
+  user            User              @relation(fields: [userId], references: [id])
+  participants    SwapParticipant[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model SwapParticipant {
+  id        String   @id @default(cuid())
+  swapId    String
+  swap      BrewSwap @relation(fields: [swapId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  plan      String?
+  result    String?
+  forkId    String?
+  createdAt DateTime @default(now())
+
+  @@unique([swapId, userId])
 }
 
 model RecipeFork {
