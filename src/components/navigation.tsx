@@ -10,6 +10,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const brewingLinks = [
   { href: "/bryggelogg", label: "Bryggelogg" },
   { href: "/oppskrifter", label: "Oppskriftsarkiv" },
+  { href: "/bryggelaben", label: "Bryggelaben" },
+];
+
+const learnLinks = [
+  { href: "/laer/akademiet", label: "Akademiet" },
+  { href: "/laer/ravarefokus", label: "Råvarefokus" },
+  { href: "/laer/diy", label: "DIY-hjørnet" },
 ];
 
 const toolsLinks = [
@@ -23,6 +30,10 @@ const navItems = [
   {
     label: "Brygging",
     children: brewingLinks,
+  },
+  {
+    label: "Lær",
+    children: learnLinks,
   },
   {
     label: "Verktøy",
