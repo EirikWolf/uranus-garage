@@ -1,7 +1,10 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { GitFork } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { prisma } from "@/lib/prisma";
 
 export const metadata = {
   title: "Min profil — Uranus Garage",
@@ -9,7 +12,16 @@ export const metadata = {
 
 export default async function ProfilePage() {
   const session = await auth();
-  if (!session) redirect("/logg-inn");
+  if (!session || !session.user) redirect("/logg-inn");
+
+  const forks = await prisma.recipeFork.findMany({
+    where: { userId: session.user.id },
+    include: {
+      ratings: { select: { value: true } },
+      _count: { select: { children: true } },
+    },
+    orderBy: { createdAt: "desc" },
+  });
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
@@ -38,23 +50,36 @@ export default async function ProfilePage() {
           <CardContent className="pt-6">
             <h3 className="font-semibold mb-2">Mine oppskrifter</h3>
             <p className="text-sm text-muted-foreground">
-              Du har ingen lagrede oppskrifter ennå.
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Bruk AI-oppskriftsgeneratoren eller fork en eksisterende oppskrift for å komme i gang.
+              Lagrede oppskrifter fra AI-generatoren kommer snart.
             </p>
           </CardContent>
         </Card>
 
         <Card className="bg-card border-border">
           <CardContent className="pt-6">
-            <h3 className="font-semibold mb-2">Mine forks</h3>
-            <p className="text-sm text-muted-foreground">
-              Du har ingen forks ennå.
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Gå til en oppskrift og klikk &quot;Fork This Brew&quot; for å lage din versjon.
-            </p>
+            <h3 className="font-semibold mb-3">
+              <GitFork className="inline h-4 w-4 mr-1" />
+              Mine forks ({forks.length})
+            </h3>
+            {forks.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                Du har ingen forks ennå. Gå til en oppskrift og klikk &quot;Fork This Brew&quot;.
+              </p>
+            ) : (
+              <div className="space-y-2">
+                {forks.map((fork) => (
+                  <Link key={fork.id} href={`/forks/${fork.id}`} className="block">
+                    <div className="p-3 rounded-lg bg-secondary hover:bg-accent transition-colors">
+                      <p className="font-medium text-sm">{fork.name}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {fork.style || "Ukjent stil"} — {fork.batchSize}L
+                        {fork._count.children > 0 && ` — ${fork._count.children} forks`}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
