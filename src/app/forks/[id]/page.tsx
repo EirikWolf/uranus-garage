@@ -108,6 +108,12 @@ export default async function ForkDetailPage({
                 process,
               }}
             />
+            <Link
+              href={`/forks/${fork.id}/slektstre`}
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border border-border bg-secondary text-secondary-foreground hover:bg-muted transition-colors"
+            >
+              Se slektstre
+            </Link>
             {isOwner && (
               <Link
                 href={`/forks/${fork.id}/rediger`}
