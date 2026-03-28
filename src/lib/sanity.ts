@@ -1,5 +1,5 @@
 import { client } from "../../sanity/lib/client";
-import type { Beer, BrewLog, Recipe, Brewer } from "./types";
+import type { Beer, BrewLog, Recipe, Brewer, Article, ArticleCategory, BrewLabEntry } from "./types";
 
 export async function getAllBeers(): Promise<Beer[]> {
   return client.fetch(`
@@ -95,4 +95,52 @@ export async function getFeaturedBeers(): Promise<Beer[]> {
       _id, name, slug, style, image, abv, flavorTags
     }
   `);
+}
+
+export async function getArticlesByCategory(category: ArticleCategory): Promise<Article[]> {
+  return client.fetch(
+    `*[_type == "article" && category == $category] | order(publishedAt desc) {
+      _id, title, slug, category, publishedAt, tags, seoDescription,
+      author->{_id, name, slug, image}
+    }`,
+    { category },
+  );
+}
+
+export async function getArticleBySlug(category: ArticleCategory, slug: string): Promise<Article | null> {
+  return client.fetch(
+    `*[_type == "article" && category == $category && slug.current == $slug][0] {
+      _id, title, slug, category, publishedAt, body, tags, seoDescription,
+      author->{_id, name, slug, bio, image, role}
+    }`,
+    { category, slug },
+  );
+}
+
+export async function getAllArticleSlugs(category: ArticleCategory): Promise<{ slug: string }[]> {
+  return client.fetch(
+    `*[_type == "article" && category == $category] { "slug": slug.current }`,
+    { category },
+  );
+}
+
+export async function getBrewLabEntries(): Promise<BrewLabEntry[]> {
+  return client.fetch(`
+    *[_type == "brewLabEntry"] | order(brewLog->date desc) {
+      _id,
+      brewLog->{_id, title, slug, date, beer->{_id, name, slug}},
+      "measurementCount": count(measurements)
+    }
+  `);
+}
+
+export async function getBrewLabEntry(brewLogSlug: string): Promise<BrewLabEntry | null> {
+  return client.fetch(
+    `*[_type == "brewLabEntry" && brewLog->slug.current == $slug][0] {
+      _id,
+      brewLog->{_id, title, slug, date, og, fg, beer->{_id, name, slug, style}},
+      measurements
+    }`,
+    { slug: brewLogSlug },
+  );
 }

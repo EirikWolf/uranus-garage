@@ -98,3 +98,30 @@ export interface BrewLog {
   beer?: Beer;
   recipe?: Recipe;
 }
+
+export type ArticleCategory = "akademiet" | "ravarefokus" | "diy";
+
+export interface Article {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  category: ArticleCategory;
+  publishedAt: string;
+  author?: Brewer;
+  body: PortableTextBlock[];
+  tags: string[];
+  seoDescription: string;
+}
+
+export interface Measurement {
+  timestamp: string;
+  type: "temperature" | "gravity" | "ph";
+  value: number;
+  unit: string;
+}
+
+export interface BrewLabEntry {
+  _id: string;
+  brewLog: BrewLog;
+  measurements: Measurement[];
+}
