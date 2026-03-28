@@ -1,4 +1,9 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
+import { Download, Share2 } from "lucide-react";
+import { generateBeerXml } from "@/lib/beerxml";
+import type { Recipe, Grain } from "@/lib/types";
 
 interface GeneratedRecipe {
   name: string;
@@ -19,13 +24,67 @@ interface GeneratedRecipe {
   tips?: string;
 }
 
+function toRecipeType(gen: GeneratedRecipe): Recipe {
+  const slug = gen.name
+    .toLowerCase()
+    .replace(/[æ]/g, "ae").replace(/[ø]/g, "o").replace(/[å]/g, "a")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+  return {
+    _id: `generated-${Date.now()}`,
+    name: gen.name,
+    slug: { current: slug },
+    style: gen.style,
+    description: gen.description,
+    difficulty: gen.difficulty as Recipe["difficulty"],
+    batchSize: gen.batchSize,
+    grains: gen.grains.map((g) => ({
+      name: g.name,
+      amount: g.amount,
+      unit: g.unit as Grain["unit"],
+    })),
+    hops: gen.hops.map((h) => ({
+      name: h.name,
+      amount: h.amount,
+      time: h.time,
+      alphaAcid: h.alphaAcid,
+    })),
+    yeast: gen.yeast,
+    additions: gen.additions,
+    process: gen.process,
+  };
+}
+
 export function RecipeResult({ recipe }: { recipe: GeneratedRecipe }) {
+  function handleBeerXmlExport() {
+    const recipeData = toRecipeType(recipe);
+    const xml = generateBeerXml(recipeData);
+    const blob = new Blob([xml], { type: "application/xml" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${toRecipeType(recipe).slug.current}.xml`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold">{recipe.name}</h2>
-        <p className="text-muted-foreground">{recipe.style} — {recipe.batchSize}L</p>
-        <p className="mt-2">{recipe.description}</p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-bold">{recipe.name}</h2>
+          <p className="text-muted-foreground">{recipe.style} — {recipe.batchSize}L</p>
+          <p className="mt-2">{recipe.description}</p>
+        </div>
+        <div className="flex gap-2 flex-shrink-0">
+          <button
+            onClick={handleBeerXmlExport}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border border-border bg-secondary text-secondary-foreground hover:bg-muted transition-colors"
+          >
+            <Download className="h-4 w-4" />
+            BeerXML
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-5 gap-3">
