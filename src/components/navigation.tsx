@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { AuthButton } from "./auth-button";
 
 const brewingLinks = [
   { href: "/bryggelogg", label: "Bryggelogg" },
@@ -114,6 +115,9 @@ export function Navigation() {
             ),
           )}
         </div>
+        <div className="hidden md:flex">
+          <AuthButton />
+        </div>
 
         {/* Mobile nav */}
         <Sheet>
@@ -153,6 +157,9 @@ export function Navigation() {
                   </Link>
                 ),
               )}
+              <div className="mt-auto pt-4 border-t border-border">
+                <AuthButton />
+              </div>
             </div>
           </SheetContent>
         </Sheet>
