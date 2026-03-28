@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getLatestBrewLog, getFeaturedBeers } from "@/lib/sanity";
 import { urlFor } from "../../sanity/lib/client";
@@ -30,12 +29,18 @@ export default async function Home() {
             Great beer and no cars!
           </p>
           <div className="flex justify-center gap-4">
-            <Button render={<Link href="/ol" />} size="lg">
+            <Link
+              href="/ol"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/80 transition-all"
+            >
               Se våre øl
-            </Button>
-            <Button render={<Link href="/bryggelogg" />} variant="outline" size="lg">
+            </Link>
+            <Link
+              href="/bryggelogg"
+              className="inline-flex items-center justify-center h-9 px-4 rounded-lg border border-border bg-background text-foreground font-medium text-sm hover:bg-muted transition-all"
+            >
               Siste bryggelogg
-            </Button>
+            </Link>
           </div>
         </div>
       </section>
