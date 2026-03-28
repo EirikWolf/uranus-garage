@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RecipeDiff } from "@/components/recipe-diff";
 import { ForkButton } from "@/components/fork-button";
+import { RatingForm } from "@/components/rating-form";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { GitFork, Star } from "lucide-react";
@@ -61,6 +62,10 @@ export default async function ForkDetailPage({
   const parentHops = fork.parentFork ? (fork.parentFork.hops as any[]) || [] : [];
   const parentYeast = fork.parentFork ? (fork.parentFork.yeast as any) || {} : {};
   const parentBatchSize = fork.parentFork?.batchSize || fork.batchSize;
+
+  const userRating = session?.user?.id
+    ? fork.ratings.find((r) => r.user.id === session.user!.id)
+    : null;
 
   const avgRating = fork.ratings.length > 0
     ? Math.round((fork.ratings.reduce((sum, r) => sum + r.value, 0) / fork.ratings.length) * 10) / 10
@@ -269,6 +274,18 @@ export default async function ForkDetailPage({
           </div>
         </div>
       )}
+
+      {/* Rate this fork */}
+      <Card className="bg-card border-border mb-4">
+        <CardContent className="pt-6">
+          <h3 className="font-semibold mb-3">Gi din vurdering</h3>
+          <RatingForm
+            forkId={fork.id}
+            forkOwnerId={fork.userId}
+            existingRating={userRating ? { value: userRating.value, comment: userRating.comment } : null}
+          />
+        </CardContent>
+      </Card>
 
       {/* Ratings */}
       {fork.ratings.length > 0 && (
