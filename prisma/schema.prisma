@@ -7,15 +7,64 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
   bio           String?
   accounts      Account[]
   sessions      Session[]
-  createdAt     DateTime  @default(now())
+  forks         RecipeFork[]
+  ratings       Rating[]
+  createdAt     DateTime     @default(now())
+}
+
+model RecipeFork {
+  id             String       @id @default(cuid())
+  name           String
+  description    String?
+  // Parent tracking — either a Sanity recipe or another fork
+  parentSanityId String?      // Sanity _id if forked from CMS recipe
+  parentForkId   String?      // If forked from another fork
+  parentFork     RecipeFork?  @relation("ForkTree", fields: [parentForkId], references: [id])
+  children       RecipeFork[] @relation("ForkTree")
+  // Recipe data (snapshot at time of fork)
+  style          String?
+  difficulty     String?
+  batchSize      Float        @default(20)
+  grains         Json         @default("[]")
+  hops           Json         @default("[]")
+  yeast          Json         @default("{}")
+  additions      Json         @default("[]")
+  process        Json         @default("[]")
+  // What changed
+  changeNotes    String?
+  // Brew results
+  brewDate       DateTime?
+  og             Float?
+  fg             Float?
+  tastingNotes   String?
+  // Meta
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  ratings        Rating[]
+  isPublic       Boolean      @default(true)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model Rating {
+  id        String     @id @default(cuid())
+  value     Int        // 1-5
+  comment   String?
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+  forkId    String
+  fork      RecipeFork @relation(fields: [forkId], references: [id], onDelete: Cascade)
+  createdAt DateTime   @default(now())
+
+  @@unique([userId, forkId])
 }
 
 model Account {
