@@ -14,6 +14,8 @@ const brewingLinks = [
 
 const toolsLinks = [
   { href: "/verktoy/kalkulatorer", label: "Kalkulatorer" },
+  { href: "/verktoy/oppskriftsgenerator", label: "AI Oppskriftsgenerator" },
+  { href: "/verktoy/smaksassistent", label: "Smaksassistenten" },
 ];
 
 const navItems = [
