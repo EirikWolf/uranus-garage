@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { getLatestBrewLog, getFeaturedBeers } from "@/lib/sanity";
 import { urlFor } from "../../sanity/lib/client";
+import { BrewFeed } from "@/components/brew-feed";
 
 export const revalidate = 60;
 
@@ -101,6 +102,8 @@ export default async function Home() {
           </Link>
         </section>
       )}
+
+      <BrewFeed />
     </div>
   );
 }
