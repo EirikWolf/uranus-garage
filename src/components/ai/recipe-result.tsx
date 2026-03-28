@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Share2 } from "lucide-react";
+import { Download, Save, Loader2 } from "lucide-react";
 import { generateBeerXml } from "@/lib/beerxml";
 import type { Recipe, Grain } from "@/lib/types";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface GeneratedRecipe {
   name: string;
@@ -56,6 +59,41 @@ function toRecipeType(gen: GeneratedRecipe): Recipe {
 }
 
 export function RecipeResult({ recipe }: { recipe: GeneratedRecipe }) {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const [saving, setSaving] = useState(false);
+
+  async function handleSave() {
+    setSaving(true);
+    try {
+      const res = await fetch("/api/forks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: recipe.name,
+          description: recipe.description,
+          style: recipe.style,
+          difficulty: recipe.difficulty,
+          batchSize: recipe.batchSize,
+          grains: recipe.grains,
+          hops: recipe.hops,
+          yeast: recipe.yeast,
+          additions: recipe.additions || [],
+          process: recipe.process || [],
+          changeNotes: "Generert med AI Oppskriftsgenerator",
+        }),
+      });
+
+      if (!res.ok) throw new Error("Save failed");
+      const data = await res.json();
+      router.push(`/forks/${data.fork.id}`);
+    } catch {
+      alert("Kunne ikke lagre. Er du logget inn?");
+    } finally {
+      setSaving(false);
+    }
+  }
+
   function handleBeerXmlExport() {
     const recipeData = toRecipeType(recipe);
     const xml = generateBeerXml(recipeData);
@@ -84,6 +122,19 @@ export function RecipeResult({ recipe }: { recipe: GeneratedRecipe }) {
             <Download className="h-4 w-4" />
             BeerXML
           </button>
+          {session && (
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 transition-colors disabled:opacity-50"
+            >
+              {saving ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Lagrer...</>
+              ) : (
+                <><Save className="h-4 w-4" /> Lagre oppskrift</>
+              )}
+            </button>
+          )}
         </div>
       </div>
 
