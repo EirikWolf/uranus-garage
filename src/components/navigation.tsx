@@ -36,6 +36,7 @@ const navItems = [
     label: "Lær",
     children: learnLinks,
   },
+  { href: "/forks", label: "Forks" },
   {
     label: "Verktøy",
     children: toolsLinks,
