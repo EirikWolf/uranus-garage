@@ -12,11 +12,19 @@ const brewingLinks = [
   { href: "/oppskrifter", label: "Oppskriftsarkiv" },
 ];
 
+const toolsLinks = [
+  { href: "/verktoy/kalkulatorer", label: "Kalkulatorer" },
+];
+
 const navItems = [
   { href: "/ol", label: "Øl" },
   {
     label: "Brygging",
     children: brewingLinks,
+  },
+  {
+    label: "Verktøy",
+    children: toolsLinks,
   },
   { href: "/om-oss", label: "Om oss" },
 ];
