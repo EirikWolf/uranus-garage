@@ -64,6 +64,10 @@ const illustrations: Record<string, Record<string, { src: string; alt: string }>
       src: "/articles/ravarefokus/us-05-gjaer.svg",
       alt: "Safale US-05 gjærprofil — temperatur og fermenteringskurve",
     },
+    "vic-secret-australias-hemmelige-vapen": {
+      src: "/articles/ravarefokus/vic-secret.svg",
+      alt: "Vic Secret humleprofil — ananas, pasjonsfrukt og furu fra Australia",
+    },
   },
   akademiet: {
     "kom-i-gang-med-hjemmebrygging": {
