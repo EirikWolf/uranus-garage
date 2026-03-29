@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calculator, Sparkles, Stethoscope } from "lucide-react";
+import { Calculator, Sparkles, Stethoscope, Leaf } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export const metadata = {
@@ -29,6 +29,12 @@ export default async function ToolsPage() {
       icon: Stethoscope,
       title: t("sensoryMirror.title"),
       description: t("sensoryMirror.description"),
+    },
+    {
+      href: "/verktoy/humle-erstatning",
+      icon: Leaf,
+      title: "Humle-erstatning",
+      description: "Finn alternativer når du mangler en humlesort",
     },
   ];
 
