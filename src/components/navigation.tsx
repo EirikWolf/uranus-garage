@@ -26,21 +26,18 @@ const toolsLinks = [
   { href: "/verktoy/smaksassistent", label: "Smaksassistenten" },
 ];
 
+const communityLinks = [
+  { href: "/forks", label: "Forks" },
+  { href: "/brew-swap", label: "Brew-Swap" },
+  { href: "/markedsplass", label: "Markedsplassen" },
+];
+
 const navItems = [
   { href: "/ol", label: "Øl" },
-  {
-    label: "Brygging",
-    children: brewingLinks,
-  },
-  {
-    label: "Lær",
-    children: learnLinks,
-  },
-  { href: "/forks", label: "Forks" },
-  {
-    label: "Verktøy",
-    children: toolsLinks,
-  },
+  { label: "Brygging", children: brewingLinks },
+  { label: "Lær", children: learnLinks },
+  { label: "Verktøy", children: toolsLinks },
+  { label: "Community", children: communityLinks },
   { href: "/om-oss", label: "Om oss" },
 ];
 
