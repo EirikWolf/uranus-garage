@@ -5,6 +5,7 @@ import { getLocale, getMessages } from "next-intl/server";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { SessionProvider } from "@/components/session-provider";
+import "@/lib/env"; // Validate env vars at startup
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

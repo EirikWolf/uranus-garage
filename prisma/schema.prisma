@@ -36,6 +36,9 @@ model Listing {
   isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([isActive, type, createdAt])
+  @@index([userId])
 }
 
 model BrewSwap {
@@ -102,6 +105,10 @@ model RecipeFork {
   isPublic       Boolean      @default(true)
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([parentForkId])
+  @@index([parentSanityId])
 }
 
 model Rating {

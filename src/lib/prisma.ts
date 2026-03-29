@@ -3,12 +3,12 @@ import { PrismaPg } from "@prisma/adapter-pg";
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
-function createPrismaClient() {
+function createPrismaClient(): PrismaClient {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
-    console.error("DATABASE_URL is not set");
-    // Return a client that will fail gracefully
-    return new PrismaClient({ adapter: new PrismaPg(connectionString!) });
+    throw new Error(
+      "DATABASE_URL is not set. Add it to .env.local for local development or to Vercel environment variables for production.",
+    );
   }
   const adapter = new PrismaPg(connectionString);
   return new PrismaClient({ adapter });
