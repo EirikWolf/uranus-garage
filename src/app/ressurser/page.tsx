@@ -215,7 +215,7 @@ export default function SupplierDirectoryPage() {
           <h3 className="font-semibold mb-2">Tips til nybegynnere</h3>
           <p className="text-sm text-muted-foreground">
             Starter du med hjemmebrygging? Vi anbefaler å kjøpe et startsett fra en nettbutikk som Bryggselv eller Brewshop.
-            De inkluderer alt du trenger for første brygg. Når du later vil ha spesialingredienser eller rask levering,
+            De inkluderer alt du trenger for første brygg. Når du senere vil ha spesialingredienser eller rask levering,
             er det greit å ha en fysisk butikk i nærheten. Sjekk også ut vår guide
             &quot;Kom i gang med hjemmebrygging&quot; under Akademiet!
           </p>

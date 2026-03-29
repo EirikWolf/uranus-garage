@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Save, Plus, Trash2, Loader2 } from "lucide-react";
+import { Save, Plus, Trash2, Loader2, Scale } from "lucide-react";
 import type { ForkYeast } from "@/lib/prisma-types";
 
 interface Grain { name: string; amount: number; unit: string; }
@@ -41,6 +41,28 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
   const [fg, setFg] = useState(fork.fg ? String(fork.fg) : "");
   const [tastingNotes, setTastingNotes] = useState(fork.tastingNotes || "");
   const [saving, setSaving] = useState(false);
+  const [scalePending, setScalePending] = useState(false);
+  const lastScaledBatch = useRef(fork.batchSize);
+
+  function handleBatchSizeChange(val: string) {
+    setBatchSize(val);
+    const newSize = parseFloat(val);
+    if (newSize > 0 && newSize !== lastScaledBatch.current) {
+      setScalePending(true);
+    } else {
+      setScalePending(false);
+    }
+  }
+
+  function applyScaling() {
+    const newSize = parseFloat(batchSize);
+    if (!newSize || newSize <= 0) return;
+    const factor = newSize / lastScaledBatch.current;
+    setGrains(grains.map((g) => ({ ...g, amount: Math.round(g.amount * factor * 100) / 100 })));
+    setHops(hops.map((h) => ({ ...h, amount: Math.round(h.amount * factor * 10) / 10 })));
+    lastScaledBatch.current = newSize;
+    setScalePending(false);
+  }
 
   function addGrain() {
     setGrains([...grains, { name: "", amount: 0, unit: "kg" }]);
@@ -60,6 +82,12 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
   }
   function updateHop(i: number, field: keyof Hop, value: string | number) {
     setHops(hops.map((h, idx) => idx === i ? { ...h, [field]: value } : h));
+  }
+
+  function timeLabel(time: number) {
+    if (time === -1) return "Dry hop";
+    if (time === 0) return "0 min (whirlpool/flameout)";
+    return `${time} min`;
   }
 
   async function handleSave() {
@@ -82,10 +110,11 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
         }),
       });
 
-      if (!res.ok) throw new Error("Save failed");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Lagring feilet");
       router.push(`/forks/${fork.id}`);
-    } catch {
-      alert("Kunne ikke lagre. Prøv igjen.");
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Kunne ikke lagre. Prøv igjen.");
     } finally {
       setSaving(false);
     }
@@ -106,7 +135,28 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
           </div>
           <div>
             <label className="text-sm font-medium">Batchstørrelse (L)</label>
-            <Input type="number" value={batchSize} onChange={(e) => setBatchSize(e.target.value)} className="bg-secondary border-border mt-1 max-w-[120px]" />
+            <div className="flex items-center gap-3 mt-1">
+              <Input
+                type="number"
+                value={batchSize}
+                onChange={(e) => handleBatchSizeChange(e.target.value)}
+                className="bg-secondary border-border max-w-[120px]"
+              />
+              {scalePending && (
+                <button
+                  onClick={applyScaling}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 transition-colors"
+                >
+                  <Scale className="h-4 w-4" />
+                  Skaler ingredienser
+                </button>
+              )}
+            </div>
+            {scalePending && (
+              <p className="text-xs text-muted-foreground mt-1">
+                Klikk for å skalere malt og humle automatisk fra {lastScaledBatch.current} L → {batchSize} L
+              </p>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -115,18 +165,24 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
       <Card className="bg-card border-border">
         <CardContent className="pt-6">
           <h3 className="font-semibold mb-3">Malt</h3>
+          {grains.length > 0 && (
+            <div className="grid grid-cols-4 gap-2 mb-1 px-0">
+              <span className="text-xs text-muted-foreground">Malt</span>
+              <span className="text-xs text-muted-foreground">Mengde</span>
+              <span className="text-xs text-muted-foreground">Enhet</span>
+              <span />
+            </div>
+          )}
           <div className="space-y-2">
             {grains.map((g, i) => (
-              <div key={i} className="grid grid-cols-4 gap-2 items-end">
-                <div><Input placeholder="Maltnavn" value={g.name} onChange={(e) => updateGrain(i, "name", e.target.value)} className="bg-secondary border-border" /></div>
-                <div><Input type="number" step="0.1" placeholder="Mengde" value={g.amount} onChange={(e) => updateGrain(i, "amount", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" /></div>
-                <div>
-                  <select value={g.unit} onChange={(e) => updateGrain(i, "unit", e.target.value)} className="w-full bg-secondary border border-border rounded-lg p-2 text-sm">
-                    <option value="kg">kg</option>
-                    <option value="g">g</option>
-                  </select>
-                </div>
-                <button onClick={() => removeGrain(i)} className="text-muted-foreground hover:text-foreground p-2"><Trash2 className="h-4 w-4" /></button>
+              <div key={i} className="grid grid-cols-4 gap-2 items-center">
+                <Input placeholder="Maltnavn" value={g.name} onChange={(e) => updateGrain(i, "name", e.target.value)} className="bg-secondary border-border" />
+                <Input type="number" step="0.1" placeholder="Mengde" value={g.amount} onChange={(e) => updateGrain(i, "amount", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" />
+                <select value={g.unit} onChange={(e) => updateGrain(i, "unit", e.target.value)} className="w-full bg-secondary border border-border rounded-lg p-2 text-sm">
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                </select>
+                <button onClick={() => removeGrain(i)} className="text-muted-foreground hover:text-foreground p-2 justify-self-start"><Trash2 className="h-4 w-4" /></button>
               </div>
             ))}
           </div>
@@ -138,14 +194,31 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
       <Card className="bg-card border-border">
         <CardContent className="pt-6">
           <h3 className="font-semibold mb-3">Humle</h3>
+          {hops.length > 0 && (
+            <div className="grid grid-cols-5 gap-2 mb-1">
+              <span className="text-xs text-muted-foreground">Humle</span>
+              <span className="text-xs text-muted-foreground">Mengde (g)</span>
+              <span className="text-xs text-muted-foreground">Tid (min, -1 = dry hop)</span>
+              <span className="text-xs text-muted-foreground">Alpha (%)</span>
+              <span />
+            </div>
+          )}
           <div className="space-y-2">
             {hops.map((h, i) => (
-              <div key={i} className="grid grid-cols-5 gap-2 items-end">
-                <div><Input placeholder="Humlenavn" value={h.name} onChange={(e) => updateHop(i, "name", e.target.value)} className="bg-secondary border-border" /></div>
-                <div><Input type="number" placeholder="g" value={h.amount} onChange={(e) => updateHop(i, "amount", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" /></div>
-                <div><Input type="number" placeholder="min" value={h.time} onChange={(e) => updateHop(i, "time", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" /></div>
-                <div><Input type="number" step="0.1" placeholder="AA%" value={h.alphaAcid} onChange={(e) => updateHop(i, "alphaAcid", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" /></div>
-                <button onClick={() => removeHop(i)} className="text-muted-foreground hover:text-foreground p-2"><Trash2 className="h-4 w-4" /></button>
+              <div key={i} className="grid grid-cols-5 gap-2 items-center">
+                <Input placeholder="Humlenavn" value={h.name} onChange={(e) => updateHop(i, "name", e.target.value)} className="bg-secondary border-border" />
+                <Input type="number" value={h.amount} onChange={(e) => updateHop(i, "amount", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" />
+                <div className="space-y-0.5">
+                  <Input
+                    type="number"
+                    value={h.time}
+                    onChange={(e) => updateHop(i, "time", parseFloat(e.target.value) ?? 0)}
+                    className="bg-secondary border-border"
+                  />
+                  <span className="text-xs text-muted-foreground pl-1">{timeLabel(h.time)}</span>
+                </div>
+                <Input type="number" step="0.1" value={h.alphaAcid} onChange={(e) => updateHop(i, "alphaAcid", parseFloat(e.target.value) || 0)} className="bg-secondary border-border" />
+                <button onClick={() => removeHop(i)} className="text-muted-foreground hover:text-foreground p-2 justify-self-start"><Trash2 className="h-4 w-4" /></button>
               </div>
             ))}
           </div>
