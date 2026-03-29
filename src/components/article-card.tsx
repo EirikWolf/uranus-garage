@@ -10,15 +10,31 @@ const categoryPaths: Record<string, string> = {
   diy: "diy",
 };
 
+function ArticleThumb({ slug }: { slug: string }) {
+  // Try to load a thumbnail SVG — falls back gracefully if missing
+  const src = `/articles/thumbs/${slug}.svg`;
+  return (
+    <div className="w-full h-32 rounded-t-lg overflow-hidden bg-secondary flex items-center justify-center">
+      <Image
+        src={src}
+        alt=""
+        width={200}
+        height={140}
+        className="w-full h-full object-cover"
+        onError={() => {}} // Silently fail if thumbnail doesn't exist
+      />
+    </div>
+  );
+}
+
 export function ArticleCard({ article }: { article: Article }) {
   const path = categoryPaths[article.category] || article.category;
   return (
     <Link href={`/laer/${path}/${article.slug.current}`}>
-      <Card className="bg-card hover:bg-accent transition-colors h-full">
-        <CardContent className="pt-6">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className="font-bold text-lg">{article.title}</h3>
-          </div>
+      <Card className="bg-card hover:bg-accent transition-colors h-full overflow-hidden">
+        <ArticleThumb slug={article.slug.current} />
+        <CardContent className="pt-4">
+          <h3 className="font-bold text-lg mb-1">{article.title}</h3>
           {article.publishedAt && (
             <p className="text-xs text-muted-foreground mb-2">
               {new Date(article.publishedAt).toLocaleDateString("no")}
