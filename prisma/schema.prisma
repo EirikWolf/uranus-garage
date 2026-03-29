@@ -20,6 +20,7 @@ model User {
   listings      Listing[]
   brewSwaps     BrewSwap[]
   swapSignups   SwapParticipant[]
+  simulations   Simulation[]
   createdAt     DateTime          @default(now())
 }
 
@@ -102,6 +103,7 @@ model RecipeFork {
   userId         String
   user           User         @relation(fields: [userId], references: [id])
   ratings        Rating[]
+  simulations    Simulation[]
   isPublic       Boolean      @default(true)
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
@@ -156,4 +158,22 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Simulation {
+  id              String      @id @default(cuid())
+  name            String
+  forkId          String?
+  fork            RecipeFork? @relation(fields: [forkId], references: [id], onDelete: SetNull)
+  brewLogSanityId String?
+  params          Json
+  result          Json
+  isPublic        Boolean     @default(false)
+  userId          String
+  user            User        @relation(fields: [userId], references: [id])
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([forkId])
 }

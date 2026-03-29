@@ -58,12 +58,16 @@ export async function GET(request: Request) {
   const { page, limit, skip } = paginationParams(request);
 
   try {
+    const session = await auth();
     const where: Record<string, unknown> = { isPublic: true };
     if (parentSanityId) where.parentSanityId = parentSanityId;
     if (parentForkId) where.parentForkId = parentForkId;
     if (userId) {
       where.userId = userId;
-      delete where.isPublic; // Show all forks for the owner
+      // Only show private forks if the requester is the owner
+      if (session?.user?.id === userId) {
+        delete where.isPublic;
+      }
     }
 
     const [forks, total] = await Promise.all([
@@ -71,8 +75,7 @@ export async function GET(request: Request) {
         where,
         include: {
           user: { select: { id: true, name: true, image: true } },
-          ratings: { select: { value: true } },
-          _count: { select: { children: true } },
+          _count: { select: { children: true, ratings: true } },
         },
         orderBy: { createdAt: "desc" },
         take: limit,
@@ -81,18 +84,25 @@ export async function GET(request: Request) {
       prisma.recipeFork.count({ where }),
     ]);
 
-    // Add average rating
-    const forksWithRating = forks.map((fork) => {
-      const avgRating = fork.ratings.length > 0
-        ? Math.round((fork.ratings.reduce((sum: number, r) => sum + r.value, 0) / fork.ratings.length) * 10) / 10
-        : null;
-      return {
-        ...fork,
-        avgRating,
-        ratingCount: fork.ratings.length,
-        forkCount: fork._count.children,
-      };
-    });
+    // Batch-fetch average ratings for all forks in one query
+    const forkIds = forks.map((f) => f.id);
+    const avgRatings = forkIds.length > 0
+      ? await prisma.rating.groupBy({
+          by: ["forkId"],
+          where: { forkId: { in: forkIds } },
+          _avg: { value: true },
+        })
+      : [];
+    const ratingMap = new Map(
+      avgRatings.map((r) => [r.forkId, r._avg.value ? Math.round(r._avg.value * 10) / 10 : null]),
+    );
+
+    const forksWithRating = forks.map((fork) => ({
+      ...fork,
+      avgRating: ratingMap.get(fork.id) ?? null,
+      ratingCount: fork._count.ratings,
+      forkCount: fork._count.children,
+    }));
 
     return NextResponse.json({
       forks: forksWithRating,

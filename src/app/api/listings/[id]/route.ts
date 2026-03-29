@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { updateListingSchema } from "@/lib/validations";
 
 export async function GET(
   _request: Request,
@@ -9,7 +10,7 @@ export async function GET(
   const { id } = await params;
   const listing = await prisma.listing.findUnique({
     where: { id },
-    include: { user: { select: { id: true, name: true, image: true, email: true } } },
+    include: { user: { select: { id: true, name: true, image: true } } },
   });
 
   if (!listing || !listing.isActive) {
@@ -34,13 +35,26 @@ export async function PATCH(
     return NextResponse.json({ error: "Ikke autorisert" }, { status: 403 });
   }
 
-  const body = await request.json();
-  const listing = await prisma.listing.update({
-    where: { id },
-    data: body,
-  });
+  try {
+    const body = await request.json();
+    const parsed = updateListingSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || "Ugyldig data" },
+        { status: 400 },
+      );
+    }
 
-  return NextResponse.json({ listing });
+    const listing = await prisma.listing.update({
+      where: { id },
+      data: parsed.data,
+    });
+
+    return NextResponse.json({ listing });
+  } catch (error) {
+    console.error("Update listing error:", error);
+    return NextResponse.json({ error: "Kunne ikke oppdatere annonse" }, { status: 500 });
+  }
 }
 
 export async function DELETE(

@@ -30,8 +30,15 @@ export function scaleHops(
 
 export function scaleAdditions(
   additions: Addition[],
-  _originalBatchSize: number,
-  _newBatchSize: number,
+  originalBatchSize: number,
+  newBatchSize: number,
 ): Addition[] {
-  return additions.map((a) => ({ ...a }));
+  const factor = newBatchSize / originalBatchSize;
+  return additions.map((a) => {
+    // Try to scale numeric amounts in the string (e.g. "10 g" -> "20 g")
+    const scaled = a.amount.replace(/(\d+(?:\.\d+)?)/g, (match) => {
+      return String(round2(parseFloat(match) * factor));
+    });
+    return { ...a, amount: scaled };
+  });
 }

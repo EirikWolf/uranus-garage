@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { scaleGrains, scaleHops } from "@/lib/scaling";
+import { translateStep } from "@/lib/process-i18n";
 import type { Recipe } from "@/lib/types";
 
 export function RecipeScaler({ recipe }: { recipe: Recipe }) {
@@ -144,7 +145,7 @@ export function RecipeScaler({ recipe }: { recipe: Recipe }) {
                   <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">
                     {i + 1}
                   </span>
-                  <span className="font-semibold">{step.step}</span>
+                  <span className="font-semibold">{translateStep(step.step)}</span>
                   <span className="text-xs text-muted-foreground ml-auto">
                     {step.temp}°C — {step.duration} min
                   </span>

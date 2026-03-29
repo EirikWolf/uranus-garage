@@ -11,7 +11,7 @@ export async function GET(
   const swap = await prisma.brewSwap.findUnique({
     where: { id },
     include: {
-      user: { select: { id: true, name: true, image: true, email: true } },
+      user: { select: { id: true, name: true, image: true } },
       participants: {
         include: { user: { select: { id: true, name: true, image: true } } },
         orderBy: { createdAt: "asc" },

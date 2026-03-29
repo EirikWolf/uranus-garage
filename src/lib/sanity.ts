@@ -1,102 +1,113 @@
-import { client } from "../../sanity/lib/client";
+import { client, SANITY_REVALIDATE } from "../../sanity/lib/client";
 import type { Beer, BrewLog, Recipe, Brewer, Article, ArticleCategory, BrewLabEntry } from "./types";
 
+const revalidate = { next: { revalidate: SANITY_REVALIDATE } };
+
 export async function getAllBeers(): Promise<Beer[]> {
-  return client.fetch(`
-    *[_type == "beer"] | order(name asc) {
+  return client.fetch(
+    `*[_type == "beer"] | order(name asc) {
       _id, name, slug, style, description, image,
       abv, ibu, srm, flavorTags, difficulty, status
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getBeerBySlug(slug: string): Promise<Beer | null> {
   return client.fetch(
-    `
-    *[_type == "beer" && slug.current == $slug][0] {
+    `*[_type == "beer" && slug.current == $slug][0] {
       _id, name, slug, style, description, image,
       abv, ibu, srm, flavorTags, difficulty, status,
       recipe->{_id, name, slug, style, difficulty, batchSize},
       "brewLogs": *[_type == "brewLog" && references(^._id)] | order(date desc) {
         _id, title, slug, date
       }
-    }
-  `,
+    }`,
     { slug },
+    revalidate,
   );
 }
 
 export async function getAllBrewLogs(): Promise<BrewLog[]> {
-  return client.fetch(`
-    *[_type == "brewLog"] | order(date desc) {
+  return client.fetch(
+    `*[_type == "brewLog"] | order(date desc) {
       _id, title, slug, date, og, fg, tempNotes,
       brewers[]->{_id, name, slug, image},
       beer->{_id, name, slug, style, image}
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getBrewLogBySlug(slug: string): Promise<BrewLog | null> {
   return client.fetch(
-    `
-    *[_type == "brewLog" && slug.current == $slug][0] {
+    `*[_type == "brewLog" && slug.current == $slug][0] {
       _id, title, slug, date, body, og, fg, tempNotes,
       brewers[]->{_id, name, slug, bio, image, role},
       beer->{_id, name, slug, style, image},
       recipe->{_id, name, slug}
-    }
-  `,
+    }`,
     { slug },
+    revalidate,
   );
 }
 
 export async function getAllRecipes(): Promise<Recipe[]> {
-  return client.fetch(`
-    *[_type == "recipe"] | order(name asc) {
+  return client.fetch(
+    `*[_type == "recipe"] | order(name asc) {
       _id, name, slug, style, description, difficulty, batchSize,
       isClassic, sourceAuthor,
       beer->{_id, name, slug, image}
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
   return client.fetch(
-    `
-    *[_type == "recipe" && slug.current == $slug][0] {
+    `*[_type == "recipe" && slug.current == $slug][0] {
       _id, name, slug, style, description, difficulty, batchSize,
       grains, hops, yeast, additions, process,
       isClassic, sourceAuthor, sourceBook, sourceUrl, sourceNote,
       beer->{_id, name, slug, style, image}
-    }
-  `,
+    }`,
     { slug },
+    revalidate,
   );
 }
 
 export async function getAllBrewers(): Promise<Brewer[]> {
-  return client.fetch(`
-    *[_type == "brewer"] | order(name asc) {
+  return client.fetch(
+    `*[_type == "brewer"] | order(name asc) {
       _id, name, slug, bio, image, role
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getLatestBrewLog(): Promise<BrewLog | null> {
-  return client.fetch(`
-    *[_type == "brewLog"] | order(date desc) [0] {
+  return client.fetch(
+    `*[_type == "brewLog"] | order(date desc) [0] {
       _id, title, slug, date,
       beer->{_id, name, slug, style, image}
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getFeaturedBeers(): Promise<Beer[]> {
-  return client.fetch(`
-    *[_type == "beer" && status == "ferdig"] | order(_createdAt desc) [0...3] {
+  return client.fetch(
+    `*[_type == "beer" && status == "ferdig"] | order(_createdAt desc) [0...3] {
       _id, name, slug, style, image, abv, flavorTags
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getArticlesByCategory(category: ArticleCategory): Promise<Article[]> {
@@ -106,6 +117,7 @@ export async function getArticlesByCategory(category: ArticleCategory): Promise<
       author->{_id, name, slug, image}
     }`,
     { category },
+    revalidate,
   );
 }
 
@@ -116,6 +128,7 @@ export async function getArticleBySlug(category: ArticleCategory, slug: string):
       author->{_id, name, slug, bio, image, role}
     }`,
     { category, slug },
+    revalidate,
   );
 }
 
@@ -123,17 +136,20 @@ export async function getAllArticleSlugs(category: ArticleCategory): Promise<{ s
   return client.fetch(
     `*[_type == "article" && category == $category] { "slug": slug.current }`,
     { category },
+    revalidate,
   );
 }
 
 export async function getBrewLabEntries(): Promise<BrewLabEntry[]> {
-  return client.fetch(`
-    *[_type == "brewLabEntry"] | order(brewLog->date desc) {
+  return client.fetch(
+    `*[_type == "brewLabEntry"] | order(brewLog->date desc) {
       _id,
       brewLog->{_id, title, slug, date, beer->{_id, name, slug}},
       "measurementCount": count(measurements)
-    }
-  `);
+    }`,
+    {},
+    revalidate,
+  );
 }
 
 export async function getBrewLabEntry(brewLogSlug: string): Promise<BrewLabEntry | null> {
@@ -144,5 +160,6 @@ export async function getBrewLabEntry(brewLogSlug: string): Promise<BrewLabEntry
       measurements
     }`,
     { slug: brewLogSlug },
+    revalidate,
   );
 }

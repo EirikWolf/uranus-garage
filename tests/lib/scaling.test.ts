@@ -56,9 +56,21 @@ describe("scaleAdditions", () => {
     { name: "Irish Moss", amount: "5g", time: 15 },
   ];
 
-  it("returns additions unchanged (string amounts not scalable)", () => {
+  it("scales numeric values in string amounts", () => {
     const scaled = scaleAdditions(additions, 20, 40);
-    expect(scaled[0].amount).toBe("5g");
+    expect(scaled[0].amount).toBe("10g");
     expect(scaled[0].time).toBe(15);
+  });
+
+  it("scales amounts with spaces", () => {
+    const add: Addition[] = [{ name: "Orange peel", amount: "30 g", time: 5 }];
+    const scaled = scaleAdditions(add, 20, 10);
+    expect(scaled[0].amount).toBe("15 g");
+  });
+
+  it("preserves non-numeric amounts", () => {
+    const add: Addition[] = [{ name: "Yeast nutrient", amount: "en klype", time: 10 }];
+    const scaled = scaleAdditions(add, 20, 40);
+    expect(scaled[0].amount).toBe("en klype");
   });
 });

@@ -130,3 +130,49 @@ export interface BrewLabEntry {
   brewLog: BrewLog;
   measurements: Measurement[];
 }
+
+// --- Brew Twin types ---
+
+export interface YeastProfile {
+  name: string;
+  attenuation: number;       // 0.70-0.85 typical
+  tempRangeLow: number;      // Celsius
+  tempRangeHigh: number;     // Celsius
+  tempOptimal: number;       // Celsius
+  flocculationRate: number;  // 0-1, higher = faster clearing
+  type: "ale" | "lager" | "wild";
+}
+
+export interface SimulationParams {
+  og: number;
+  fermentationTempC: number;
+  yeast: YeastProfile;
+  batchSizeLiters: number;
+  pitchRateBillionCells: number;
+}
+
+export type FermentationPhase = "lag" | "aktiv" | "nedbremsing" | "ettermodning";
+
+export interface SimulationPoint {
+  hoursSinceStart: number;
+  gravity: number;
+  temperature: number;
+  co2VolumeProduced: number;
+  phase: FermentationPhase;
+}
+
+export interface FlavorFlag {
+  compound: string;
+  risk: "lav" | "middels" | "hoy";
+  reason: string;
+  recommendation: string;
+}
+
+export interface SimulationResult {
+  params: SimulationParams;
+  curve: SimulationPoint[];
+  predictedFg: number;
+  predictedAbv: number;
+  durationHours: number;
+  flavorFlags: FlavorFlag[];
+}

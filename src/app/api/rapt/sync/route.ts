@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { auth } from "@/lib/auth";
 
 // RAPT Cloud API proxy
 // When configured, this route fetches telemetry data from RAPT hydrometers
@@ -82,6 +83,11 @@ export async function GET(request: Request) {
 
 // POST endpoint to manually add measurements (for non-RAPT users)
 export async function POST(request: Request) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Ikke innlogget" }, { status: 401 });
+  }
+
   try {
     const body = await request.json();
     const { measurements } = body;

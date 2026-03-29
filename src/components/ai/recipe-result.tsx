@@ -7,6 +7,7 @@ import { generateBeerXml } from "@/lib/beerxml";
 import type { Recipe, Grain } from "@/lib/types";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { translateStep } from "@/lib/process-i18n";
 
 interface GeneratedRecipe {
   name: string;
@@ -177,7 +178,7 @@ export function RecipeResult({ recipe }: { recipe: GeneratedRecipe }) {
               {recipe.hops.map((h, i) => (
                 <div key={i} className="flex justify-between text-sm">
                   <span>{h.name} <span className="text-muted-foreground">({h.alphaAcid}% AA)</span></span>
-                  <span className="text-primary font-mono">{h.amount}g @ {h.time === -1 ? "dry hop" : `${h.time} min`}</span>
+                  <span className="text-primary font-mono">{h.amount}g @ {h.time === -1 ? "tørrhumling" : `${h.time} min`}</span>
                 </div>
               ))}
             </div>
@@ -205,7 +206,7 @@ export function RecipeResult({ recipe }: { recipe: GeneratedRecipe }) {
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-medium text-sm">{step.step} <span className="text-muted-foreground">({step.temp}°C, {step.duration} min)</span></p>
+                    <p className="font-medium text-sm">{translateStep(step.step)} <span className="text-muted-foreground">({step.temp}°C, {step.duration} min)</span></p>
                     <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
                 </div>

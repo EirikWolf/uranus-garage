@@ -22,9 +22,11 @@ const optional = [
 const missing = required.filter((key) => !process.env[key]);
 
 if (missing.length > 0 && process.env.NODE_ENV !== "test") {
-  console.error(
-    `\n[Uranus Garage] Missing required environment variables:\n${missing.map((k) => `  - ${k}`).join("\n")}\n\nAdd them to .env.local (local) or Vercel environment variables (production).\n`,
-  );
+  const message = `[Uranus Garage] Missing required environment variables:\n${missing.map((k) => `  - ${k}`).join("\n")}\n\nAdd them to .env.local (local) or Vercel environment variables (production).`;
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(message);
+  }
+  console.error(`\n${message}\n`);
 }
 
 // Log optional vars status in development
