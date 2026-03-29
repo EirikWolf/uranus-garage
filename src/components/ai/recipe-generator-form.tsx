@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Loader2 } from "lucide-react";
@@ -12,6 +13,7 @@ const STYLE_OPTIONS = [
 ];
 
 export function RecipeGeneratorForm() {
+  const t = useTranslations("ai.generator");
   const [mode, setMode] = useState<"freetext" | "params">("freetext");
   const [prompt, setPrompt] = useState("");
   const [style, setStyle] = useState("");
@@ -61,7 +63,7 @@ export function RecipeGeneratorForm() {
             mode === "freetext" ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"
           }`}
         >
-          Fritekst
+          {t("freetext")}
         </button>
         <button
           onClick={() => setMode("params")}
@@ -69,7 +71,7 @@ export function RecipeGeneratorForm() {
             mode === "params" ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"
           }`}
         >
-          Parametere
+          {t("params")}
         </button>
       </div>
 
@@ -77,7 +79,7 @@ export function RecipeGeneratorForm() {
         <CardContent className="pt-6">
           {mode === "freetext" ? (
             <div>
-              <label className="text-sm font-medium mb-2 block">Beskriv ølet du vil brygge</label>
+              <label className="text-sm font-medium mb-2 block">{t("describe")}</label>
               <textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
@@ -89,7 +91,7 @@ export function RecipeGeneratorForm() {
           ) : (
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-xs text-muted-foreground">Stil</label>
+                <label className="text-xs text-muted-foreground">{t("style")}</label>
                 <select
                   value={style}
                   onChange={(e) => setStyle(e.target.value)}
@@ -102,15 +104,15 @@ export function RecipeGeneratorForm() {
                 </select>
               </div>
               <div>
-                <label className="text-xs text-muted-foreground">ABV-mål</label>
+                <label className="text-xs text-muted-foreground">{t("abvTarget")}</label>
                 <Input placeholder="F.eks: 4.5-5.5%" value={abvTarget} onChange={(e) => setAbvTarget(e.target.value)} className="bg-secondary border-border mt-1" />
               </div>
               <div>
-                <label className="text-xs text-muted-foreground">Batchstørrelse (L)</label>
+                <label className="text-xs text-muted-foreground">{t("batchSize")}</label>
                 <Input type="number" value={batchSize} onChange={(e) => setBatchSize(e.target.value)} className="bg-secondary border-border mt-1" />
               </div>
               <div>
-                <label className="text-xs text-muted-foreground">Smaksprofil</label>
+                <label className="text-xs text-muted-foreground">{t("flavorProfile")}</label>
                 <Input placeholder="F.eks: tropisk, sitrus, malt" value={flavorProfile} onChange={(e) => setFlavorProfile(e.target.value)} className="bg-secondary border-border mt-1" />
               </div>
             </div>
@@ -122,9 +124,9 @@ export function RecipeGeneratorForm() {
             className="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
-              <><Loader2 className="h-4 w-4 animate-spin" /> Genererer...</>
+              <><Loader2 className="h-4 w-4 animate-spin" /> {t("generating")}</>
             ) : (
-              <><Sparkles className="h-4 w-4" /> Generer oppskrift</>
+              <><Sparkles className="h-4 w-4" /> {t("generate")}</>
             )}
           </button>
         </CardContent>

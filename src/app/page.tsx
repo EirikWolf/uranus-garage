@@ -4,13 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getLatestBrewLog, getFeaturedBeers } from "@/lib/sanity";
 import { urlFor } from "../../sanity/lib/client";
 import { BrewFeed } from "@/components/brew-feed";
+import { getTranslations } from "next-intl/server";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const [latestLog, featuredBeers] = await Promise.all([
+  const [latestLog, featuredBeers, t] = await Promise.all([
     getLatestBrewLog(),
     getFeaturedBeers(),
+    getTranslations("home"),
   ]);
 
   return (
@@ -27,20 +29,20 @@ export default async function Home() {
             priority
           />
           <p className="text-primary text-lg tracking-widest uppercase mb-8">
-            Great beer and no cars!
+            {t("tagline")}
           </p>
           <div className="flex justify-center gap-4">
             <Link
               href="/ol"
               className="inline-flex items-center justify-center h-9 px-4 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/80 transition-all"
             >
-              Se våre øl
+              {t("cta.beers")}
             </Link>
             <Link
               href="/bryggelogg"
               className="inline-flex items-center justify-center h-9 px-4 rounded-lg border border-border bg-background text-foreground font-medium text-sm hover:bg-muted transition-all"
             >
-              Siste bryggelogg
+              {t("cta.brewLog")}
             </Link>
           </div>
         </div>
@@ -49,7 +51,7 @@ export default async function Home() {
       {/* Featured beers */}
       {featuredBeers.length > 0 && (
         <section className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold mb-8">Våre øl</h2>
+          <h2 className="text-2xl font-bold mb-8">{t("featured")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredBeers.map((beer) => (
               <Link key={beer._id} href={`/ol/${beer.slug.current}`}>
@@ -93,7 +95,7 @@ export default async function Home() {
       {/* Latest brew log */}
       {latestLog && (
         <section className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold mb-8">Siste brygg</h2>
+          <h2 className="text-2xl font-bold mb-8">{t("latest")}</h2>
           <Link href={`/bryggelogg/${latestLog.slug.current}`}>
             <Card className="bg-card hover:bg-accent transition-colors p-6">
               <h3 className="text-xl font-bold">{latestLog.title}</h3>

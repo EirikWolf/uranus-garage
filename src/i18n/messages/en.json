@@ -80,6 +80,22 @@
       "pressure": "Pressure (PSI)"
     }
   },
+  "tools": {
+    "title": "Tools",
+    "subtitle": "Useful tools for homebrewers.",
+    "calculators": {
+      "title": "Calculators",
+      "description": "ABV, IBU, SRM, Pitch Rate and Carbonation"
+    },
+    "recipeGenerator": {
+      "title": "AI Recipe Generator",
+      "description": "Generate recipes with artificial intelligence"
+    },
+    "sensoryMirror": {
+      "title": "Flavor Assistant",
+      "description": "AI-powered off-flavor troubleshooting for your beer"
+    }
+  },
   "home": {
     "tagline": "Great beer and no cars!",
     "cta": {
@@ -150,7 +166,10 @@
     "continueGithub": "Continue with GitHub",
     "profile": "My profile",
     "myRecipes": "My recipes",
-    "myForks": "My forks"
+    "myForks": "My forks",
+    "recipesComingSoon": "Saved recipes from the AI generator coming soon.",
+    "noForksYet": "You have no forks yet. Go to a recipe and click \"Fork This Brew\".",
+    "unknownStyle": "Unknown style"
   },
   "marketplace": {
     "title": "Marketplace",

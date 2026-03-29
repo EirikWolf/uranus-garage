@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Stethoscope, Loader2 } from "lucide-react";
@@ -21,6 +22,7 @@ const OFF_FLAVORS = [
 ];
 
 export function SensoryMirrorForm() {
+  const t = useTranslations("ai.sensory");
   const [offFlavor, setOffFlavor] = useState("");
   const [description, setDescription] = useState("");
   const [og, setOg] = useState("");
@@ -73,10 +75,10 @@ export function SensoryMirrorForm() {
     <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardContent className="pt-6">
-          <h3 className="font-semibold mb-4">Hva smaker galt?</h3>
+          <h3 className="font-semibold mb-4">{t("whatTastesBad")}</h3>
 
           <div className="mb-4">
-            <label className="text-xs text-muted-foreground mb-2 block">Velg bismak</label>
+            <label className="text-xs text-muted-foreground mb-2 block">{t("selectFlavor")}</label>
             <div className="flex flex-wrap gap-2">
               {OFF_FLAVORS.map((flavor) => (
                 <button
@@ -95,7 +97,7 @@ export function SensoryMirrorForm() {
           </div>
 
           <div className="mb-4">
-            <label className="text-xs text-muted-foreground mb-1 block">Beskriv problemet</label>
+            <label className="text-xs text-muted-foreground mb-1 block">{t("describeProblem")}</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -105,8 +107,8 @@ export function SensoryMirrorForm() {
             />
           </div>
 
-          <h3 className="font-semibold mb-3 mt-6">Bryggeprosess-data (valgfritt)</h3>
-          <p className="text-xs text-muted-foreground mb-4">Jo mer data du oppgir, jo bedre diagnose.</p>
+          <h3 className="font-semibold mb-3 mt-6">{t("brewData")}</h3>
+          <p className="text-xs text-muted-foreground mb-4">{t("brewDataHint")}</p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
             <div>
@@ -122,21 +124,21 @@ export function SensoryMirrorForm() {
               <Input type="number" step="0.1" placeholder="5.3" value={ph} onChange={(e) => setPh(e.target.value)} className="bg-secondary border-border mt-1" />
             </div>
             <div>
-              <label className="text-xs text-muted-foreground">Mesketemperatur (°C)</label>
+              <label className="text-xs text-muted-foreground">{t("mashTemp")}</label>
               <Input type="number" placeholder="66" value={mashTemp} onChange={(e) => setMashTemp(e.target.value)} className="bg-secondary border-border mt-1" />
             </div>
             <div>
-              <label className="text-xs text-muted-foreground">Gjæringstemperatur (°C)</label>
+              <label className="text-xs text-muted-foreground">{t("fermentTemp")}</label>
               <Input type="number" placeholder="19" value={fermentTemp} onChange={(e) => setFermentTemp(e.target.value)} className="bg-secondary border-border mt-1" />
             </div>
             <div>
-              <label className="text-xs text-muted-foreground">Gjærstamme</label>
+              <label className="text-xs text-muted-foreground">{t("yeastStrain")}</label>
               <Input placeholder="US-05" value={yeast} onChange={(e) => setYeast(e.target.value)} className="bg-secondary border-border mt-1" />
             </div>
           </div>
 
           <div className="mb-4">
-            <label className="text-xs text-muted-foreground">Maltbase</label>
+            <label className="text-xs text-muted-foreground">{t("grainBill")}</label>
             <Input placeholder="F.eks: Pale Ale Malt, Carapils, Munich" value={grainBill} onChange={(e) => setGrainBill(e.target.value)} className="bg-secondary border-border mt-1" />
           </div>
 
@@ -146,9 +148,9 @@ export function SensoryMirrorForm() {
             className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
-              <><Loader2 className="h-4 w-4 animate-spin" /> Analyserer...</>
+              <><Loader2 className="h-4 w-4 animate-spin" /> {t("analyzing")}</>
             ) : (
-              <><Stethoscope className="h-4 w-4" /> Analyser smaksproblem</>
+              <><Stethoscope className="h-4 w-4" /> {t("analyze")}</>
             )}
           </button>
         </CardContent>

@@ -80,6 +80,22 @@
       "pressure": "Trykk (PSI)"
     }
   },
+  "tools": {
+    "title": "Verktøy",
+    "subtitle": "Nyttige verktøy for hjemmebryggere.",
+    "calculators": {
+      "title": "Kalkulatorer",
+      "description": "ABV, IBU, SRM, Pitch Rate og Karbonering"
+    },
+    "recipeGenerator": {
+      "title": "AI Oppskriftsgenerator",
+      "description": "Generer oppskrifter med kunstig intelligens"
+    },
+    "sensoryMirror": {
+      "title": "Smaksassistenten",
+      "description": "AI-drevet feilsøking av bismak i ølet ditt"
+    }
+  },
   "home": {
     "tagline": "Great beer and no cars!",
     "cta": {
@@ -150,7 +166,10 @@
     "continueGithub": "Fortsett med GitHub",
     "profile": "Min profil",
     "myRecipes": "Mine oppskrifter",
-    "myForks": "Mine forks"
+    "myForks": "Mine forks",
+    "recipesComingSoon": "Lagrede oppskrifter fra AI-generatoren kommer snart.",
+    "noForksYet": "Du har ingen forks ennå. Gå til en oppskrift og klikk \"Fork This Brew\".",
+    "unknownStyle": "Ukjent stil"
   },
   "marketplace": {
     "title": "Markedsplassen",

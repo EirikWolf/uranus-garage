@@ -1,39 +1,42 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calculator, Sparkles, Stethoscope } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 export const metadata = {
   title: "Verktøy — Uranus Garage",
   description: "Bryggeverktøy: kalkulatorer, AI-oppskriftsgenerator og smaksassistent.",
 };
 
-const tools = [
-  {
-    href: "/verktoy/kalkulatorer",
-    icon: Calculator,
-    title: "Kalkulatorer",
-    description: "ABV, IBU, SRM, Pitch Rate og Karbonering",
-  },
-  {
-    href: "/verktoy/oppskriftsgenerator",
-    icon: Sparkles,
-    title: "AI Oppskriftsgenerator",
-    description: "Generer oppskrifter med kunstig intelligens",
-  },
-  {
-    href: "/verktoy/smaksassistent",
-    icon: Stethoscope,
-    title: "Smaksassistenten",
-    description: "AI-drevet feilsøking av bismak i ølet ditt",
-  },
-];
+export default async function ToolsPage() {
+  const t = await getTranslations("tools");
 
-export default function ToolsPage() {
+  const tools = [
+    {
+      href: "/verktoy/kalkulatorer",
+      icon: Calculator,
+      title: t("calculators.title"),
+      description: t("calculators.description"),
+    },
+    {
+      href: "/verktoy/oppskriftsgenerator",
+      icon: Sparkles,
+      title: t("recipeGenerator.title"),
+      description: t("recipeGenerator.description"),
+    },
+    {
+      href: "/verktoy/smaksassistent",
+      icon: Stethoscope,
+      title: t("sensoryMirror.title"),
+      description: t("sensoryMirror.description"),
+    },
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">Verktøy</h1>
+      <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
       <p className="text-muted-foreground mb-8">
-        Nyttige verktøy for hjemmebryggere.
+        {t("subtitle")}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {tools.map((tool) => {
