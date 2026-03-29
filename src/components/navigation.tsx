@@ -7,39 +7,7 @@ import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { AuthButton } from "./auth-button";
-
-const brewingLinks = [
-  { href: "/bryggelogg", label: "Bryggelogg" },
-  { href: "/oppskrifter", label: "Oppskriftsarkiv" },
-  { href: "/bryggelaben", label: "Bryggelaben" },
-];
-
-const learnLinks = [
-  { href: "/laer/akademiet", label: "Akademiet" },
-  { href: "/laer/ravarefokus", label: "Råvarefokus" },
-  { href: "/laer/diy", label: "DIY-hjørnet" },
-];
-
-const toolsLinks = [
-  { href: "/verktoy/kalkulatorer", label: "Kalkulatorer" },
-  { href: "/verktoy/oppskriftsgenerator", label: "AI Oppskriftsgenerator" },
-  { href: "/verktoy/smaksassistent", label: "Smaksassistenten" },
-];
-
-const communityLinks = [
-  { href: "/forks", label: "Forks" },
-  { href: "/brew-swap", label: "Brew-Swap" },
-  { href: "/markedsplass", label: "Markedsplassen" },
-];
-
-const navItems = [
-  { href: "/ol", label: "Øl" },
-  { label: "Brygging", children: brewingLinks },
-  { label: "Lær", children: learnLinks },
-  { label: "Verktøy", children: toolsLinks },
-  { label: "Community", children: communityLinks },
-  { href: "/om-oss", label: "Om oss" },
-];
+import { useTranslations } from "next-intl";
 
 function DesktopDropdown({
   label,
@@ -80,6 +48,41 @@ function DesktopDropdown({
 }
 
 export function Navigation() {
+  const t = useTranslations("nav");
+
+  const brewingLinks = [
+    { href: "/bryggelogg", label: t("brewLog") },
+    { href: "/oppskrifter", label: t("recipes") },
+    { href: "/bryggelaben", label: t("brewLab") },
+  ];
+
+  const learnLinks = [
+    { href: "/laer/akademiet", label: t("academy") },
+    { href: "/laer/ravarefokus", label: t("ingredients") },
+    { href: "/laer/diy", label: t("diy") },
+  ];
+
+  const toolsLinks = [
+    { href: "/verktoy/kalkulatorer", label: t("calculators") },
+    { href: "/verktoy/oppskriftsgenerator", label: t("recipeGenerator") },
+    { href: "/verktoy/smaksassistent", label: t("sensoryMirror") },
+  ];
+
+  const communityLinks = [
+    { href: "/forks", label: t("forks") },
+    { href: "/brew-swap", label: t("brewSwap") },
+    { href: "/markedsplass", label: t("marketplace") },
+  ];
+
+  const navItems = [
+    { href: "/ol", label: t("beer") },
+    { label: t("brewing"), children: brewingLinks },
+    { label: t("learn"), children: learnLinks },
+    { label: t("tools"), children: toolsLinks },
+    { label: t("community"), children: communityLinks },
+    { href: "/om-oss", label: t("about") },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">

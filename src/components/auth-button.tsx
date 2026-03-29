@@ -4,9 +4,11 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { LogIn, LogOut, User } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function AuthButton() {
   const { data: session, status } = useSession();
+  const t = useTranslations("nav");
 
   if (status === "loading") {
     return <div className="w-8 h-8 rounded-full bg-secondary animate-pulse" />;
@@ -19,7 +21,7 @@ export function AuthButton() {
         className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 transition-colors"
       >
         <LogIn className="h-4 w-4" />
-        Logg inn
+        {t("login")}
       </button>
     );
   }
@@ -30,7 +32,7 @@ export function AuthButton() {
         {session.user?.image ? (
           <Image
             src={session.user.image}
-            alt={session.user.name || "Profil"}
+            alt={session.user.name || t("profile")}
             width={32}
             height={32}
             className="rounded-full"
@@ -44,7 +46,7 @@ export function AuthButton() {
       <button
         onClick={() => signOut()}
         className="text-muted-foreground hover:text-foreground transition-colors"
-        title="Logg ut"
+        title={t("logout")}
       >
         <LogOut className="h-4 w-4" />
       </button>
