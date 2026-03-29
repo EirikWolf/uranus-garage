@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "beer": "Beer",
+    "brewing": "Brewing",
+    "brewLog": "Brew Log",
+    "recipes": "Recipes",
+    "brewLab": "Brew Lab",
+    "learn": "Learn",
+    "academy": "Academy",
+    "ingredients": "Ingredients",
+    "diy": "DIY Corner",
+    "tools": "Tools",
+    "calculators": "Calculators",
+    "recipeGenerator": "AI Recipe Generator",
+    "sensoryMirror": "Flavor Assistant",
+    "community": "Community",
+    "forks": "Forks",
+    "brewSwap": "Brew-Swap",
+    "marketplace": "Marketplace",
+    "about": "About",
+    "login": "Log in",
+    "logout": "Log out"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "noResults": "No results",
+    "search": "Search",
+    "filter": "Filter"
+  },
+  "calculators": {
+    "title": "Calculators",
+    "subtitle": "Everything you need to calculate the key values for your brew.",
+    "abv": {
+      "title": "ABV Calculator",
+      "og": "Original Gravity (OG)",
+      "fg": "Final Gravity (FG)",
+      "result": "ABV"
+    },
+    "ibu": {
+      "title": "IBU Calculator",
+      "amount": "Amount (g)",
+      "alphaAcid": "Alpha Acid (%)",
+      "boilTime": "Boil Time (min)",
+      "batchSize": "Batch Size (L)",
+      "og": "OG",
+      "addHop": "Add hop",
+      "result": "Estimated IBU"
+    },
+    "srm": {
+      "title": "SRM Color Guide",
+      "weight": "Weight (kg)",
+      "lovibond": "Lovibond (°L)",
+      "batchSize": "Batch Size (L)",
+      "addGrain": "Add grain",
+      "result": "SRM"
+    },
+    "pitchRate": {
+      "title": "Pitch Rate & Starter",
+      "og": "OG",
+      "volume": "Volume (L)",
+      "ale": "Ale",
+      "lager": "Lager",
+      "billionCells": "Cells needed",
+      "dryYeast": "Dry yeast",
+      "liquidPacks": "Liquid packs",
+      "starter": "Starter"
+    },
+    "carbonation": {
+      "title": "Carbonation Calculator",
+      "co2Target": "CO₂ Target (vol)",
+      "volume": "Beer Volume (L)",
+      "beerTemp": "Beer Temp (°C)",
+      "sugarTotal": "Sugar total",
+      "sugarPerLiter": "Per liter",
+      "pressure": "Pressure (PSI)"
+    }
+  },
+  "home": {
+    "tagline": "Great beer and no cars!",
+    "cta": {
+      "beers": "See our beers",
+      "brewLog": "Latest brew log"
+    },
+    "featured": "Our beers",
+    "latest": "Latest brew",
+    "communityFeed": "Latest from community"
+  },
+  "recipes": {
+    "title": "Recipes",
+    "subtitle": "All our recipes — with volume scaling and difficulty levels.",
+    "batchSize": "Batch size",
+    "reset": "Reset",
+    "grains": "Grains",
+    "hops": "Hops",
+    "yeast": "Yeast",
+    "additions": "Additions",
+    "process": "Process",
+    "downloadBeerXml": "Download BeerXML",
+    "forkThisBrew": "Fork This Brew",
+    "loginToFork": "Log in to fork",
+    "communityForks": "Community Forks",
+    "difficulty": {
+      "nybegynner": "Beginner",
+      "middels": "Intermediate",
+      "avansert": "Advanced"
+    }
+  },
+  "ai": {
+    "generator": {
+      "title": "AI Recipe Generator",
+      "subtitle": "Describe the beer you dream of, and our AI will create a complete recipe for you.",
+      "freetext": "Freetext",
+      "params": "Parameters",
+      "describe": "Describe the beer you want to brew",
+      "style": "Style",
+      "abvTarget": "ABV target",
+      "batchSize": "Batch Size (L)",
+      "flavorProfile": "Flavor profile",
+      "generate": "Generate recipe",
+      "generating": "Generating...",
+      "saveRecipe": "Save recipe",
+      "saving": "Saving...",
+      "tips": "Tips"
+    },
+    "sensory": {
+      "title": "Flavor Assistant",
+      "subtitle": "Describe what tastes wrong, provide brew data, and get an AI-powered diagnosis with specific recommendations.",
+      "whatTastesBad": "What tastes wrong?",
+      "selectFlavor": "Select off-flavor",
+      "describeProblem": "Describe the problem",
+      "brewData": "Brew process data (optional)",
+      "brewDataHint": "The more data you provide, the better the diagnosis.",
+      "mashTemp": "Mash temperature (°C)",
+      "fermentTemp": "Fermentation temp (°C)",
+      "yeastStrain": "Yeast strain",
+      "grainBill": "Grain bill",
+      "analyze": "Analyze flavor issue",
+      "analyzing": "Analyzing..."
+    }
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "loginSubtitle": "Log in to save recipes, fork other brews, and share your results.",
+    "continueGoogle": "Continue with Google",
+    "continueGithub": "Continue with GitHub",
+    "profile": "My profile",
+    "myRecipes": "My recipes",
+    "myForks": "My forks"
+  },
+  "marketplace": {
+    "title": "Marketplace",
+    "subtitle": "Buy, sell and trade brewing equipment.",
+    "newListing": "New listing",
+    "selling": "Selling",
+    "buying": "Buying",
+    "trading": "Trading",
+    "contact": "Contact via email"
+  },
+  "brewSwap": {
+    "title": "Brew-Swap",
+    "subtitle": "Coordinated split batches — brew together, experiment individually.",
+    "newSwap": "New swap",
+    "join": "Join",
+    "participants": "Participants",
+    "organizer": "Organizer",
+    "baseRecipe": "Base recipe",
+    "yourPlan": "What will you do with your portion?"
+  }
+}

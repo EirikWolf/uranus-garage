@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "beer": "Øl",
+    "brewing": "Brygging",
+    "brewLog": "Bryggelogg",
+    "recipes": "Oppskriftsarkiv",
+    "brewLab": "Bryggelaben",
+    "learn": "Lær",
+    "academy": "Akademiet",
+    "ingredients": "Råvarefokus",
+    "diy": "DIY-hjørnet",
+    "tools": "Verktøy",
+    "calculators": "Kalkulatorer",
+    "recipeGenerator": "AI Oppskriftsgenerator",
+    "sensoryMirror": "Smaksassistenten",
+    "community": "Community",
+    "forks": "Forks",
+    "brewSwap": "Brew-Swap",
+    "marketplace": "Markedsplassen",
+    "about": "Om oss",
+    "login": "Logg inn",
+    "logout": "Logg ut"
+  },
+  "common": {
+    "loading": "Laster...",
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "delete": "Slett",
+    "edit": "Rediger",
+    "back": "Tilbake",
+    "noResults": "Ingen resultater",
+    "search": "Søk",
+    "filter": "Filtrer"
+  },
+  "calculators": {
+    "title": "Kalkulatorer",
+    "subtitle": "Alt du trenger for å beregne de viktigste verdiene i brygget ditt.",
+    "abv": {
+      "title": "ABV-kalkulator",
+      "og": "Original Gravity (OG)",
+      "fg": "Final Gravity (FG)",
+      "result": "ABV"
+    },
+    "ibu": {
+      "title": "IBU-kalkulator",
+      "amount": "Mengde (g)",
+      "alphaAcid": "Alfa-syre (%)",
+      "boilTime": "Koketid (min)",
+      "batchSize": "Batchstørrelse (L)",
+      "og": "OG",
+      "addHop": "Legg til humle",
+      "result": "Estimert IBU"
+    },
+    "srm": {
+      "title": "SRM Fargeguide",
+      "weight": "Vekt (kg)",
+      "lovibond": "Lovibond (°L)",
+      "batchSize": "Batchstørrelse (L)",
+      "addGrain": "Legg til malt",
+      "result": "SRM"
+    },
+    "pitchRate": {
+      "title": "Pitch Rate & Starter",
+      "og": "OG",
+      "volume": "Volum (L)",
+      "ale": "Ale",
+      "lager": "Lager",
+      "billionCells": "Celler behøves",
+      "dryYeast": "Tørrgjær",
+      "liquidPacks": "Flytende pakker",
+      "starter": "Starter"
+    },
+    "carbonation": {
+      "title": "Karboneringskalkulator",
+      "co2Target": "CO₂-mål (vol)",
+      "volume": "Ølvolum (L)",
+      "beerTemp": "Øltemperatur (°C)",
+      "sugarTotal": "Sukker totalt",
+      "sugarPerLiter": "Per liter",
+      "pressure": "Trykk (PSI)"
+    }
+  },
+  "home": {
+    "tagline": "Great beer and no cars!",
+    "cta": {
+      "beers": "Se våre øl",
+      "brewLog": "Siste bryggelogg"
+    },
+    "featured": "Våre øl",
+    "latest": "Siste brygg",
+    "communityFeed": "Siste fra community"
+  },
+  "recipes": {
+    "title": "Oppskrifter",
+    "subtitle": "Alle våre oppskrifter — med volumskalering og vanskelighetsgrad.",
+    "batchSize": "Batchstørrelse",
+    "reset": "Tilbakestill",
+    "grains": "Malt",
+    "hops": "Humle",
+    "yeast": "Gjær",
+    "additions": "Tilsetninger",
+    "process": "Prosess",
+    "downloadBeerXml": "Last ned BeerXML",
+    "forkThisBrew": "Fork This Brew",
+    "loginToFork": "Logg inn for å forke",
+    "communityForks": "Community Forks",
+    "difficulty": {
+      "nybegynner": "Nybegynner",
+      "middels": "Middels",
+      "avansert": "Avansert"
+    }
+  },
+  "ai": {
+    "generator": {
+      "title": "AI Oppskriftsgenerator",
+      "subtitle": "Beskriv ølet du drømmer om, så lager AI-en en komplett oppskrift for deg.",
+      "freetext": "Fritekst",
+      "params": "Parametere",
+      "describe": "Beskriv ølet du vil brygge",
+      "style": "Stil",
+      "abvTarget": "ABV-mål",
+      "batchSize": "Batchstørrelse (L)",
+      "flavorProfile": "Smaksprofil",
+      "generate": "Generer oppskrift",
+      "generating": "Genererer...",
+      "saveRecipe": "Lagre oppskrift",
+      "saving": "Lagrer...",
+      "tips": "Tips"
+    },
+    "sensory": {
+      "title": "Smaksassistenten",
+      "subtitle": "Beskriv hva som smaker galt, oppgi bryggeprosess-data, og få en AI-drevet diagnose med konkrete anbefalinger.",
+      "whatTastesBad": "Hva smaker galt?",
+      "selectFlavor": "Velg bismak",
+      "describeProblem": "Beskriv problemet",
+      "brewData": "Bryggeprosess-data (valgfritt)",
+      "brewDataHint": "Jo mer data du oppgir, jo bedre diagnose.",
+      "mashTemp": "Mesketemperatur (°C)",
+      "fermentTemp": "Gjæringstemperatur (°C)",
+      "yeastStrain": "Gjærstamme",
+      "grainBill": "Maltbase",
+      "analyze": "Analyser smaksproblem",
+      "analyzing": "Analyserer..."
+    }
+  },
+  "auth": {
+    "loginTitle": "Logg inn",
+    "loginSubtitle": "Logg inn for å lagre oppskrifter, forke andres brygg, og dele dine resultater.",
+    "continueGoogle": "Fortsett med Google",
+    "continueGithub": "Fortsett med GitHub",
+    "profile": "Min profil",
+    "myRecipes": "Mine oppskrifter",
+    "myForks": "Mine forks"
+  },
+  "marketplace": {
+    "title": "Markedsplassen",
+    "subtitle": "Kjøp, selg og bytt bryggeutstyr.",
+    "newListing": "Ny annonse",
+    "selling": "Selger",
+    "buying": "Kjøper",
+    "trading": "Bytter",
+    "contact": "Kontakt via e-post"
+  },
+  "brewSwap": {
+    "title": "Brew-Swap",
+    "subtitle": "Koordinerte splittede batcher — brygg sammen, eksperimenter hver for seg.",
+    "newSwap": "Ny swap",
+    "join": "Meld deg på",
+    "participants": "Deltakere",
+    "organizer": "Arrangør",
+    "baseRecipe": "Base-oppskrift",
+    "yourPlan": "Hva vil du gjøre med din porsjon?"
+  }
+}
