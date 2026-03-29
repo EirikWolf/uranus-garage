@@ -9,6 +9,7 @@ import { RatingForm } from "@/components/rating-form";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { GitFork, Star } from "lucide-react";
+import type { ForkGrain, ForkHop, ForkYeast, ForkAddition, ForkProcessStep } from "@/lib/prisma-types";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -53,14 +54,14 @@ export default async function ForkDetailPage({
   if (!fork) notFound();
   if (!fork.isPublic && session?.user?.id !== fork.userId) notFound();
 
-  const grains = (fork.grains as any[]) || [];
-  const hops = (fork.hops as any[]) || [];
-  const yeast = (fork.yeast as any) || {};
-  const process = (fork.process as any[]) || [];
+  const grains = (fork.grains as unknown as ForkGrain[]) || [];
+  const hops = (fork.hops as unknown as ForkHop[]) || [];
+  const yeast = (fork.yeast as ForkYeast) || {};
+  const process = (fork.process as unknown as ForkProcessStep[]) || [];
 
-  const parentGrains = fork.parentFork ? (fork.parentFork.grains as any[]) || [] : [];
-  const parentHops = fork.parentFork ? (fork.parentFork.hops as any[]) || [] : [];
-  const parentYeast = fork.parentFork ? (fork.parentFork.yeast as any) || {} : {};
+  const parentGrains = fork.parentFork ? (fork.parentFork.grains as unknown as ForkGrain[]) || [] : [];
+  const parentHops = fork.parentFork ? (fork.parentFork.hops as unknown as ForkHop[]) || [] : [];
+  const parentYeast = fork.parentFork ? (fork.parentFork.yeast as ForkYeast) || {} : {};
   const parentBatchSize = fork.parentFork?.batchSize || fork.batchSize;
 
   const userRating = session?.user?.id
@@ -104,7 +105,7 @@ export default async function ForkDetailPage({
                 difficulty: fork.difficulty || undefined,
                 batchSize: fork.batchSize,
                 grains, hops, yeast,
-                additions: (fork.additions as any[]) || [],
+                additions: (fork.additions as unknown as ForkAddition[]) || [],
                 process,
               }}
             />
@@ -206,7 +207,7 @@ export default async function ForkDetailPage({
             <CardContent className="pt-6">
               <h3 className="font-semibold mb-3">Malt</h3>
               <div className="space-y-2">
-                {grains.map((g: any, i: number) => (
+                {grains.map((g: ForkGrain, i: number) => (
                   <div key={i} className="flex justify-between text-sm">
                     <span>{g.name}</span>
                     <span className="text-primary font-mono">{g.amount} {g.unit}</span>
@@ -222,7 +223,7 @@ export default async function ForkDetailPage({
             <CardContent className="pt-6">
               <h3 className="font-semibold mb-3">Humle</h3>
               <div className="space-y-2">
-                {hops.map((h: any, i: number) => (
+                {hops.map((h: ForkHop, i: number) => (
                   <div key={i} className="flex justify-between text-sm">
                     <span>{h.name} ({h.alphaAcid}% AA)</span>
                     <span className="text-primary font-mono">{h.amount}g @ {h.time === -1 ? "dry hop" : `${h.time} min`}</span>

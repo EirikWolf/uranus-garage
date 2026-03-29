@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { createListingSchema } from "@/lib/validations";
+import { paginationParams, paginationMeta } from "@/lib/api-utils";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -44,6 +45,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const type = searchParams.get("type");
     const search = searchParams.get("search");
+    const { page, limit, skip } = paginationParams(request);
 
     const where: Record<string, unknown> = { isActive: true };
     if (type && type !== "all") where.type = type;
@@ -55,14 +57,21 @@ export async function GET(request: Request) {
       ];
     }
 
-    const listings = await prisma.listing.findMany({
-      where,
-      include: { user: { select: { id: true, name: true, image: true } } },
-      orderBy: { createdAt: "desc" },
-      take: 50,
-    });
+    const [listings, total] = await Promise.all([
+      prisma.listing.findMany({
+        where,
+        include: { user: { select: { id: true, name: true, image: true } } },
+        orderBy: { createdAt: "desc" },
+        take: limit,
+        skip,
+      }),
+      prisma.listing.count({ where }),
+    ]);
 
-    return NextResponse.json({ listings });
+    return NextResponse.json({
+      listings,
+      pagination: paginationMeta(page, limit, total),
+    });
   } catch (error) {
     console.error("List listings error:", error);
     return NextResponse.json({ error: "Kunne ikke hente annonser" }, { status: 500 });

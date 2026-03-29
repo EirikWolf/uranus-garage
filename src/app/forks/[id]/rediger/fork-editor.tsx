@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Save, Plus, Trash2, Loader2 } from "lucide-react";
+import type { ForkYeast } from "@/lib/prisma-types";
 
 interface Grain { name: string; amount: number; unit: string; }
 interface Hop { name: string; amount: number; time: number; alphaAcid: number; }
@@ -33,10 +34,8 @@ export function ForkEditor({ fork }: { fork: ForkData }) {
   const [batchSize, setBatchSize] = useState(String(fork.batchSize));
   const [grains, setGrains] = useState<Grain[]>(fork.grains || []);
   const [hops, setHops] = useState<Hop[]>(fork.hops || []);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [yeastName, setYeastName] = useState((fork.yeast as any)?.name || "");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [yeastAmount, setYeastAmount] = useState((fork.yeast as any)?.amount || "");
+  const [yeastName, setYeastName] = useState((fork.yeast as ForkYeast)?.name || "");
+  const [yeastAmount, setYeastAmount] = useState((fork.yeast as ForkYeast)?.amount || "");
   const [changeNotes, setChangeNotes] = useState(fork.changeNotes || "");
   const [og, setOg] = useState(fork.og ? String(fork.og) : "");
   const [fg, setFg] = useState(fork.fg ? String(fork.fg) : "");

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { createForkSchema } from "@/lib/validations";
+import { paginationParams, paginationMeta } from "@/lib/api-utils";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -54,6 +55,7 @@ export async function GET(request: Request) {
   const parentSanityId = searchParams.get("parentSanityId");
   const parentForkId = searchParams.get("parentForkId");
   const userId = searchParams.get("userId");
+  const { page, limit, skip } = paginationParams(request);
 
   try {
     const where: Record<string, unknown> = { isPublic: true };
@@ -64,16 +66,20 @@ export async function GET(request: Request) {
       delete where.isPublic; // Show all forks for the owner
     }
 
-    const forks = await prisma.recipeFork.findMany({
-      where,
-      include: {
-        user: { select: { id: true, name: true, image: true } },
-        ratings: { select: { value: true } },
-        _count: { select: { children: true } },
-      },
-      orderBy: { createdAt: "desc" },
-      take: 50,
-    });
+    const [forks, total] = await Promise.all([
+      prisma.recipeFork.findMany({
+        where,
+        include: {
+          user: { select: { id: true, name: true, image: true } },
+          ratings: { select: { value: true } },
+          _count: { select: { children: true } },
+        },
+        orderBy: { createdAt: "desc" },
+        take: limit,
+        skip,
+      }),
+      prisma.recipeFork.count({ where }),
+    ]);
 
     // Add average rating
     const forksWithRating = forks.map((fork) => {
@@ -88,7 +94,10 @@ export async function GET(request: Request) {
       };
     });
 
-    return NextResponse.json({ forks: forksWithRating });
+    return NextResponse.json({
+      forks: forksWithRating,
+      pagination: paginationMeta(page, limit, total),
+    });
   } catch (error) {
     console.error("List forks error:", error);
     return NextResponse.json({ error: "Kunne ikke hente forks" }, { status: 500 });

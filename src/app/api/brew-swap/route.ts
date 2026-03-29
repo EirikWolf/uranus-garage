@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { createSwapSchema } from "@/lib/validations";
+import { paginationParams, paginationMeta } from "@/lib/api-utils";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -42,16 +43,26 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET() {
-  const swaps = await prisma.brewSwap.findMany({
-    where: { status: { not: "avlyst" } },
-    include: {
-      user: { select: { id: true, name: true, image: true } },
-      _count: { select: { participants: true } },
-    },
-    orderBy: { brewDate: "asc" },
-    take: 50,
-  });
+export async function GET(request: Request) {
+  const { page, limit, skip } = paginationParams(request);
+  const where = { status: { not: "avlyst" } };
 
-  return NextResponse.json({ swaps });
+  const [swaps, total] = await Promise.all([
+    prisma.brewSwap.findMany({
+      where,
+      include: {
+        user: { select: { id: true, name: true, image: true } },
+        _count: { select: { participants: true } },
+      },
+      orderBy: { brewDate: "asc" },
+      take: limit,
+      skip,
+    }),
+    prisma.brewSwap.count({ where }),
+  ]);
+
+  return NextResponse.json({
+    swaps,
+    pagination: paginationMeta(page, limit, total),
+  });
 }
