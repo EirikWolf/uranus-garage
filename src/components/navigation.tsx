@@ -60,12 +60,14 @@ export function Navigation() {
     { href: "/laer/akademiet", label: t("academy") },
     { href: "/laer/ravarefokus", label: t("ingredients") },
     { href: "/laer/diy", label: t("diy") },
+    { href: "/ressurser", label: t("suppliers") },
   ];
 
   const toolsLinks = [
     { href: "/verktoy/kalkulatorer", label: t("calculators") },
     { href: "/verktoy/oppskriftsgenerator", label: t("recipeGenerator") },
     { href: "/verktoy/smaksassistent", label: t("sensoryMirror") },
+    { href: "/verktoy/humle-erstatning", label: "Humle-erstatning" },
   ];
 
   const communityLinks = [
