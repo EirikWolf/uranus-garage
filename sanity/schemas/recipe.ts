@@ -142,8 +142,50 @@ export const recipe = defineType({
       type: "reference",
       to: [{ type: "beer" }],
     }),
+    defineField({
+      name: "isClassic",
+      title: "Klassiker-oppskrift",
+      type: "boolean",
+      description: "Er dette en klassiker/inspirasjonsoppskrift?",
+      initialValue: false,
+    }),
+    defineField({
+      name: "sourceAuthor",
+      title: "Kilde — Forfatter",
+      type: "string",
+      description: "F.eks: Jamil Zainasheff, Charlie Papazian",
+      hidden: ({ document }) => !document?.isClassic,
+    }),
+    defineField({
+      name: "sourceBook",
+      title: "Kilde — Bok/Publikasjon",
+      type: "string",
+      description: "F.eks: Brewing Classic Styles, The Complete Joy of Homebrewing",
+      hidden: ({ document }) => !document?.isClassic,
+    }),
+    defineField({
+      name: "sourceUrl",
+      title: "Kilde — URL",
+      type: "url",
+      description: "Lenke til original kilde (valgfritt)",
+      hidden: ({ document }) => !document?.isClassic,
+    }),
+    defineField({
+      name: "sourceNote",
+      title: "Kilde — Merknad",
+      type: "text",
+      rows: 2,
+      description: "Ekstra info om kreditering, f.eks. 'Tilpasset for 20L batch'",
+      hidden: ({ document }) => !document?.isClassic,
+    }),
   ],
   preview: {
-    select: { title: "name", subtitle: "style" },
+    select: { title: "name", subtitle: "style", isClassic: "isClassic" },
+    prepare({ title, subtitle, isClassic }) {
+      return {
+        title: `${isClassic ? "⭐ " : ""}${title}`,
+        subtitle: `${subtitle || ""}${isClassic ? " — Klassiker" : ""}`,
+      };
+    },
   },
 });

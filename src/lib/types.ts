@@ -83,6 +83,11 @@ export interface Recipe {
   additions: Addition[];
   process: ProcessStep[];
   beer?: Beer;
+  isClassic?: boolean;
+  sourceAuthor?: string;
+  sourceBook?: string;
+  sourceUrl?: string;
+  sourceNote?: string;
 }
 
 export interface BrewLog {

@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { GitFork, Star } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { GitFork, Star as StarIcon, Home, BookOpen, ExternalLink } from "lucide-react";
 import { DifficultyBadge } from "@/components/difficulty-badge";
 import { RecipeScaler } from "@/components/recipe-scaler";
 import { getAllRecipes, getRecipeBySlug } from "@/lib/sanity";
@@ -40,15 +42,61 @@ export default async function RecipePage({
       <header className="mb-8">
         <div className="flex items-start gap-3 mb-2">
           <h1 className="text-3xl font-bold">{recipe.name}</h1>
-          {recipe.difficulty && (
-            <DifficultyBadge difficulty={recipe.difficulty} />
-          )}
+          <div className="flex gap-2 flex-shrink-0">
+            {recipe.isClassic ? (
+              <Badge variant="outline" className="bg-yellow-900/30 text-yellow-300 border-yellow-700">
+                <StarIcon className="h-3 w-3 mr-0.5 fill-yellow-400" />
+                Klassiker
+              </Badge>
+            ) : (
+              <Badge variant="outline" className="bg-primary/20 text-primary border-primary/50">
+                <Home className="h-3 w-3 mr-0.5" />
+                Husets
+              </Badge>
+            )}
+            {recipe.difficulty && (
+              <DifficultyBadge difficulty={recipe.difficulty} />
+            )}
+          </div>
         </div>
         <p className="text-lg text-muted-foreground">
           {recipe.style} — {recipe.batchSize}L
         </p>
         {recipe.description && (
           <p className="mt-4 leading-relaxed">{recipe.description}</p>
+        )}
+
+        {/* Source credit box for classic recipes */}
+        {recipe.isClassic && (recipe.sourceAuthor || recipe.sourceBook) && (
+          <Card className="bg-yellow-950/20 border-yellow-800/50 mt-4">
+            <CardContent className="pt-4 pb-4">
+              <div className="flex items-start gap-3">
+                <BookOpen className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <div className="text-sm">
+                  <p className="text-yellow-200">
+                    Denne oppskriften er inspirert av
+                    {recipe.sourceAuthor && <strong> {recipe.sourceAuthor}</strong>}
+                    {recipe.sourceBook && <>, fra <em>{recipe.sourceBook}</em></>}
+                    .
+                  </p>
+                  {recipe.sourceNote && (
+                    <p className="text-yellow-300/60 mt-1">{recipe.sourceNote}</p>
+                  )}
+                  {recipe.sourceUrl && (
+                    <a
+                      href={recipe.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-yellow-400 hover:text-yellow-300 mt-1"
+                    >
+                      <ExternalLink className="h-3 w-3" />
+                      Les mer hos kilden
+                    </a>
+                  )}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         )}
         {recipe.beer && (
           <Link
@@ -120,7 +168,7 @@ export default async function RecipePage({
                     </div>
                     {avgRating && (
                       <span className="flex items-center gap-1 text-sm">
-                        <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                        <StarIcon className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                         {avgRating}
                       </span>
                     )}

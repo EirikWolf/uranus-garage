@@ -54,6 +54,7 @@ export async function getAllRecipes(): Promise<Recipe[]> {
   return client.fetch(`
     *[_type == "recipe"] | order(name asc) {
       _id, name, slug, style, description, difficulty, batchSize,
+      isClassic, sourceAuthor,
       beer->{_id, name, slug, image}
     }
   `);
@@ -65,6 +66,7 @@ export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
     *[_type == "recipe" && slug.current == $slug][0] {
       _id, name, slug, style, description, difficulty, batchSize,
       grains, hops, yeast, additions, process,
+      isClassic, sourceAuthor, sourceBook, sourceUrl, sourceNote,
       beer->{_id, name, slug, style, image}
     }
   `,
