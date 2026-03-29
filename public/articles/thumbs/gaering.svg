@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Fermenter -->
+  <rect x="55" y="30" width="90" height="90" rx="10" fill="#2d1a2d" stroke="#9b6bc7" stroke-width="2.5"/>
+  <!-- Liquid -->
+  <rect x="59" y="65" width="82" height="51" rx="6" fill="#3a2040" opacity="0.8"/>
+  <!-- Airlock on top -->
+  <rect x="88" y="18" width="24" height="14" rx="5" fill="#666" stroke="#888" stroke-width="1.5"/>
+  <line x1="100" y1="18" x2="100" y2="30" stroke="#888" stroke-width="2"/>
+  <!-- CO2 bubbles -->
+  <circle cx="78" cy="52" r="5" fill="#9b6bc7" opacity="0.5"/>
+  <circle cx="100" cy="44" r="4" fill="#9b6bc7" opacity="0.4"/>
+  <circle cx="122" cy="50" r="5" fill="#9b6bc7" opacity="0.5"/>
+  <circle cx="88" cy="36" r="3" fill="#9b6bc7" opacity="0.35"/>
+  <circle cx="112" cy="34" r="3.5" fill="#9b6bc7" opacity="0.3"/>
+</svg>

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Golden Promise — Skotsk Arv og Eleganse</text>
+
+  <!-- Grain illustration -->
+  <g transform="translate(50, 55)">
+    <text x="80" y="0" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="13" font-weight="bold">GOLDEN PROMISE</text>
+    <!-- Grain with golden tint -->
+    <ellipse cx="80" cy="118" rx="36" ry="80" fill="#7a5808" stroke="#e0c040" stroke-width="2"/>
+    <ellipse cx="80" cy="108" rx="28" ry="66" fill="#9a6e10" stroke="#d0a828" stroke-width="1"/>
+    <ellipse cx="80" cy="100" rx="20" ry="50" fill="#b07e18" stroke="#e0b830" stroke-width="1"/>
+    <ellipse cx="80" cy="93" rx="12" ry="34" fill="#c88e22"/>
+    <line x1="80" y1="38" x2="80" y2="198" stroke="#6a4806" stroke-width="2"/>
+    <path d="M65 72 Q80 65 95 72" stroke="#d0a828" stroke-width="1" fill="none"/>
+    <path d="M62 96 Q80 88 98 96" stroke="#d0a828" stroke-width="1" fill="none"/>
+    <path d="M64 120 Q80 113 96 120" stroke="#d0a828" stroke-width="1" fill="none"/>
+    <path d="M65 144 Q80 137 95 144" stroke="#d0a828" stroke-width="1" fill="none"/>
+    <!-- Scottish thistle decoration -->
+    <circle cx="80" cy="220" r="12" fill="none" stroke="#9b6bc7" stroke-width="1.5"/>
+    <line x1="80" y1="208" x2="80" y2="232" stroke="#9b6bc7" stroke-width="1.5"/>
+    <line x1="68" y1="220" x2="92" y2="220" stroke="#9b6bc7" stroke-width="1.5"/>
+    <circle cx="80" cy="220" r="5" fill="#9b6bc7" opacity="0.4"/>
+    <text x="80" y="252" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="9">Skotsk landrace</text>
+    <text x="80" y="268" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="11" font-weight="bold">Lovibond: 2–3</text>
+    <text x="80" y="283" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9">EBC 4–6</text>
+  </g>
+
+  <!-- Flavor profile -->
+  <g transform="translate(265, 55)">
+    <text x="105" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">SMAKSPROFIL</text>
+    <g transform="translate(105, 128)">
+      <circle cx="0" cy="0" r="22" fill="#e0c040" opacity="0.3"/>
+      <text x="0" y="4" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif" font-size="7" font-weight="bold">G.P.</text>
+      <!-- Sweet -->
+      <circle cx="0" cy="-70" r="30" fill="#e0a030" opacity="0.15" stroke="#e0a030" stroke-width="1.5"/>
+      <text x="0" y="-73" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="11" font-weight="bold">SØT MALT</text>
+      <text x="-1" y="-59" text-anchor="middle" fill="#c08020" font-family="sans-serif" font-size="9">Honning, Karamell</text>
+      <!-- Rich -->
+      <circle cx="66" cy="-32" r="28" fill="#dd3333" opacity="0.15" stroke="#dd3333" stroke-width="1.5"/>
+      <text x="66" y="-35" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="11" font-weight="bold">RIK</text>
+      <text x="66" y="-21" text-anchor="middle" fill="#bb2222" font-family="sans-serif" font-size="9">Kremete, Fyldig</text>
+      <!-- Biscuit -->
+      <circle cx="54" cy="54" r="28" fill="#9b6bc7" opacity="0.15" stroke="#9b6bc7" stroke-width="1.5"/>
+      <text x="54" y="51" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="11" font-weight="bold">KJEKS</text>
+      <text x="54" y="65" text-anchor="middle" fill="#7b4ba7" font-family="sans-serif" font-size="9">Lyst, Delikat</text>
+      <!-- Clean -->
+      <circle cx="-66" cy="-32" r="28" fill="#4a90d9" opacity="0.15" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="-66" y="-35" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">REN</text>
+      <text x="-66" y="-21" text-anchor="middle" fill="#3a70b9" font-family="sans-serif" font-size="9">Lys, Frisk</text>
+      <!-- Floral -->
+      <circle cx="-54" cy="54" r="28" fill="#5aaa5a" opacity="0.15" stroke="#5aaa5a" stroke-width="1.5"/>
+      <text x="-54" y="51" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">BLOMSTER</text>
+      <text x="-54" y="65" text-anchor="middle" fill="#3a8a3a" font-family="sans-serif" font-size="9">Subtil, Elegant</text>
+    </g>
+  </g>
+
+  <!-- Comparison with Maris Otter -->
+  <g transform="translate(530, 55)">
+    <text x="130" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">vs MARIS OTTER</text>
+
+    <!-- Property comparisons -->
+    <text x="0" y="22" fill="#888" font-family="sans-serif" font-size="10">EGENSKAP</text>
+    <text x="130" y="22" text-anchor="middle" fill="#e0c040" font-family="sans-serif" font-size="10" font-weight="bold">GOLDEN PROMISE</text>
+    <text x="240" y="22" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="10" font-weight="bold">MARIS OTTER</text>
+
+    <line x1="0" y1="28" x2="260" y2="28" stroke="#333" stroke-width="1"/>
+
+    <text x="0" y="44" fill="#888" font-family="sans-serif" font-size="10">Farge (Lovibond)</text>
+    <text x="130" y="44" text-anchor="middle" fill="#e0c040" font-family="sans-serif" font-size="10">2–3</text>
+    <text x="240" y="44" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="10">2.5–3.5</text>
+
+    <text x="0" y="62" fill="#888" font-family="sans-serif" font-size="10">Smak</text>
+    <text x="130" y="62" text-anchor="middle" fill="#e0c040" font-family="sans-serif" font-size="10">Søt, kremete</text>
+    <text x="240" y="62" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="10">Biscuit, nøtter</text>
+
+    <text x="0" y="80" fill="#888" font-family="sans-serif" font-size="10">Opprinnelse</text>
+    <text x="130" y="80" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="10">Skottland</text>
+    <text x="240" y="80" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="10">England</text>
+
+    <text x="0" y="98" fill="#888" font-family="sans-serif" font-size="10">Ekstraktutbytte</text>
+    <text x="130" y="98" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">78–82%</text>
+    <text x="240" y="98" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">78–82%</text>
+
+    <text x="0" y="116" fill="#888" font-family="sans-serif" font-size="10">Proteininnhold</text>
+    <text x="130" y="116" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="10">Lavere</text>
+    <text x="240" y="116" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="10">Litt høyere</text>
+
+    <text x="0" y="134" fill="#888" font-family="sans-serif" font-size="10">Karakter</text>
+    <text x="130" y="134" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="10">Myk, elegant</text>
+    <text x="240" y="134" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="10">Rik, kompleks</text>
+
+    <line x1="0" y1="142" x2="260" y2="142" stroke="#333" stroke-width="1"/>
+
+    <!-- Best styles -->
+    <text x="0" y="162" fill="#f5f5f5" font-family="sans-serif" font-size="11" font-weight="bold">BEST FOR:</text>
+    <text x="0" y="178" fill="#9b6bc7" font-family="sans-serif" font-size="10">Scottish Ale, 80 Shilling, Wee Heavy</text>
+    <text x="0" y="194" fill="#e0a030" font-family="sans-serif" font-size="10">Pale Ale, ESB, Barleywine</text>
+    <text x="0" y="210" fill="#4a90d9" font-family="sans-serif" font-size="10">Single malt whisky-inspirerte øltyper</text>
+  </g>
+
+  <!-- Stats panel -->
+  <rect x="60" y="348" width="680" height="85" rx="8" stroke="#444" stroke-width="1" fill="#222"/>
+  <g transform="translate(80, 365)">
+    <text x="0" y="0" fill="#e0c040" font-family="sans-serif" font-size="12" font-weight="bold">FAKTA — GOLDEN PROMISE</text>
+    <text x="0" y="22" fill="#999" font-family="sans-serif" font-size="11">Farge: <tspan fill="#e0c040" font-weight="bold">2–3 Lovibond (EBC 4–6)</tspan></text>
+    <text x="0" y="42" fill="#999" font-family="sans-serif" font-size="11">Opprinnelse: <tspan fill="#9b6bc7">Skottland, 1960-tallet</tspan></text>
+    <text x="0" y="62" fill="#999" font-family="sans-serif" font-size="11">Type: <tspan fill="#4a90d9">Base malt — brukes 80–100%</tspan></text>
+    <text x="380" y="22" fill="#999" font-family="sans-serif" font-size="11">Kjent fra: <tspan fill="#f5f5f5">Whisky-industrien, Belhaven Brewery</tspan></text>
+    <text x="380" y="42" fill="#999" font-family="sans-serif" font-size="11">Enzymaktivitet: <tspan fill="#5aaa5a">God — egnet for alle mesketyper</tspan></text>
+    <text x="380" y="62" fill="#999" font-family="sans-serif" font-size="11">Karakter: <tspan fill="#e0c040">Søtere og mykere enn Maris Otter</tspan></text>
+  </g>
+</svg>

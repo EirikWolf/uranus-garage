@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Gjæring — Faser, Temperatur og Kontroll</text>
+
+  <!-- Fermentation phase timeline -->
+  <g transform="translate(40, 50)">
+    <text x="340" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">GJÆRINGSFASER</text>
+
+    <!-- Timeline axis -->
+    <line x1="0" y1="80" x2="680" y2="80" stroke="#444" stroke-width="2"/>
+
+    <!-- Lag phase -->
+    <rect x="0" y="30" width="100" height="50" rx="5" fill="#4a90d9" opacity="0.2" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="50" y="50" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">LAG-FASE</text>
+    <text x="50" y="64" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9">0–12 timer</text>
+    <text x="50" y="75" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Gjær aktiveres</text>
+
+    <!-- Active phase -->
+    <rect x="110" y="20" width="250" height="60" rx="5" fill="#9b6bc7" opacity="0.2" stroke="#9b6bc7" stroke-width="1.5"/>
+    <text x="235" y="43" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="11" font-weight="bold">AKTIV GJÆRING</text>
+    <text x="235" y="57" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="9">Dag 1–4</text>
+    <text x="235" y="70" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Kraftig CO2, kräusen dannes</text>
+
+    <!-- Conditioning phase -->
+    <rect x="370" y="30" width="310" height="50" rx="5" fill="#5aaa5a" opacity="0.2" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="525" y="50" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">MODNING / CONDITIONING</text>
+    <text x="525" y="64" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9">Dag 4–14+</text>
+    <text x="525" y="75" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Rydding, biprodukter reduseres</text>
+
+    <!-- CO2 activity curve -->
+    <text x="340" y="100" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">CO2-aktivitet over tid:</text>
+    <path d="M0 170 Q30 168 60 155 Q90 130 130 100 Q170 75 200 65 Q230 58 260 62 Q300 68 340 85 Q400 105 460 130 Q540 155 600 165 Q640 168 680 170" stroke="#9b6bc7" stroke-width="2.5" fill="none"/>
+    <!-- Fill under curve -->
+    <path d="M0 170 Q30 168 60 155 Q90 130 130 100 Q170 75 200 65 Q230 58 260 62 Q300 68 340 85 Q400 105 460 130 Q540 155 600 165 Q640 168 680 170 L680 170 L0 170Z" fill="#9b6bc7" opacity="0.07"/>
+
+    <!-- Airlock bubbles at peak -->
+    <circle cx="220" cy="48" r="4" fill="#9b6bc7" opacity="0.6"/>
+    <circle cx="240" cy="40" r="3" fill="#9b6bc7" opacity="0.5"/>
+    <circle cx="260" cy="45" r="4" fill="#9b6bc7" opacity="0.6"/>
+    <circle cx="280" cy="36" r="3" fill="#9b6bc7" opacity="0.4"/>
+
+    <!-- Day markers -->
+    <line x1="0" y1="170" x2="0" y2="175" stroke="#555" stroke-width="1"/>
+    <text x="0" y="184" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 0</text>
+    <line x1="170" y1="170" x2="170" y2="175" stroke="#555" stroke-width="1"/>
+    <text x="170" y="184" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 1</text>
+    <line x1="340" y1="170" x2="340" y2="175" stroke="#555" stroke-width="1"/>
+    <text x="340" y="184" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 4</text>
+    <line x1="510" y1="170" x2="510" y2="175" stroke="#555" stroke-width="1"/>
+    <text x="510" y="184" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 7</text>
+    <line x1="680" y1="170" x2="680" y2="175" stroke="#555" stroke-width="1"/>
+    <text x="680" y="184" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 14</text>
+
+    <!-- Axes -->
+    <line x1="0" y1="170" x2="680" y2="170" stroke="#555" stroke-width="1"/>
+  </g>
+
+  <!-- Temperature ranges -->
+  <g transform="translate(40, 285)">
+    <text x="0" y="0" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">TEMPERATUROMRÅDER</text>
+
+    <!-- Ale range -->
+    <rect x="0" y="10" width="300" height="40" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="12" width="200" height="36" rx="4" fill="#dd3333" opacity="0.25"/>
+    <text x="10" y="28" fill="#dd3333" font-family="sans-serif" font-size="11" font-weight="bold">ALE-GJÆR</text>
+    <text x="10" y="43" fill="#888" font-family="sans-serif" font-size="10">15–22°C   Optimalt: 18–20°C</text>
+
+    <!-- Lager range -->
+    <rect x="320" y="10" width="300" height="40" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="322" y="12" width="130" height="36" rx="4" fill="#4a90d9" opacity="0.25"/>
+    <text x="330" y="28" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">LAGER-GJÆR</text>
+    <text x="330" y="43" fill="#888" font-family="sans-serif" font-size="10">8–13°C   Optimalt: 10–12°C</text>
+
+    <!-- Off-flavor risk zones -->
+    <text x="0" y="68" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">RISIKOSONER:</text>
+
+    <rect x="0" y="76" width="300" height="50" rx="5" fill="#222" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="10" y="94" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">FOR KALDT</text>
+    <text x="10" y="110" fill="#888" font-family="sans-serif" font-size="10">Treg/stoppet gjæring, kompakt gjær</text>
+    <text x="10" y="122" fill="#888" font-family="sans-serif" font-size="10">Løsning: Varm opp til 18–20°C</text>
+
+    <rect x="320" y="76" width="300" height="50" rx="5" fill="#222" stroke="#dd3333" stroke-width="1.5"/>
+    <text x="330" y="94" fill="#dd3333" font-family="sans-serif" font-size="11" font-weight="bold">FOR VARMT</text>
+    <text x="330" y="110" fill="#888" font-family="sans-serif" font-size="10">Estere (frukt), fuselalkohol, off-flavors</text>
+    <text x="330" y="122" fill="#888" font-family="sans-serif" font-size="10">Løsning: Kjøl ned / bruk gjæringskap</text>
+  </g>
+</svg>

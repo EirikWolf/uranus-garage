@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Spunding-ventil — Trykkstyrt Karbonering</text>
+
+  <!-- Assembly diagram -->
+  <g transform="translate(30, 55)">
+    <text x="340" y="0" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="13" font-weight="bold">KOMPONENTDIAGRAM</text>
+
+    <!-- Ball lock post (left) -->
+    <g transform="translate(30, 30)">
+      <rect x="0" y="30" width="60" height="80" rx="6" fill="#2a2a2a" stroke="#888" stroke-width="2"/>
+      <circle cx="30" cy="20" r="18" fill="#333" stroke="#888" stroke-width="2"/>
+      <circle cx="30" cy="20" r="10" fill="#444"/>
+      <circle cx="30" cy="20" r="4" fill="#666"/>
+      <!-- Ball lock teeth -->
+      <rect x="8" y="28" width="12" height="8" rx="2" fill="#555"/>
+      <rect x="40" y="28" width="12" height="8" rx="2" fill="#555"/>
+      <text x="30" y="128" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9" font-weight="bold">Ball Lock</text>
+      <text x="30" y="140" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Gas IN post</text>
+      <text x="30" y="152" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="8">(grå = gas)</text>
+    </g>
+
+    <!-- Connector line -->
+    <line x1="100" y1="60" x2="140" y2="60" stroke="#888" stroke-width="3"/>
+    <text x="120" y="52" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">1/4" MFL</text>
+
+    <!-- PRV / adjustable relief valve -->
+    <g transform="translate(140, 20)">
+      <rect x="0" y="20" width="100" height="65" rx="8" fill="#2a3020" stroke="#5aaa5a" stroke-width="2"/>
+      <!-- Adjustment screw on top -->
+      <rect x="35" y="5" width="30" height="18" rx="4" fill="#333" stroke="#5aaa5a" stroke-width="1.5"/>
+      <line x1="50" y1="5" x2="50" y2="23" stroke="#5aaa5a" stroke-width="2"/>
+      <line x1="38" y1="14" x2="62" y2="14" stroke="#5aaa5a" stroke-width="2"/>
+      <text x="50" y="0" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="7">justér</text>
+      <!-- Spring inside representation -->
+      <path d="M20 35 Q25 30 30 35 Q35 40 40 35 Q45 30 50 35 Q55 40 60 35 Q65 30 70 35 Q75 40 80 35" stroke="#e0a030" stroke-width="1.5" fill="none"/>
+      <!-- Relief outlet -->
+      <rect x="85" y="38" width="20" height="14" rx="3" fill="#333" stroke="#888" stroke-width="1"/>
+      <text x="50" y="75" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8" font-weight="bold">Justerbar PRV</text>
+      <text x="50" y="86" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="7">0–30 PSI</text>
+      <text x="50" y="97" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="7">Fjær holder trykk</text>
+    </g>
+
+    <!-- Connector line -->
+    <line x1="250" y1="60" x2="290" y2="60" stroke="#888" stroke-width="3"/>
+
+    <!-- Pressure gauge -->
+    <g transform="translate(290, 15)">
+      <circle cx="50" cy="50" r="42" fill="#222" stroke="#4a90d9" stroke-width="2.5"/>
+      <circle cx="50" cy="50" r="34" fill="#1a1a2a" stroke="#333" stroke-width="1"/>
+      <!-- Gauge face markings -->
+      <text x="50" y="30" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="7">30</text>
+      <text x="75" y="55" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="7">20</text>
+      <text x="50" y="78" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="7">10</text>
+      <text x="25" y="55" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="7">0</text>
+      <!-- Needle pointing to ~12 PSI -->
+      <line x1="50" y1="50" x2="68" y2="32" stroke="#dd3333" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="3" fill="#dd3333"/>
+      <!-- PSI label -->
+      <text x="50" y="60" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="7">PSI</text>
+      <text x="50" y="105" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9" font-weight="bold">Trykkmåler</text>
+      <text x="50" y="116" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">0–60 PSI</text>
+    </g>
+
+    <!-- Arrow to fermenter -->
+    <line x1="400" y1="60" x2="450" y2="60" stroke="#555" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="425" y="52" text-anchor="middle" fill="#555" font-family="sans-serif" font-size="8">til fermentor</text>
+
+    <!-- Fermenter representation -->
+    <g transform="translate(450, 20)">
+      <rect x="0" y="0" width="90" height="110" rx="10" fill="#2d1a2d" stroke="#9b6bc7" stroke-width="2"/>
+      <!-- Liquid level -->
+      <rect x="4" y="30" width="82" height="76" rx="6" fill="#3a2040" opacity="0.8"/>
+      <!-- CO2 bubbles -->
+      <circle cx="25" cy="55" r="4" fill="#9b6bc7" opacity="0.4"/>
+      <circle cx="45" cy="45" r="3" fill="#9b6bc7" opacity="0.3"/>
+      <circle cx="65" cy="58" r="4" fill="#9b6bc7" opacity="0.4"/>
+      <circle cx="55" cy="40" r="2.5" fill="#9b6bc7" opacity="0.3"/>
+      <!-- Pressure indicator -->
+      <text x="45" y="92" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="8">~12 PSI</text>
+      <text x="45" y="130" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="9" font-weight="bold">Fermentor</text>
+      <text x="45" y="143" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Under trykk</text>
+    </g>
+  </g>
+
+  <!-- How it works -->
+  <g transform="translate(30, 240)">
+    <text x="0" y="0" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">PRINSIPP:</text>
+    <rect x="0" y="10" width="360" height="80" rx="6" fill="#222" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="10" y="28" fill="#5aaa5a" font-family="sans-serif" font-size="10" font-weight="bold">Gjæring produserer CO2</text>
+    <text x="10" y="44" fill="#888" font-family="sans-serif" font-size="10">CO2 bygger trykk i fermentoren</text>
+    <text x="10" y="59" fill="#888" font-family="sans-serif" font-size="10">PRV holder ønsket trykk — slipper ut overskudd</text>
+    <text x="10" y="74" fill="#888" font-family="sans-serif" font-size="10">Ølet karboneres naturlig uten tilsatt priming-sukker</text>
+    <text x="10" y="86" fill="#e0a030" font-family="sans-serif" font-size="9">→ Renere karbonatisering, ingen sukker-bismak</text>
+  </g>
+
+  <!-- Parts list -->
+  <g transform="translate(420, 240)">
+    <text x="0" y="0" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">DELELISTE:</text>
+    <rect x="0" y="10" width="350" height="130" rx="6" fill="#222" stroke="#333" stroke-width="1"/>
+    <g transform="translate(10, 28)">
+      <rect x="0" y="0" width="8" height="8" rx="1" fill="#e0a030"/>
+      <text x="14" y="8" fill="#999" font-family="sans-serif" font-size="10">Ball lock gas IN-post (grå)</text>
+      <rect x="0" y="18" width="8" height="8" rx="1" fill="#e0a030"/>
+      <text x="14" y="26" fill="#999" font-family="sans-serif" font-size="10">1/4" MFL × 1/4" NPT adapter</text>
+      <rect x="0" y="36" width="8" height="8" rx="1" fill="#e0a030"/>
+      <text x="14" y="44" fill="#999" font-family="sans-serif" font-size="10">Justerbar PRV (0–30 PSI)</text>
+      <rect x="0" y="54" width="8" height="8" rx="1" fill="#e0a030"/>
+      <text x="14" y="62" fill="#999" font-family="sans-serif" font-size="10">T-stykke (1/4" NPT)</text>
+      <rect x="0" y="72" width="8" height="8" rx="1" fill="#e0a030"/>
+      <text x="14" y="80" fill="#999" font-family="sans-serif" font-size="10">Trykkmåler 0–60 PSI (1/4" NPT)</text>
+      <rect x="0" y="90" width="8" height="8" rx="1" fill="#e0a030"/>
+      <text x="14" y="98" fill="#999" font-family="sans-serif" font-size="10">PTFE-tape (teflonbånd)</text>
+      <text x="0" y="115" fill="#5aaa5a" font-family="sans-serif" font-size="9">Totalkostnad: ca. 150–300 kr</text>
+    </g>
+  </g>
+
+  <!-- Pressure chart -->
+  <rect x="30" y="385" width="740" height="52" rx="8" stroke="#444" stroke-width="1" fill="#222"/>
+  <text x="50" y="402" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">KARBONERINGSGUIDE (ved 20°C):</text>
+  <text x="220" y="402" fill="#888" font-family="sans-serif" font-size="10">Lager/Pilsner: <tspan fill="#4a90d9">12–14 PSI</tspan></text>
+  <text x="380" y="402" fill="#888" font-family="sans-serif" font-size="10">Pale Ale/IPA: <tspan fill="#5aaa5a">10–12 PSI</tspan></text>
+  <text x="540" y="402" fill="#888" font-family="sans-serif" font-size="10">Stout: <tspan fill="#9b6bc7">8–10 PSI</tspan></text>
+  <text x="50" y="424" fill="#888" font-family="sans-serif" font-size="10">Sett PRV til ønsket trykk → gjæringen karbonerer ølet automatisk over 1–2 uker</text>
+</svg>

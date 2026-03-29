@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Magnifying glass -->
+  <circle cx="88" cy="65" r="36" fill="none" stroke="#e0a030" stroke-width="4"/>
+  <circle cx="88" cy="65" r="28" fill="#222" stroke="#e0a030" stroke-width="2"/>
+  <!-- Question mark inside -->
+  <text x="88" y="74" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="28" font-weight="bold">?</text>
+  <!-- Handle -->
+  <line x1="114" y1="91" x2="140" y2="118" stroke="#e0a030" stroke-width="6" stroke-linecap="round"/>
+  <!-- Warning dot -->
+  <circle cx="155" cy="35" r="14" fill="#dd3333" opacity="0.9"/>
+  <text x="155" y="41" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="16" font-weight="bold">!</text>
+</svg>

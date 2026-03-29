@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Mesking — Enzymer, Temperatur og pH</text>
+
+  <!-- Temperature vs enzyme activity chart -->
+  <g transform="translate(40, 50)">
+    <text x="210" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">ENZYMAKTIVITET vs TEMPERATUR</text>
+
+    <!-- Chart background -->
+    <rect x="40" y="15" width="380" height="200" rx="4" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+
+    <!-- Beta-amylase zone -->
+    <rect x="40" y="15" width="95" height="200" rx="2" fill="#4a90d9" opacity="0.12"/>
+    <text x="87" y="28" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9" font-weight="bold">β-AMYLASE</text>
+    <text x="87" y="40" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="8">60–65°C</text>
+
+    <!-- Alpha-amylase zone -->
+    <rect x="183" y="15" width="120" height="200" rx="2" fill="#e0a030" opacity="0.12"/>
+    <text x="243" y="28" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">α-AMYLASE</text>
+    <text x="243" y="40" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="8">68–72°C</text>
+
+    <!-- Mash-out zone -->
+    <rect x="350" y="15" width="70" height="200" rx="2" fill="#dd3333" opacity="0.12"/>
+    <text x="385" y="28" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="9" font-weight="bold">MASH-OUT</text>
+    <text x="385" y="40" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">76°C</text>
+
+    <!-- Beta-amylase curve -->
+    <path d="M40 210 Q55 210 65 160 Q75 80 87 50 Q100 80 110 130 Q120 170 135 210" stroke="#4a90d9" stroke-width="2.5" fill="none"/>
+
+    <!-- Alpha-amylase curve -->
+    <path d="M135 210 Q155 210 170 175 Q183 140 200 90 Q220 50 243 45 Q265 50 283 90 Q300 140 310 175 Q320 210 340 210" stroke="#e0a030" stroke-width="2.5" fill="none"/>
+
+    <!-- Mash-out marker -->
+    <line x1="385" y1="215" x2="385" y2="55" stroke="#dd3333" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="385" y="230" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">Enzymaktivitet</text>
+    <text x="385" y="240" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">stoppes</text>
+
+    <!-- Y axis -->
+    <line x1="40" y1="15" x2="40" y2="215" stroke="#555" stroke-width="1"/>
+    <text x="25" y="120" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9" transform="rotate(-90,25,120)">Aktivitet</text>
+
+    <!-- X axis labels -->
+    <line x1="40" y1="215" x2="420" y2="215" stroke="#555" stroke-width="1"/>
+    <text x="40" y="228" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">55°</text>
+    <text x="87" y="228" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="8">63°</text>
+    <text x="135" y="228" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">66°</text>
+    <text x="243" y="228" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="8">70°</text>
+    <text x="385" y="228" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">76°C</text>
+
+    <!-- Effect labels -->
+    <text x="87" y="250" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9">Tørt, lettøl</text>
+    <text x="87" y="262" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9">Mer gjærbart</text>
+    <text x="243" y="250" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9">Fyldig, søtere</text>
+    <text x="243" y="262" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9">Mer kropp</text>
+  </g>
+
+  <!-- pH scale -->
+  <g transform="translate(480, 50)">
+    <text x="140" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">pH-SKALA FOR MESK</text>
+
+    <!-- pH gradient bar -->
+    <defs>
+      <linearGradient id="phGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#dd3333"/>
+        <stop offset="30%" stop-color="#e0a030"/>
+        <stop offset="50%" stop-color="#5aaa5a"/>
+        <stop offset="70%" stop-color="#4a90d9"/>
+        <stop offset="100%" stop-color="#9b6bc7"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="18" width="280" height="28" rx="5" fill="url(#phGrad)" opacity="0.85"/>
+
+    <!-- Target range highlight -->
+    <rect x="112" y="14" width="90" height="36" rx="4" fill="none" stroke="#5aaa5a" stroke-width="2.5"/>
+    <text x="157" y="11" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">MÅL: 5.2–5.6</text>
+
+    <!-- pH labels -->
+    <text x="0" y="58" fill="#dd3333" font-family="sans-serif" font-size="8">4.5</text>
+    <text x="55" y="58" fill="#e0a030" font-family="sans-serif" font-size="8">5.0</text>
+    <text x="112" y="58" fill="#5aaa5a" font-family="sans-serif" font-size="8">5.2</text>
+    <text x="185" y="58" fill="#5aaa5a" font-family="sans-serif" font-size="8">5.6</text>
+    <text x="226" y="58" fill="#4a90d9" font-family="sans-serif" font-size="8">6.0</text>
+    <text x="270" y="58" fill="#9b6bc7" font-family="sans-serif" font-size="8">6.5</text>
+
+    <!-- pH effect notes -->
+    <text x="28" y="80" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="9">For surt</text>
+    <text x="28" y="92" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Kornsmak</text>
+    <text x="157" y="80" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">Optimalt</text>
+    <text x="157" y="92" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Beste enzymaktivitet</text>
+    <text x="255" y="80" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="9">For basisk</text>
+    <text x="255" y="92" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Garisk smak</text>
+
+    <!-- How to adjust -->
+    <rect x="0" y="105" width="280" height="80" rx="6" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="10" y="122" fill="#f5f5f5" font-family="sans-serif" font-size="11" font-weight="bold">JUSTERE pH:</text>
+    <text x="10" y="140" fill="#dd3333" font-family="sans-serif" font-size="10">▼ Senke: Melkesyre, fosforsyre, CaSO4</text>
+    <text x="10" y="157" fill="#4a90d9" font-family="sans-serif" font-size="10">▲ Heve: Kalsiumkarbonat (kalk), bikarbonat</text>
+    <text x="10" y="174" fill="#888" font-family="sans-serif" font-size="10">Mørk malt senker pH naturlig</text>
+  </g>
+
+  <!-- Mash tun diagram -->
+  <g transform="translate(40, 340)">
+    <text x="350" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">MESKEKAR — PRINSIPP</text>
+    <!-- Mash tun body -->
+    <rect x="120" y="15" width="200" height="90" rx="8" fill="#222" stroke="#e0a030" stroke-width="2"/>
+    <!-- Grain bed -->
+    <rect x="124" y="55" width="192" height="48" rx="4" fill="#7a5018" opacity="0.8"/>
+    <text x="220" y="76" text-anchor="middle" fill="#e0c070" font-family="sans-serif" font-size="9">KORNBED</text>
+    <!-- Water layer -->
+    <rect x="124" y="30" width="192" height="24" rx="4" fill="#2a3a5a" opacity="0.8"/>
+    <text x="220" y="45" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9">VANN 65–72°C</text>
+    <!-- False bottom -->
+    <rect x="124" y="100" width="192" height="4" rx="1" fill="#555"/>
+    <text x="220" y="112" text-anchor="middle" fill="#555" font-family="sans-serif" font-size="8">Falsk bunn / sil</text>
+    <!-- Sparge arrow -->
+    <path d="M180 10 L180 15" stroke="#4a90d9" stroke-width="2" marker-end="url(#spargeArr)"/>
+    <path d="M220 10 L220 15" stroke="#4a90d9" stroke-width="2" marker-end="url(#spargeArr)"/>
+    <path d="M260 10 L260 15" stroke="#4a90d9" stroke-width="2" marker-end="url(#spargeArr)"/>
+    <defs>
+      <marker id="spargeArr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#4a90d9"/>
+      </marker>
+    </defs>
+    <text x="220" y="8" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="8">Spargingsvann</text>
+    <!-- Wort out arrow -->
+    <path d="M320 88 L345 88" stroke="#e0a030" stroke-width="2" marker-end="url(#wortArr)"/>
+    <defs>
+      <marker id="wortArr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#e0a030"/>
+      </marker>
+    </defs>
+    <text x="380" y="92" fill="#e0a030" font-family="sans-serif" font-size="9">Vørter ut</text>
+    <text x="380" y="104" fill="#888" font-family="sans-serif" font-size="8">til koking</text>
+
+    <!-- Tips -->
+    <text x="490" y="20" fill="#888" font-family="sans-serif" font-size="10" font-weight="bold">TIPS:</text>
+    <text x="490" y="38" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Forvarm meskekar med varmt vann</text>
+    <text x="490" y="54" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Rør godt ved tilsetting av malt</text>
+    <text x="490" y="70" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Sjekk pH etter 10 min</text>
+    <text x="490" y="86" fill="#dd3333" font-family="sans-serif" font-size="10">✗ Ikke åpne lokket unødvendig</text>
+    <text x="490" y="102" fill="#dd3333" font-family="sans-serif" font-size="10">✗ Unngå temperatursvingninger</text>
+  </g>
+</svg>

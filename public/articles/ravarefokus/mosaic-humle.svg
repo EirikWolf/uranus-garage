@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Mosaic — Allsidigheten selv</text>
+
+  <!-- Hop cone -->
+  <g transform="translate(55, 55)">
+    <text x="75" y="0" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="13" font-weight="bold">HUMLEKOGLE</text>
+    <line x1="75" y1="28" x2="75" y2="38" stroke="#4a6a30" stroke-width="2.5"/>
+    <ellipse cx="75" cy="130" rx="48" ry="95" fill="#1e3a12" stroke="#5aaa5a" stroke-width="2"/>
+    <ellipse cx="75" cy="118" rx="38" ry="76" fill="#264818" stroke="#5aaa5a" stroke-width="1"/>
+    <ellipse cx="75" cy="108" rx="28" ry="58" fill="#2e5520" stroke="#4a8a3a" stroke-width="1"/>
+    <ellipse cx="75" cy="100" rx="18" ry="40" fill="#366025"/>
+    <line x1="75" y1="38" x2="75" y2="225" stroke="#1e3a10" stroke-width="3"/>
+    <path d="M58 72 Q75 65 92 72" stroke="#4a8a30" stroke-width="1.2" fill="none"/>
+    <path d="M54 98 Q75 90 96 98" stroke="#4a8a30" stroke-width="1.2" fill="none"/>
+    <path d="M56 124 Q75 116 94 124" stroke="#4a8a30" stroke-width="1.2" fill="none"/>
+    <path d="M58 150 Q75 143 92 150" stroke="#4a8a30" stroke-width="1.2" fill="none"/>
+    <path d="M60 172 Q75 166 90 172" stroke="#4a8a30" stroke-width="1" fill="none"/>
+    <!-- Rich lupulin -->
+    <circle cx="62" cy="108" r="3.5" fill="#e0c030" opacity="0.8"/>
+    <circle cx="88" cy="122" r="3" fill="#e0c030" opacity="0.7"/>
+    <circle cx="68" cy="140" r="3.5" fill="#e0c030" opacity="0.8"/>
+    <circle cx="84" cy="96" r="2.5" fill="#e0c030" opacity="0.6"/>
+    <circle cx="72" cy="160" r="3" fill="#e0c030" opacity="0.7"/>
+    <circle cx="82" cy="148" r="2.5" fill="#e0c030" opacity="0.6"/>
+    <text x="75" y="243" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="12" font-weight="bold">MOSAIC</text>
+    <text x="75" y="260" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9">Humulus lupulus</text>
+    <text x="75" y="275" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">Alpha: 11–13%</text>
+  </g>
+
+  <!-- Aroma wheel -->
+  <g transform="translate(270, 55)">
+    <text x="115" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">AROMAPROFIL</text>
+    <g transform="translate(115, 135)">
+      <circle cx="0" cy="0" r="22" fill="#5aaa5a" opacity="0.3"/>
+      <text x="0" y="4" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="7" font-weight="bold">MOSAIC</text>
+      <!-- Berry -->
+      <circle cx="0" cy="-76" r="34" fill="#dd3333" opacity="0.15" stroke="#dd3333" stroke-width="1.5"/>
+      <text x="0" y="-79" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="11" font-weight="bold">BÆR</text>
+      <text x="0" y="-65" text-anchor="middle" fill="#bb2222" font-family="sans-serif" font-size="9">Blåbær, Bringebær</text>
+      <!-- Tropical -->
+      <circle cx="70" cy="-36" r="32" fill="#e0a030" opacity="0.15" stroke="#e0a030" stroke-width="1.5"/>
+      <text x="70" y="-39" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="11" font-weight="bold">TROPISK</text>
+      <text x="70" y="-25" text-anchor="middle" fill="#c08020" font-family="sans-serif" font-size="9">Mango, Ananas</text>
+      <!-- Earthy -->
+      <circle cx="58" cy="58" r="28" fill="#9b6bc7" opacity="0.15" stroke="#9b6bc7" stroke-width="1.5"/>
+      <text x="58" y="55" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="11" font-weight="bold">JORDLIG</text>
+      <text x="58" y="69" text-anchor="middle" fill="#7b4ba7" font-family="sans-serif" font-size="9">Jord, Urter</text>
+      <!-- Citrus -->
+      <circle cx="-70" cy="-36" r="30" fill="#4a90d9" opacity="0.15" stroke="#4a90d9" stroke-width="1.5"/>
+      <text x="-70" y="-39" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">SITRUS</text>
+      <text x="-70" y="-25" text-anchor="middle" fill="#3a70b9" font-family="sans-serif" font-size="9">Lime, Grapefrukt</text>
+      <!-- Herbal -->
+      <circle cx="-58" cy="58" r="28" fill="#5aaa5a" opacity="0.15" stroke="#5aaa5a" stroke-width="1.5"/>
+      <text x="-58" y="55" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">URTETE</text>
+      <text x="-58" y="69" text-anchor="middle" fill="#3a8a3a" font-family="sans-serif" font-size="9">Urter, Furu</text>
+    </g>
+  </g>
+
+  <!-- Style versatility -->
+  <g transform="translate(530, 55)">
+    <text x="130" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">ALLSIDIGHET</text>
+    <rect x="0" y="15" width="260" height="22" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="17" width="250" height="18" rx="3" fill="#dd3333" opacity="0.7"/>
+    <text x="10" y="30" fill="#f5f5f5" font-family="sans-serif" font-size="10" font-weight="bold">NEIPA / Hazy IPA</text>
+
+    <rect x="0" y="44" width="260" height="22" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="46" width="230" height="18" rx="3" fill="#e0a030" opacity="0.7"/>
+    <text x="10" y="59" fill="#1a1a1a" font-family="sans-serif" font-size="10" font-weight="bold">West Coast IPA</text>
+
+    <rect x="0" y="73" width="260" height="22" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="75" width="200" height="18" rx="3" fill="#5aaa5a" opacity="0.7"/>
+    <text x="10" y="88" fill="#1a1a1a" font-family="sans-serif" font-size="10" font-weight="bold">Pale Ale / APA</text>
+
+    <rect x="0" y="102" width="260" height="22" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="104" width="160" height="18" rx="3" fill="#4a90d9" opacity="0.7"/>
+    <text x="10" y="117" fill="#f5f5f5" font-family="sans-serif" font-size="10" font-weight="bold">Session IPA</text>
+
+    <rect x="0" y="131" width="260" height="22" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="133" width="120" height="18" rx="3" fill="#9b6bc7" opacity="0.7"/>
+    <text x="10" y="146" fill="#f5f5f5" font-family="sans-serif" font-size="10" font-weight="bold">Wheat Beer / Wit</text>
+
+    <!-- Usage tip -->
+    <rect x="0" y="165" width="260" height="65" rx="6" fill="#222" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="10" y="182" fill="#5aaa5a" font-family="sans-serif" font-size="10" font-weight="bold">BRUKSTIPS:</text>
+    <text x="10" y="198" fill="#888" font-family="sans-serif" font-size="10">Dry hop: 8–12 g/L for NEIPA</text>
+    <text x="10" y="213" fill="#888" font-family="sans-serif" font-size="10">Whirlpool: 5–8 g/L ved 80°C</text>
+    <text x="10" y="228" fill="#888" font-family="sans-serif" font-size="10">Partner: Citra, Galaxy, Simcoe</text>
+  </g>
+
+  <!-- Stats panel -->
+  <rect x="60" y="345" width="680" height="88" rx="8" stroke="#444" stroke-width="1" fill="#222"/>
+  <g transform="translate(80, 362)">
+    <text x="0" y="0" fill="#5aaa5a" font-family="sans-serif" font-size="12" font-weight="bold">FAKTA — MOSAIC</text>
+    <text x="0" y="22" fill="#999" font-family="sans-serif" font-size="11">Alfa-syre: <tspan fill="#dd3333" font-weight="bold">11–13%</tspan></text>
+    <text x="0" y="42" fill="#999" font-family="sans-serif" font-size="11">Opprinnelse: <tspan fill="#f5f5f5">Hop Breeding Company, USA (2012)</tspan></text>
+    <text x="0" y="62" fill="#999" font-family="sans-serif" font-size="11">Forelder: <tspan fill="#4a90d9">Simcoe × ukjent</tspan></text>
+    <text x="380" y="22" fill="#999" font-family="sans-serif" font-size="11">Beta-syre: <tspan fill="#e0a030">3.5–4.5%</tspan></text>
+    <text x="380" y="42" fill="#999" font-family="sans-serif" font-size="11">Olje-innhold: <tspan fill="#9b6bc7">Svært høy — myrcen, farnesen</tspan></text>
+    <text x="380" y="62" fill="#999" font-family="sans-serif" font-size="11">Karakter: <tspan fill="#5aaa5a">Kompleks, bær, tropisk, jordlig</tspan></text>
+  </g>
+</svg>

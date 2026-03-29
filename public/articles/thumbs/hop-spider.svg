@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Mesh basket -->
+  <rect x="60" y="30" width="80" height="90" rx="6" fill="none" stroke="#aaa" stroke-width="2.5"/>
+  <!-- Mesh grid -->
+  <line x1="76" y1="30" x2="76" y2="120" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="92" y1="30" x2="92" y2="120" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="108" y1="30" x2="108" y2="120" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="124" y1="30" x2="124" y2="120" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="60" y1="50" x2="140" y2="50" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="60" y1="70" x2="140" y2="70" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="60" y1="90" x2="140" y2="90" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <line x1="60" y1="110" x2="140" y2="110" stroke="#666" stroke-width="1" opacity="0.6"/>
+  <!-- Hops inside -->
+  <ellipse cx="100" cy="100" rx="28" ry="14" fill="#5aaa5a" opacity="0.6"/>
+  <circle cx="88" cy="90" r="7" fill="#5aaa5a" opacity="0.7"/>
+  <circle cx="108" cy="88" r="8" fill="#5aaa5a" opacity="0.65"/>
+  <!-- Hanging hooks -->
+  <path d="M70 30 Q70 18 80 18" stroke="#aaa" stroke-width="2.5" fill="none"/>
+  <path d="M130 30 Q130 18 120 18" stroke="#aaa" stroke-width="2.5" fill="none"/>
+</svg>

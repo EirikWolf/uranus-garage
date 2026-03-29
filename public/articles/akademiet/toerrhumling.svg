@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Tørrhumling — Timing, Teknikk og Mengde</text>
+
+  <!-- Timeline diagram -->
+  <g transform="translate(30, 50)">
+    <text x="370" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="13" font-weight="bold">TIDSPUNKT I GJÆRINGEN</text>
+
+    <!-- Fermentation curve background -->
+    <rect x="40" y="18" width="700" height="120" rx="4" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+
+    <!-- Fermentation curve -->
+    <path d="M40 130 Q100 128 130 100 Q165 65 200 45 Q235 32 270 28 Q310 26 360 28 Q430 32 490 50 Q560 72 620 100 Q660 118 740 130" stroke="#9b6bc7" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M40 130 Q100 128 130 100 Q165 65 200 45 Q235 32 270 28 Q310 26 360 28 Q430 32 490 50 Q560 72 620 100 Q660 118 740 130 L740 138 L40 138Z" fill="#9b6bc7" opacity="0.05"/>
+
+    <!-- Day markers -->
+    <line x1="40" y1="138" x2="740" y2="138" stroke="#444" stroke-width="1"/>
+    <text x="40" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 0</text>
+    <text x="155" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 1</text>
+    <text x="270" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 2</text>
+    <text x="385" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 3–5</text>
+    <text x="500" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 6–7</text>
+    <text x="620" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 10</text>
+    <text x="740" y="150" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Dag 14</text>
+
+    <!-- Dry hop window highlight -->
+    <rect x="345" y="18" width="200" height="120" rx="2" fill="#5aaa5a" opacity="0.08" stroke="#5aaa5a" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="445" y="33" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">OPTIMALT VINDU</text>
+    <text x="445" y="45" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8">Dag 3–5, aktiv gjæring</text>
+
+    <!-- Bio-transformation arrow -->
+    <path d="M445 80 L445 95" stroke="#e0a030" stroke-width="2" marker-end="url(#btArr)"/>
+    <defs>
+      <marker id="btArr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#e0a030"/>
+      </marker>
+    </defs>
+    <text x="445" y="72" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="8" font-weight="bold">Bio-transformasjon</text>
+    <text x="445" y="115" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Gjær + humle = nye aromaer</text>
+
+    <!-- Too early warning -->
+    <text x="155" y="33" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">For tidlig:</text>
+    <text x="155" y="44" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">CO2 blåser bort</text>
+    <text x="155" y="55" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="8">aromaer</text>
+
+    <!-- Late hop note -->
+    <text x="620" y="33" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="8">Sent: OK for</text>
+    <text x="620" y="44" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="8">delicate hop</text>
+  </g>
+
+  <!-- Amount guide -->
+  <g transform="translate(30, 230)">
+    <text x="170" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">MENGDE (g/L)</text>
+
+    <rect x="0" y="12" width="340" height="26" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="14" width="55" height="22" rx="3" fill="#4a90d9" opacity="0.7"/>
+    <text x="60" y="29" fill="#4a90d9" font-family="sans-serif" font-size="10" font-weight="bold">3–5 g/L</text>
+    <text x="130" y="29" fill="#888" font-family="sans-serif" font-size="10">Subtil aroma, Lager/Pale Ale</text>
+
+    <rect x="0" y="43" width="340" height="26" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="45" width="110" height="22" rx="3" fill="#5aaa5a" opacity="0.7"/>
+    <text x="115" y="60" fill="#5aaa5a" font-family="sans-serif" font-size="10" font-weight="bold">5–8 g/L</text>
+    <text x="185" y="60" fill="#888" font-family="sans-serif" font-size="10">God aroma, IPA/APA</text>
+
+    <rect x="0" y="74" width="340" height="26" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="76" width="180" height="22" rx="3" fill="#e0a030" opacity="0.7"/>
+    <text x="185" y="91" fill="#e0a030" font-family="sans-serif" font-size="10" font-weight="bold">8–12 g/L</text>
+    <text x="255" y="91" fill="#888" font-family="sans-serif" font-size="10">Intens, NEIPA</text>
+
+    <rect x="0" y="105" width="340" height="26" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="2" y="107" width="250" height="22" rx="3" fill="#dd3333" opacity="0.7"/>
+    <text x="255" y="122" fill="#dd3333" font-family="sans-serif" font-size="10" font-weight="bold">12–20 g/L</text>
+    <text x="305" y="122" fill="#888" font-family="sans-serif" font-size="10">Ekstremt</text>
+  </g>
+
+  <!-- Temperature and oxidation -->
+  <g transform="translate(400, 230)">
+    <text x="185" y="0" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="12" font-weight="bold">TEMPERATUR OG RISIKO</text>
+
+    <rect x="0" y="12" width="370" height="50" rx="5" fill="#222" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="10" y="29" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">ANBEFALT: 18–20°C (ale)</text>
+    <text x="10" y="46" fill="#888" font-family="sans-serif" font-size="10">Varm nok for bio-transformasjon, ikke for varm for estere</text>
+    <text x="10" y="58" fill="#888" font-family="sans-serif" font-size="10">Lager: dry hop ved 12–15°C eller etter lagring</text>
+
+    <!-- Oxidation warning -->
+    <rect x="0" y="70" width="370" height="65" rx="5" fill="#2d1a1a" stroke="#dd3333" stroke-width="1.5"/>
+    <text x="10" y="87" fill="#dd3333" font-family="sans-serif" font-size="11" font-weight="bold">OKSIDASJONSRISIKO</text>
+    <text x="10" y="103" fill="#888" font-family="sans-serif" font-size="10">Oksygen er fienden — aldri løft lokket unødig</text>
+    <text x="10" y="118" fill="#888" font-family="sans-serif" font-size="10">Bruk CO2-skyving ved overføring til secondær</text>
+    <text x="10" y="130" fill="#888" font-family="sans-serif" font-size="10">Closed transfer = best praksis</text>
+
+    <!-- Bio-transformation box -->
+    <rect x="0" y="143" width="370" height="45" rx="5" fill="#222" stroke="#e0a030" stroke-width="1.5"/>
+    <text x="10" y="160" fill="#e0a030" font-family="sans-serif" font-size="11" font-weight="bold">BIO-TRANSFORMASJON</text>
+    <text x="10" y="175" fill="#888" font-family="sans-serif" font-size="10">Aktiv gjær omdanner geraniol → sitronellol og linalool</text>
+    <text x="10" y="187" fill="#888" font-family="sans-serif" font-size="10">Resultat: mykere, mer komplekse fruktaromaer</text>
+  </g>
+
+  <!-- Stats bar -->
+  <rect x="30" y="390" width="740" height="48" rx="8" stroke="#444" stroke-width="1" fill="#222"/>
+  <g transform="translate(50, 405)">
+    <text x="0" y="0" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">OPPSUMMERING:</text>
+    <text x="130" y="0" fill="#888" font-family="sans-serif" font-size="10">Tidspunkt: <tspan fill="#5aaa5a">Dag 3–5</tspan></text>
+    <text x="280" y="0" fill="#888" font-family="sans-serif" font-size="10">Temp: <tspan fill="#e0a030">18–20°C</tspan></text>
+    <text x="400" y="0" fill="#888" font-family="sans-serif" font-size="10">Mengde: <tspan fill="#9b6bc7">3–12 g/L</tspan></text>
+    <text x="530" y="0" fill="#888" font-family="sans-serif" font-size="10">Varighet: <tspan fill="#4a90d9">3–5 dager</tspan></text>
+    <text x="0" y="22" fill="#888" font-family="sans-serif" font-size="10">Anbefalt: <tspan fill="#5aaa5a">Pellets (T-90) — løser seg opp, enkel fjerning. Hele kogler gir annerledes profil.</tspan></text>
+  </g>
+</svg>

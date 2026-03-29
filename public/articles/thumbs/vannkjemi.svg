@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Water drop -->
+  <path d="M100 20 Q120 50 120 75 Q120 100 100 108 Q80 100 80 75 Q80 50 100 20Z" fill="#4a90d9" opacity="0.8" stroke="#4a90d9" stroke-width="1.5"/>
+  <!-- Mineral symbols inside -->
+  <text x="100" y="65" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="11" font-weight="bold">Ca</text>
+  <text x="90" y="82" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">SO₄</text>
+  <text x="112" y="82" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="9" font-weight="bold">Cl</text>
+  <text x="100" y="97" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">Mg</text>
+</svg>

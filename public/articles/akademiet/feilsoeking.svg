@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="28" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Feilsøking — Diagnostikkguide for Hjemmebrygger</text>
+
+  <!-- Stuck fermentation flowchart -->
+  <g transform="translate(20, 45)">
+    <text x="190" y="0" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="12" font-weight="bold">STOPPET GJÆRING?</text>
+
+    <!-- Start box -->
+    <rect x="110" y="10" width="160" height="30" rx="6" fill="#2d1a1a" stroke="#dd3333" stroke-width="2"/>
+    <text x="190" y="30" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="10" font-weight="bold">Ingen boblingaktivitet</text>
+
+    <!-- Check temp -->
+    <line x1="190" y1="40" x2="190" y2="55" stroke="#555" stroke-width="1.5"/>
+    <rect x="110" y="55" width="160" height="28" rx="5" fill="#222" stroke="#e0a030" stroke-width="1.5"/>
+    <text x="190" y="69" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">Sjekk temperatur</text>
+    <text x="190" y="80" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">For kald? (&lt;15°C)</text>
+
+    <line x1="190" y1="83" x2="190" y2="98" stroke="#555" stroke-width="1.5"/>
+
+    <!-- Check pitch rate -->
+    <rect x="110" y="98" width="160" height="28" rx="5" fill="#222" stroke="#e0a030" stroke-width="1.5"/>
+    <text x="190" y="112" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">Sjekk pitching rate</text>
+    <text x="190" y="123" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Nok gjær? Aktivert?</text>
+
+    <line x1="190" y1="126" x2="190" y2="141" stroke="#555" stroke-width="1.5"/>
+
+    <!-- Check OG -->
+    <rect x="110" y="141" width="160" height="28" rx="5" fill="#222" stroke="#e0a030" stroke-width="1.5"/>
+    <text x="190" y="155" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">Sjekk OG/FG</text>
+    <text x="190" y="166" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Er den faktisk ferdig?</text>
+
+    <!-- Solutions -->
+    <line x1="190" y1="169" x2="190" y2="184" stroke="#555" stroke-width="1.5"/>
+    <rect x="75" y="184" width="230" height="55" rx="5" fill="#1a2d1a" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="190" y="199" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">LØSNINGER:</text>
+    <text x="190" y="212" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">▶ Varm opp til 20–22°C</text>
+    <text x="190" y="224" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">▶ Rist fermentoren forsiktig</text>
+    <text x="190" y="236" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">▶ Tilsett ny gjær (rehydrert)</text>
+  </g>
+
+  <!-- Off-flavors flowchart -->
+  <g transform="translate(250, 45)">
+    <text x="190" y="0" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="12" font-weight="bold">OFF-FLAVORS?</text>
+
+    <rect x="110" y="10" width="160" height="30" rx="6" fill="#2d1a3d" stroke="#9b6bc7" stroke-width="2"/>
+    <text x="190" y="30" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="10" font-weight="bold">Noe smaker galt</text>
+
+    <!-- Diacetyl -->
+    <line x1="140" y1="40" x2="80" y2="60" stroke="#555" stroke-width="1.5"/>
+    <rect x="0" y="60" width="150" height="50" rx="5" fill="#222" stroke="#e0a030" stroke-width="1.5"/>
+    <text x="75" y="76" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">Smør / Popcorn</text>
+    <text x="75" y="89" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Diacetyl</text>
+    <text x="75" y="101" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8">→ D-rest ved 20°C i 2d</text>
+
+    <!-- Estery -->
+    <line x1="190" y1="40" x2="190" y2="60" stroke="#555" stroke-width="1.5"/>
+    <rect x="115" y="60" width="150" height="50" rx="5" fill="#222" stroke="#dd3333" stroke-width="1.5"/>
+    <text x="190" y="76" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="9" font-weight="bold">Frukt / Løsemiddel</text>
+    <text x="190" y="89" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Estere / Fuselalkohol</text>
+    <text x="190" y="101" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8">→ Senk gjæringstemperatur</text>
+
+    <!-- Sour -->
+    <line x1="240" y1="40" x2="300" y2="60" stroke="#555" stroke-width="1.5"/>
+    <rect x="230" y="60" width="150" height="50" rx="5" fill="#222" stroke="#4a90d9" stroke-width="1.5"/>
+    <text x="305" y="76" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9" font-weight="bold">Syrlig / Eddik</text>
+    <text x="305" y="89" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Kontaminasjon</text>
+    <text x="305" y="101" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8">→ Bedre rengjøring</text>
+
+    <!-- Oxidation -->
+    <line x1="190" y1="110" x2="190" y2="130" stroke="#555" stroke-width="1.5" opacity="0"/>
+    <rect x="55" y="125" width="270" height="50" rx="5" fill="#222" stroke="#888" stroke-width="1.5"/>
+    <text x="190" y="141" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9" font-weight="bold">Papp / Sherry / Metall</text>
+    <text x="190" y="154" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Oksidasjon</text>
+    <text x="190" y="166" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8">→ Unngå lufteksponering ved overføring</text>
+
+    <!-- Grassy -->
+    <rect x="55" y="185" width="270" height="50" rx="5" fill="#222" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="190" y="201" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">Gress / Grønnsaker</text>
+    <text x="190" y="214" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Grønn humle, DMS</text>
+    <text x="190" y="226" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="8">→ Kraftig koke, god kjøling</text>
+  </g>
+
+  <!-- Clarity issues -->
+  <g transform="translate(580, 45)">
+    <text x="110" y="0" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="12" font-weight="bold">UKLART ØL?</text>
+
+    <rect x="30" y="10" width="160" height="30" rx="6" fill="#1a2030" stroke="#4a90d9" stroke-width="2"/>
+    <text x="110" y="30" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="10" font-weight="bold">Grumset / tåkete</text>
+
+    <rect x="0" y="55" width="220" height="40" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="10" y="70" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">Chill haze</text>
+    <text x="10" y="83" fill="#888" font-family="sans-serif" font-size="8">Protein — løses ved oppvarming</text>
+
+    <rect x="0" y="102" width="220" height="40" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="10" y="117" fill="#9b6bc7" font-family="sans-serif" font-size="9" font-weight="bold">Gjær i suspensjon</text>
+    <text x="10" y="130" fill="#888" font-family="sans-serif" font-size="8">Lav flokkulering, lagre kaldt</text>
+
+    <rect x="0" y="149" width="220" height="40" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="10" y="164" fill="#dd3333" font-family="sans-serif" font-size="9" font-weight="bold">Kontaminasjon</text>
+    <text x="10" y="177" fill="#888" font-family="sans-serif" font-size="8">Uønsket bakterie/gjær</text>
+
+    <rect x="0" y="198" width="220" height="40" rx="5" fill="#1a2d1a" stroke="#5aaa5a" stroke-width="1.5"/>
+    <text x="10" y="213" fill="#5aaa5a" font-family="sans-serif" font-size="9" font-weight="bold">TILTAK:</text>
+    <text x="10" y="226" fill="#888" font-family="sans-serif" font-size="8">Irish moss / Whirlfloc i koking</text>
+    <text x="10" y="238" fill="#888" font-family="sans-serif" font-size="8">Gelatin / Biofine ved lagring</text>
+  </g>
+
+  <!-- Bottom tips bar -->
+  <rect x="20" y="345" width="760" height="90" rx="8" stroke="#444" stroke-width="1" fill="#222"/>
+  <text x="40" y="364" fill="#f5f5f5" font-family="sans-serif" font-size="11" font-weight="bold">FOREBYGGING — DE VIKTIGSTE REGLENE:</text>
+  <g transform="translate(40, 375)">
+    <rect x="0" y="0" width="10" height="10" rx="2" fill="#5aaa5a"/>
+    <text x="16" y="10" fill="#999" font-family="sans-serif" font-size="10">Rengjør og desinfiser ALT som rører vørter/øl (Star San, NaOH)</text>
+    <rect x="0" y="18" width="10" height="10" rx="2" fill="#5aaa5a"/>
+    <text x="16" y="28" fill="#999" font-family="sans-serif" font-size="10">Kjøl vørter raskt til gjæringstemperatur (&lt;30 min er målet)</text>
+    <rect x="0" y="36" width="10" height="10" rx="2" fill="#5aaa5a"/>
+    <text x="16" y="46" fill="#999" font-family="sans-serif" font-size="10">Mål OG/FG med hydrometer — ikke stol bare på airlock</text>
+    <rect x="380" y="0" width="10" height="10" rx="2" fill="#5aaa5a"/>
+    <text x="396" y="10" fill="#999" font-family="sans-serif" font-size="10">Hold stabil gjæringstemperatur (unngå svingninger &gt;2°C)</text>
+    <rect x="380" y="18" width="10" height="10" rx="2" fill="#5aaa5a"/>
+    <text x="396" y="28" fill="#999" font-family="sans-serif" font-size="10">Bruk nok gjær — underpitching er vanlig årsak til off-flavors</text>
+    <rect x="380" y="36" width="10" height="10" rx="2" fill="#5aaa5a"/>
+    <text x="396" y="46" fill="#999" font-family="sans-serif" font-size="10">Logg alle brygg — nøkkelen til forbedring</text>
+  </g>
+</svg>

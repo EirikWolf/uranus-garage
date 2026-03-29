@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Fermenter -->
+  <rect x="60" y="35" width="80" height="85" rx="8" fill="#2d1a2d" stroke="#9b6bc7" stroke-width="2"/>
+  <rect x="64" y="65" width="72" height="51" rx="5" fill="#3a2040" opacity="0.7"/>
+  <!-- Hop pellets being dropped in -->
+  <rect x="88" y="12" width="10" height="6" rx="2" fill="#5aaa5a"/>
+  <rect x="102" y="18" width="10" height="6" rx="2" fill="#5aaa5a"/>
+  <rect x="80" y="22" width="10" height="6" rx="2" fill="#5aaa5a"/>
+  <!-- Arrows down -->
+  <line x1="93" y1="18" x2="93" y2="32" stroke="#5aaa5a" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="107" y1="24" x2="107" y2="35" stroke="#5aaa5a" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="85" y1="28" x2="85" y2="35" stroke="#5aaa5a" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <!-- Hop cone icon on side -->
+  <ellipse cx="155" cy="70" rx="14" ry="26" fill="#2d4a20" stroke="#5aaa5a" stroke-width="1.5"/>
+  <ellipse cx="155" cy="64" rx="10" ry="18" fill="#3a5a2a"/>
+</svg>

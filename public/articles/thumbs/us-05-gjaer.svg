@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Yeast cells -->
+  <ellipse cx="95" cy="75" rx="30" ry="38" fill="#2d1a3d" stroke="#9b6bc7" stroke-width="2.5"/>
+  <circle cx="95" cy="75" r="10" fill="#9b6bc7" opacity="0.35"/>
+  <circle cx="95" cy="75" r="5" fill="#9b6bc7" opacity="0.55"/>
+  <ellipse cx="130" cy="58" rx="18" ry="23" fill="#2d1a3d" stroke="#9b6bc7" stroke-width="2"/>
+  <circle cx="130" cy="58" r="6" fill="#9b6bc7" opacity="0.35"/>
+  <ellipse cx="68" cy="100" rx="15" ry="19" fill="#2d1a3d" stroke="#9b6bc7" stroke-width="1.5"/>
+  <circle cx="68" cy="100" r="5" fill="#9b6bc7" opacity="0.35"/>
+  <!-- CO2 bubbles -->
+  <circle cx="108" cy="35" r="5" fill="#9b6bc7" opacity="0.35"/>
+  <circle cx="88" cy="28" r="3.5" fill="#9b6bc7" opacity="0.25"/>
+  <circle cx="122" cy="26" r="4" fill="#9b6bc7" opacity="0.3"/>
+</svg>

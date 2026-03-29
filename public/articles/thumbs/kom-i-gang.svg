@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Kettle silhouette -->
+  <rect x="60" y="42" width="80" height="72" rx="8" fill="#2d2820" stroke="#e0a030" stroke-width="2.5"/>
+  <rect x="50" y="38" width="100" height="12" rx="4" fill="#e0a030" opacity="0.7"/>
+  <!-- Handle -->
+  <path d="M60 58 Q40 58 40 75 Q40 92 60 92" stroke="#e0a030" stroke-width="2" fill="none"/>
+  <!-- Steam -->
+  <path d="M80 38 Q76 28 80 20" stroke="#4a90d9" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M100 38 Q96 28 100 20" stroke="#4a90d9" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M120 38 Q116 28 120 20" stroke="#4a90d9" stroke-width="2" fill="none" opacity="0.7"/>
+  <!-- Liquid -->
+  <rect x="64" y="72" width="72" height="38" rx="4" fill="#3d3015" opacity="0.8"/>
+</svg>
