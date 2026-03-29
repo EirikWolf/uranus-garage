@@ -41,7 +41,7 @@ export default async function ForksPage() {
             const avgRating =
               fork.ratings.length > 0
                 ? Math.round(
-                    (fork.ratings.reduce((s, r) => s + r.value, 0) /
+                    (fork.ratings.reduce((s: number, r) => s + r.value, 0) /
                       fork.ratings.length) *
                       10
                   ) / 10

@@ -33,7 +33,7 @@ export async function BrewFeed() {
       <div className="space-y-3">
         {recentForks.map((fork) => {
           const avgRating = fork.ratings.length > 0
-            ? Math.round((fork.ratings.reduce((s, r) => s + r.value, 0) / fork.ratings.length) * 10) / 10
+            ? Math.round((fork.ratings.reduce((s: number, r) => s + r.value, 0) / fork.ratings.length) * 10) / 10
             : null;
 
           const abv = fork.og && fork.fg

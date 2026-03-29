@@ -45,7 +45,7 @@ export async function GET(
     }
 
     const avgRating = fork.ratings.length > 0
-      ? Math.round((fork.ratings.reduce((sum, r) => sum + r.value, 0) / fork.ratings.length) * 10) / 10
+      ? Math.round((fork.ratings.reduce((sum: number, r) => sum + r.value, 0) / fork.ratings.length) * 10) / 10
       : null;
 
     return NextResponse.json({

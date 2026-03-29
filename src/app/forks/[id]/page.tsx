@@ -68,7 +68,7 @@ export default async function ForkDetailPage({
     : null;
 
   const avgRating = fork.ratings.length > 0
-    ? Math.round((fork.ratings.reduce((sum, r) => sum + r.value, 0) / fork.ratings.length) * 10) / 10
+    ? Math.round((fork.ratings.reduce((sum: number, r) => sum + r.value, 0) / fork.ratings.length) * 10) / 10
     : null;
 
   const abv = fork.og && fork.fg ? ((fork.og - fork.fg) * 131.25).toFixed(1) : null;
@@ -253,7 +253,7 @@ export default async function ForkDetailPage({
           <div className="space-y-3">
             {fork.children.map((child) => {
               const childAvg = child.ratings.length > 0
-                ? Math.round((child.ratings.reduce((s, r) => s + r.value, 0) / child.ratings.length) * 10) / 10
+                ? Math.round((child.ratings.reduce((s: number, r) => s + r.value, 0) / child.ratings.length) * 10) / 10
                 : null;
               return (
                 <Link key={child.id} href={`/forks/${child.id}`}>
