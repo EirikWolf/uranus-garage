@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { createForkSchema } from "@/lib/validations";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -10,31 +11,30 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const {
-      name, description, parentSanityId, parentForkId,
-      style, difficulty, batchSize, grains, hops, yeast,
-      additions, process, changeNotes,
-    } = body;
-
-    if (!name) {
-      return NextResponse.json({ error: "Navn er påkrevd" }, { status: 400 });
+    const parsed = createForkSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || "Ugyldig data" },
+        { status: 400 },
+      );
     }
+    const data = parsed.data;
 
     const fork = await prisma.recipeFork.create({
       data: {
-        name,
-        description: description || null,
-        parentSanityId: parentSanityId || null,
-        parentForkId: parentForkId || null,
-        style: style || null,
-        difficulty: difficulty || null,
-        batchSize: batchSize || 20,
-        grains: grains || [],
-        hops: hops || [],
-        yeast: yeast || {},
-        additions: additions || [],
-        process: process || [],
-        changeNotes: changeNotes || null,
+        name: data.name,
+        description: data.description ?? null,
+        parentSanityId: data.parentSanityId ?? null,
+        parentForkId: data.parentForkId ?? null,
+        style: data.style ?? null,
+        difficulty: data.difficulty ?? null,
+        batchSize: data.batchSize,
+        grains: data.grains,
+        hops: data.hops,
+        yeast: data.yeast,
+        additions: data.additions,
+        process: data.process,
+        changeNotes: data.changeNotes ?? null,
         userId: session.user.id,
       },
       include: {

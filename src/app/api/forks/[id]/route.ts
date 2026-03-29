@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { updateForkSchema } from "@/lib/validations";
 
 export async function GET(
   _request: Request,
@@ -79,22 +80,17 @@ export async function PATCH(
     }
 
     const body = await request.json();
-    const allowedFields = [
-      "name", "description", "style", "difficulty", "batchSize",
-      "grains", "hops", "yeast", "additions", "process",
-      "changeNotes", "brewDate", "og", "fg", "tastingNotes", "isPublic",
-    ];
-
-    const data: Record<string, unknown> = {};
-    for (const field of allowedFields) {
-      if (body[field] !== undefined) {
-        data[field] = body[field];
-      }
+    const parsed = updateForkSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || "Ugyldig data" },
+        { status: 400 },
+      );
     }
 
     const fork = await prisma.recipeFork.update({
       where: { id },
-      data,
+      data: parsed.data,
       include: {
         user: { select: { id: true, name: true, image: true } },
       },

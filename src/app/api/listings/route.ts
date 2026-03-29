@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { createListingSchema } from "@/lib/validations";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -8,49 +9,62 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ikke innlogget" }, { status: 401 });
   }
 
-  const body = await request.json();
-  const { title, description, type, price, location } = body;
+  try {
+    const body = await request.json();
+    const parsed = createListingSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || "Ugyldig data" },
+        { status: 400 },
+      );
+    }
+    const data = parsed.data;
 
-  if (!title || !description || !type || !location) {
-    return NextResponse.json({ error: "Mangler påkrevde felt" }, { status: 400 });
+    const listing = await prisma.listing.create({
+      data: {
+        title: data.title,
+        description: data.description,
+        type: data.type,
+        price: data.price ?? null,
+        location: data.location,
+        userId: session.user.id,
+      },
+      include: { user: { select: { id: true, name: true, image: true } } },
+    });
+
+    return NextResponse.json({ listing }, { status: 201 });
+  } catch (error) {
+    console.error("Create listing error:", error);
+    return NextResponse.json({ error: "Kunne ikke opprette annonse" }, { status: 500 });
   }
-
-  const listing = await prisma.listing.create({
-    data: {
-      title,
-      description,
-      type,
-      price: price || null,
-      location,
-      userId: session.user.id,
-    },
-    include: { user: { select: { id: true, name: true, image: true } } },
-  });
-
-  return NextResponse.json({ listing }, { status: 201 });
 }
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const type = searchParams.get("type");
-  const search = searchParams.get("search");
+  try {
+    const { searchParams } = new URL(request.url);
+    const type = searchParams.get("type");
+    const search = searchParams.get("search");
 
-  const where: Record<string, unknown> = { isActive: true };
-  if (type && type !== "all") where.type = type;
-  if (search) {
-    where.OR = [
-      { title: { contains: search, mode: "insensitive" } },
-      { description: { contains: search, mode: "insensitive" } },
-      { location: { contains: search, mode: "insensitive" } },
-    ];
+    const where: Record<string, unknown> = { isActive: true };
+    if (type && type !== "all") where.type = type;
+    if (search) {
+      where.OR = [
+        { title: { contains: search, mode: "insensitive" } },
+        { description: { contains: search, mode: "insensitive" } },
+        { location: { contains: search, mode: "insensitive" } },
+      ];
+    }
+
+    const listings = await prisma.listing.findMany({
+      where,
+      include: { user: { select: { id: true, name: true, image: true } } },
+      orderBy: { createdAt: "desc" },
+      take: 50,
+    });
+
+    return NextResponse.json({ listings });
+  } catch (error) {
+    console.error("List listings error:", error);
+    return NextResponse.json({ error: "Kunne ikke hente annonser" }, { status: 500 });
   }
-
-  const listings = await prisma.listing.findMany({
-    where,
-    include: { user: { select: { id: true, name: true, image: true } } },
-    orderBy: { createdAt: "desc" },
-    take: 50,
-  });
-
-  return NextResponse.json({ listings });
 }

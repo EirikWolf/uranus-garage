@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { ratingSchema } from "@/lib/validations";
 
 export async function POST(
   request: Request,
@@ -15,11 +16,14 @@ export async function POST(
 
   try {
     const body = await request.json();
-    const { value, comment } = body;
-
-    if (!value || value < 1 || value > 5) {
-      return NextResponse.json({ error: "Rating må være 1-5" }, { status: 400 });
+    const parsed = ratingSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues[0]?.message || "Ugyldig data" },
+        { status: 400 },
+      );
     }
+    const { value, comment } = parsed.data;
 
     // Check fork exists
     const fork = await prisma.recipeFork.findUnique({
@@ -44,10 +48,10 @@ export async function POST(
           forkId: id,
         },
       },
-      update: { value, comment: comment || null },
+      update: { value, comment: comment ?? null },
       create: {
         value,
-        comment: comment || null,
+        comment: comment ?? null,
         userId: session.user.id,
         forkId: id,
       },

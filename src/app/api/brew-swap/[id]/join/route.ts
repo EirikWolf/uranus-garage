@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { joinSwapSchema } from "@/lib/validations";
 
 export async function POST(
   request: Request,
@@ -13,7 +14,14 @@ export async function POST(
 
   const { id } = await params;
   const body = await request.json();
-  const { plan } = body;
+  const parsed = joinSwapSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: parsed.error.issues[0]?.message || "Ugyldig data" },
+      { status: 400 },
+    );
+  }
+  const { plan } = parsed.data;
 
   const swap = await prisma.brewSwap.findUnique({
     where: { id },
@@ -40,11 +48,11 @@ export async function POST(
     where: {
       swapId_userId: { swapId: id, userId: session.user.id },
     },
-    update: { plan: plan || null },
+    update: { plan: plan ?? null },
     create: {
       swapId: id,
       userId: session.user.id,
-      plan: plan || null,
+      plan: plan ?? null,
     },
     include: { user: { select: { id: true, name: true, image: true } } },
   });
