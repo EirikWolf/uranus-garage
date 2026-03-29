@@ -1,55 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const protectedApiPrefixes = [
-  "/api/forks",
-  "/api/listings",
-  "/api/brew-swap",
-  "/api/rapt/sync",
-];
-
-const publicGetPaths = new Set([
-  "/api/forks",
-  "/api/listings",
-  "/api/newsletter",
-]);
-
 export function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  // Allow auth routes through
-  if (pathname.startsWith("/api/auth")) {
-    return NextResponse.next();
-  }
-
-  // Allow newsletter POST (public signup)
-  if (pathname === "/api/newsletter") {
-    return NextResponse.next();
-  }
-
-  // Allow public GET requests to listing/fork endpoints
-  if (request.method === "GET" && publicGetPaths.has(pathname)) {
-    return NextResponse.next();
-  }
-
-  // For protected API write operations, check for session cookie
-  const isProtectedApi = protectedApiPrefixes.some((prefix) =>
-    pathname.startsWith(prefix),
-  );
-
-  if (isProtectedApi && request.method !== "GET") {
-    const sessionToken =
-      request.cookies.get("authjs.session-token")?.value ||
-      request.cookies.get("__Secure-authjs.session-token")?.value;
-
-    if (!sessionToken) {
-      return NextResponse.json(
-        { error: "Ikke innlogget" },
-        { status: 401 },
-      );
-    }
-  }
-
+  // Auth is handled by individual API route handlers via auth()
   // CSP headers for all responses
   const response = NextResponse.next();
 

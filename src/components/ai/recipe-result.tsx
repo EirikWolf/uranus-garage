@@ -85,11 +85,11 @@ export function RecipeResult({ recipe }: { recipe: GeneratedRecipe }) {
         }),
       });
 
-      if (!res.ok) throw new Error("Save failed");
       const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Lagring feilet");
       router.push(`/forks/${data.fork.id}`);
-    } catch {
-      alert("Kunne ikke lagre. Er du logget inn?");
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Kunne ikke lagre oppskriften");
     } finally {
       setSaving(false);
     }
