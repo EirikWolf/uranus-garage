@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { AbvCalculator } from "@/components/calculators/abv-calculator";
 import { IbuCalculator } from "@/components/calculators/ibu-calculator";
 import { SrmCalculator } from "@/components/calculators/srm-calculator";
@@ -9,12 +10,13 @@ export const metadata = {
   description: "Bryggkalkulatorer: ABV, IBU, SRM, Pitch Rate og Karbonering.",
 };
 
-export default function CalculatorsPage() {
+export default async function CalculatorsPage() {
+  const t = await getTranslations("calculators");
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">Kalkulatorer</h1>
+      <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
       <p className="text-muted-foreground mb-8">
-        Alt du trenger for å beregne de viktigste verdiene i brygget ditt.
+        {t("subtitle")}
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <AbvCalculator />

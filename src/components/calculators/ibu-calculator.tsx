@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Plus, Trash2 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -21,6 +22,7 @@ const defaultHop = (): HopRow => ({
 })
 
 export function IbuCalculator() {
+  const t = useTranslations("calculators.ibu")
   const [hops, setHops] = useState<HopRow[]>([defaultHop()])
   const [batchLiters, setBatchLiters] = useState("")
   const [og, setOg] = useState("")
@@ -50,14 +52,14 @@ export function IbuCalculator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>IBU Calculator</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-2 text-xs text-muted-foreground px-1">
-            <span>Amount (g)</span>
-            <span>Alpha %</span>
-            <span>Boil min</span>
+            <span>{t("amount")}</span>
+            <span>{t("alphaAcid")}</span>
+            <span>{t("boilTime")}</span>
             <span className="w-7" />
           </div>
           {hops.map((hop) => (
@@ -92,13 +94,13 @@ export function IbuCalculator() {
           ))}
           <Button variant="outline" size="sm" onClick={addHop} className="mt-1 w-full">
             <Plus className="size-3.5" />
-            Add Hop
+            {t("addHop")}
           </Button>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Batch Size (L)</label>
+            <label className="text-xs text-muted-foreground">{t("batchSize")}</label>
             <Input
               type="number"
               placeholder="20"
@@ -107,7 +109,7 @@ export function IbuCalculator() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Original Gravity (OG)</label>
+            <label className="text-xs text-muted-foreground">{t("og")}</label>
             <Input
               type="number"
               step="0.001"

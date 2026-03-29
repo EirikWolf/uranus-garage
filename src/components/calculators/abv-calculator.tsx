@@ -1,11 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { calculateAbv } from "@/lib/calculators"
 
 export function AbvCalculator() {
+  const t = useTranslations("calculators.abv")
   const [og, setOg] = useState("")
   const [fg, setFg] = useState("")
 
@@ -19,12 +21,12 @@ export function AbvCalculator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>ABV Calculator</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Original Gravity (OG)</label>
+            <label className="text-xs text-muted-foreground">{t("og")}</label>
             <Input
               type="number"
               step="0.001"
@@ -34,7 +36,7 @@ export function AbvCalculator() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Final Gravity (FG)</label>
+            <label className="text-xs text-muted-foreground">{t("fg")}</label>
             <Input
               type="number"
               step="0.001"

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Plus, Trash2 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -32,6 +33,7 @@ const defaultGrain = (): GrainRow => ({
 })
 
 export function SrmCalculator() {
+  const t = useTranslations("calculators.srm")
   const [grains, setGrains] = useState<GrainRow[]>([defaultGrain()])
   const [batchLiters, setBatchLiters] = useState("")
 
@@ -57,13 +59,13 @@ export function SrmCalculator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>SRM Color Calculator</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <div className="grid grid-cols-[1fr_1fr_auto] gap-2 text-xs text-muted-foreground px-1">
-            <span>Weight (kg)</span>
-            <span>Lovibond (°L)</span>
+            <span>{t("weight")}</span>
+            <span>{t("lovibond")}</span>
             <span className="w-7" />
           </div>
           {grains.map((grain) => (
@@ -93,12 +95,12 @@ export function SrmCalculator() {
           ))}
           <Button variant="outline" size="sm" onClick={addGrain} className="mt-1 w-full">
             <Plus className="size-3.5" />
-            Add Grain
+            {t("addGrain")}
           </Button>
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-xs text-muted-foreground">Batch Size (L)</label>
+          <label className="text-xs text-muted-foreground">{t("batchSize")}</label>
           <Input
             type="number"
             placeholder="20"

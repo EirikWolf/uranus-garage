@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { calculatePitchRate } from "@/lib/calculators"
@@ -8,6 +9,7 @@ import { calculatePitchRate } from "@/lib/calculators"
 type YeastType = "ale" | "lager"
 
 export function PitchRateCalculator() {
+  const t = useTranslations("calculators.pitchRate")
   const [og, setOg] = useState("")
   const [volume, setVolume] = useState("")
   const [type, setType] = useState<YeastType>("ale")
@@ -22,12 +24,12 @@ export function PitchRateCalculator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Pitch Rate Calculator</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Original Gravity (OG)</label>
+            <label className="text-xs text-muted-foreground">{t("og")}</label>
             <Input
               type="number"
               step="0.001"
@@ -37,7 +39,7 @@ export function PitchRateCalculator() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Volume (L)</label>
+            <label className="text-xs text-muted-foreground">{t("volume")}</label>
             <Input
               type="number"
               placeholder="20"
@@ -57,7 +59,7 @@ export function PitchRateCalculator() {
                 : "border-border bg-background text-muted-foreground hover:bg-muted",
             ].join(" ")}
           >
-            Ale
+            {t("ale")}
           </button>
           <button
             onClick={() => setType("lager")}
@@ -68,19 +70,19 @@ export function PitchRateCalculator() {
                 : "border-border bg-background text-muted-foreground hover:bg-muted",
             ].join(" ")}
           >
-            Lager
+            {t("lager")}
           </button>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           {[
-            { label: "Billion Cells", value: result?.billionCells, unit: "B" },
-            { label: "Dry Yeast", value: result?.dryYeastGrams, unit: "g" },
-            { label: "Liquid Packs", value: result?.liquidYeastPacks, unit: "packs" },
-            { label: "Starter", value: result?.starterLiters, unit: "L" },
-          ].map(({ label, value, unit }) => (
-            <div key={label} className="rounded-lg bg-secondary px-3 py-2 flex flex-col gap-0.5">
-              <span className="text-xs text-muted-foreground">{label}</span>
+            { key: "billionCells", value: result?.billionCells, unit: "B" },
+            { key: "dryYeast", value: result?.dryYeastGrams, unit: "g" },
+            { key: "liquidPacks", value: result?.liquidYeastPacks, unit: "packs" },
+            { key: "starter", value: result?.starterLiters, unit: "L" },
+          ].map(({ key, value, unit }) => (
+            <div key={key} className="rounded-lg bg-secondary px-3 py-2 flex flex-col gap-0.5">
+              <span className="text-xs text-muted-foreground">{t(key as "billionCells" | "dryYeast" | "liquidPacks" | "starter")}</span>
               {value !== undefined ? (
                 <div>
                   <span className="text-xl font-bold text-primary">{value}</span>

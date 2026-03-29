@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { calculateCarbonation } from "@/lib/calculators"
@@ -21,6 +22,7 @@ const STYLE_PRESETS: StylePreset[] = [
 ]
 
 export function CarbonationCalculator() {
+  const t = useTranslations("calculators.carbonation")
   const [co2, setCo2] = useState("")
   const [volume, setVolume] = useState("")
   const [temp, setTemp] = useState("")
@@ -40,7 +42,7 @@ export function CarbonationCalculator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Carbonation Calculator</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="flex flex-wrap gap-1.5">
@@ -62,7 +64,7 @@ export function CarbonationCalculator() {
 
         <div className="grid grid-cols-3 gap-3">
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">CO₂ Target (vol)</label>
+            <label className="text-xs text-muted-foreground">{t("co2Target")}</label>
             <Input
               type="number"
               step="0.1"
@@ -72,7 +74,7 @@ export function CarbonationCalculator() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Volume (L)</label>
+            <label className="text-xs text-muted-foreground">{t("volume")}</label>
             <Input
               type="number"
               placeholder="20"
@@ -81,7 +83,7 @@ export function CarbonationCalculator() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-muted-foreground">Beer Temp (°C)</label>
+            <label className="text-xs text-muted-foreground">{t("beerTemp")}</label>
             <Input
               type="number"
               placeholder="20"
@@ -93,12 +95,12 @@ export function CarbonationCalculator() {
 
         <div className="grid grid-cols-3 gap-3">
           {[
-            { label: "Sugar Total", value: result?.sugarGrams, unit: "g" },
-            { label: "Sugar per Liter", value: result?.sugarGramsPerLiter, unit: "g/L" },
-            { label: "Pressure", value: result?.psi, unit: "PSI" },
-          ].map(({ label, value, unit }) => (
-            <div key={label} className="rounded-lg bg-secondary px-3 py-2 flex flex-col gap-0.5">
-              <span className="text-xs text-muted-foreground">{label}</span>
+            { key: "sugarTotal", value: result?.sugarGrams, unit: "g" },
+            { key: "sugarPerLiter", value: result?.sugarGramsPerLiter, unit: "g/L" },
+            { key: "pressure", value: result?.psi, unit: "PSI" },
+          ].map(({ key, value, unit }) => (
+            <div key={key} className="rounded-lg bg-secondary px-3 py-2 flex flex-col gap-0.5">
+              <span className="text-xs text-muted-foreground">{t(key as "sugarTotal" | "sugarPerLiter" | "pressure")}</span>
               {value !== undefined ? (
                 <div>
                   <span className="text-xl font-bold text-primary">{value}</span>
