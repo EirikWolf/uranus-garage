@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { PortableTextContent } from "@/components/portable-text";
+import { DiyIllustration } from "@/components/diy-illustration";
 import { getArticleBySlug, getAllArticleSlugs } from "@/lib/sanity";
 import { urlFor } from "../../../../../sanity/lib/client";
 import type { ArticleCategory } from "@/lib/types";
@@ -82,6 +83,9 @@ export default async function ArticlePage({
           </div>
         )}
       </header>
+
+      {/* DIY illustration — shown before article body */}
+      {category === "diy" && <DiyIllustration slug={slug} />}
 
       {article.body && (
         <div className="prose-invert max-w-none">

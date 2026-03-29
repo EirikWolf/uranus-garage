@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#1a1a1a"/>
+  <text x="400" y="35" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Hopstand-slange — Gravitasjonsdrevet Whirlpool</text>
+
+  <!-- Kettle -->
+  <rect x="80" y="80" width="250" height="300" rx="10" stroke="#e0a030" stroke-width="2.5" fill="#2d2820"/>
+  <text x="205" y="110" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="14" font-weight="bold">BRYGGEKJELE</text>
+
+  <!-- Wort level -->
+  <rect x="85" y="160" width="240" height="215" rx="4" fill="#3d3015" opacity="0.6"/>
+  <text x="205" y="240" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="11">VØRTER ~80°C</text>
+
+  <!-- Hops in kettle -->
+  <circle cx="140" cy="280" r="8" fill="#5aaa5a" opacity="0.7"/>
+  <circle cx="170" cy="310" r="6" fill="#5aaa5a" opacity="0.5"/>
+  <circle cx="220" cy="290" r="9" fill="#5aaa5a" opacity="0.6"/>
+  <circle cx="260" cy="270" r="7" fill="#5aaa5a" opacity="0.5"/>
+  <circle cx="190" cy="340" r="6" fill="#5aaa5a" opacity="0.4"/>
+  <text x="205" y="365" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">HUMLE (aroma)</text>
+
+  <!-- Ball valve on kettle -->
+  <rect x="330" y="300" width="50" height="30" rx="5" stroke="#dd3333" stroke-width="2" fill="#3a2020"/>
+  <text x="355" y="320" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="9" font-weight="bold">VENTIL</text>
+  <line x1="330" y1="315" x2="300" y2="315" stroke="#e0a030" stroke-width="3"/>
+
+  <!-- Silicone tubing -->
+  <path d="M380 315 C420 315, 420 260, 460 260 C500 260, 500 320, 540 320 C580 320, 580 260, 620 260" stroke="#4a90d9" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <text x="500" y="245" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="10" font-weight="bold">SILIKONSLANGE (12mm)</text>
+
+  <!-- Fermenter -->
+  <rect x="580" y="150" width="160" height="280" rx="10" stroke="#dd3333" stroke-width="2" fill="#2d2020"/>
+  <text x="660" y="180" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="13" font-weight="bold">FERMENTOR</text>
+
+  <!-- Wort going in -->
+  <path d="M620 260 L640 260 L640 220" stroke="#4a90d9" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#4a90d9"/>
+    </marker>
+  </defs>
+
+  <!-- Wort in fermenter -->
+  <rect x="585" y="220" width="150" height="205" rx="4" fill="#3d3015" opacity="0.4"/>
+
+  <!-- Height difference arrow -->
+  <line x1="50" y1="315" x2="50" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="45" y1="315" x2="55" y2="315" stroke="#999" stroke-width="1"/>
+  <line x1="45" y1="220" x2="55" y2="220" stroke="#999" stroke-width="1"/>
+  <text x="40" y="270" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="10" transform="rotate(-90, 40, 270)">HØYDEFORSKJELL</text>
+
+  <!-- Steps -->
+  <rect x="80" y="420" width="640" height="60" rx="6" stroke="#444" stroke-width="1" fill="#222"/>
+  <text x="100" y="442" fill="#e0a030" font-family="sans-serif" font-size="11" font-weight="bold">PROSESS:</text>
+  <text x="100" y="460" fill="#999" font-family="sans-serif" font-size="10">1. Kjøl vørter til 80°C  →  2. Tilsett aromahumle  →  3. Steep 20 min  →  4. Åpne ventil  →  5. Gravitasjon gjør jobben</text>
+</svg>

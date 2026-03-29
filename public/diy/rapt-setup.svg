@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#1a1a1a"/>
+  <text x="400" y="35" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">RAPT Hydrometer — Oppsett og Dataflyt</text>
+
+  <!-- Fermenter -->
+  <g transform="translate(60, 70)">
+    <rect x="0" y="0" width="200" height="340" rx="10" stroke="#dd3333" stroke-width="2.5" fill="#2d2020"/>
+    <text x="100" y="30" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="13" font-weight="bold">FERMENTOR</text>
+
+    <!-- Wort -->
+    <rect x="5" y="80" width="190" height="255" rx="6" fill="#3d3015" opacity="0.5"/>
+
+    <!-- RAPT device floating -->
+    <g transform="translate(60, 130)">
+      <ellipse cx="40" cy="60" rx="28" ry="55" stroke="#4a90d9" stroke-width="2.5" fill="#1a2a3a"/>
+      <text x="40" y="45" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9" font-weight="bold">RAPT</text>
+      <!-- LED indicator -->
+      <circle cx="40" cy="60" r="4" fill="#5aaa5a"/>
+      <!-- Tilt indicator -->
+      <line x1="25" y1="85" x2="55" y2="75" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <text x="40" y="100" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="7">TILT = GRAVITY</text>
+    </g>
+
+    <!-- Temperature waves -->
+    <text x="170" y="200" fill="#e0a030" font-family="sans-serif" font-size="9">~19°C</text>
+    <path d="M155 210 Q165 205, 175 210 Q185 215, 195 210" stroke="#e0a030" stroke-width="1" fill="none"/>
+
+    <!-- Bubbles -->
+    <circle cx="80" cy="120" r="3" fill="#5aaa5a" opacity="0.3"/>
+    <circle cx="130" cy="140" r="2" fill="#5aaa5a" opacity="0.2"/>
+    <circle cx="110" cy="110" r="4" fill="#5aaa5a" opacity="0.25"/>
+    <circle cx="150" cy="130" r="2.5" fill="#5aaa5a" opacity="0.2"/>
+
+    <!-- Airlock -->
+    <rect x="85" y="-15" width="30" height="20" rx="3" stroke="#5aaa5a" stroke-width="1.5" fill="#2d3d2d"/>
+    <text x="100" y="0" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="7">AIRLOCK</text>
+  </g>
+
+  <!-- WiFi signal -->
+  <g transform="translate(280, 180)">
+    <path d="M0 30 Q15 15, 30 30" stroke="#4a90d9" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M-5 35 Q15 10, 35 35" stroke="#4a90d9" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <path d="M-10 40 Q15 5, 40 40" stroke="#4a90d9" stroke-width="1.5" fill="none" opacity="0.2"/>
+    <text x="15" y="55" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="10" font-weight="bold">WiFi</text>
+  </g>
+
+  <!-- Arrow to router -->
+  <line x1="320" y1="200" x2="370" y2="200" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- WiFi Router -->
+  <g transform="translate(380, 160)">
+    <rect x="0" y="0" width="80" height="60" rx="6" stroke="#999" stroke-width="1.5" fill="#333"/>
+    <text x="40" y="25" text-anchor="middle" fill="#ccc" font-family="sans-serif" font-size="10" font-weight="bold">ROUTER</text>
+    <line x1="20" y1="0" x2="20" y2="-15" stroke="#999" stroke-width="1.5"/>
+    <line x1="40" y1="0" x2="40" y2="-20" stroke="#999" stroke-width="1.5"/>
+    <line x1="60" y1="0" x2="60" y2="-15" stroke="#999" stroke-width="1.5"/>
+    <text x="40" y="50" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="8">2.4 GHz</text>
+  </g>
+
+  <!-- Arrow to cloud -->
+  <line x1="470" y1="190" x2="520" y2="190" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- RAPT Cloud -->
+  <g transform="translate(530, 130)">
+    <ellipse cx="80" cy="55" rx="90" ry="50" stroke="#5aaa5a" stroke-width="2" fill="#1a2d1a"/>
+    <text x="80" y="45" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="13" font-weight="bold">RAPT CLOUD</text>
+    <text x="80" y="65" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="9">app.rapt.io</text>
+    <text x="80" y="80" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="8">Data hvert 15. minutt</text>
+  </g>
+
+  <!-- Arrow down from cloud to phone -->
+  <line x1="610" y1="240" x2="610" y2="270" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Phone app -->
+  <g transform="translate(570, 275)">
+    <rect x="0" y="0" width="80" height="120" rx="10" stroke="#ccc" stroke-width="1.5" fill="#222"/>
+    <rect x="8" y="15" width="64" height="85" rx="2" fill="#111"/>
+    <!-- Mini chart on phone -->
+    <polyline points="15,75 25,65 35,55 45,50 55,48 65,47" stroke="#dd3333" stroke-width="1.5" fill="none"/>
+    <polyline points="15,40 25,42 35,50 45,55 55,60 65,62" stroke="#4a90d9" stroke-width="1.5" fill="none"/>
+    <text x="40" y="30" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="7">TEMP  GRAVITY</text>
+    <text x="40" y="110" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="8">RAPT App</text>
+  </g>
+
+  <!-- Arrow from cloud to UG -->
+  <path d="M610 240 L610 250 L700 250 L700 310" stroke="#dd3333" stroke-width="1.5" stroke-dasharray="5,3" fill="none"/>
+
+  <!-- Uranus Garage integration -->
+  <g transform="translate(660, 315)">
+    <rect x="0" y="0" width="100" height="80" rx="8" stroke="#dd3333" stroke-width="2" fill="#2d1515"/>
+    <text x="50" y="25" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="10" font-weight="bold">URANUS</text>
+    <text x="50" y="40" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="10" font-weight="bold">GARAGE</text>
+    <text x="50" y="60" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="8">Bryggelaben</text>
+    <text x="50" y="75" text-anchor="middle" fill="#666" font-family="sans-serif" font-size="7">API-integrasjon</text>
+  </g>
+
+  <!-- Data readout panel -->
+  <rect x="60" y="430" width="680" height="55" rx="6" stroke="#444" stroke-width="1" fill="#222"/>
+  <text x="80" y="452" fill="#4a90d9" font-family="sans-serif" font-size="11" font-weight="bold">RAPT MÅLER:</text>
+  <text x="220" y="452" fill="#999" font-family="sans-serif" font-size="10">Temperatur (°C)  |  Specific Gravity (SG)  |  Batterinivå  |  Hvert 15. minutt via WiFi</text>
+  <text x="80" y="473" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">TIPS:</text>
+  <text x="140" y="473" fill="#999" font-family="sans-serif" font-size="10">Kalibrer i rent vann (1.000 SG) før bruk. Lad fullt (USB-C). Bruk 2.4 GHz WiFi, ikke 5 GHz.</text>
+</svg>

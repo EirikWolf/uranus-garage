@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#1a1a1a"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="18" font-weight="bold">Fermentorkjøler — Koblingsskjema</text>
+
+  <!-- Fridge/Freezer box -->
+  <rect x="50" y="70" width="280" height="380" rx="12" stroke="#555" stroke-width="2" fill="#2d2d2d"/>
+  <text x="190" y="100" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="13">KJØLESKAP / FRYSER</text>
+
+  <!-- Fermenter inside fridge -->
+  <rect x="120" y="150" width="140" height="220" rx="8" stroke="#dd3333" stroke-width="2" fill="#3a2020"/>
+  <text x="190" y="270" text-anchor="middle" fill="#dd3333" font-family="sans-serif" font-size="12" font-weight="bold">FERMENTOR</text>
+  <text x="190" y="290" text-anchor="middle" fill="#999" font-family="sans-serif" font-size="11">20L vørter</text>
+
+  <!-- Temperature probe in fermenter -->
+  <line x1="260" y1="200" x2="310" y2="200" stroke="#4a90d9" stroke-width="2"/>
+  <circle cx="250" cy="200" r="6" fill="#4a90d9"/>
+  <text x="245" y="185" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="10">PROBE</text>
+
+  <!-- Airlock -->
+  <rect x="175" y="130" width="30" height="30" rx="3" stroke="#5aaa5a" stroke-width="1.5" fill="#2d3d2d"/>
+  <text x="190" y="127" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="9">AIRLOCK</text>
+
+  <!-- Heating pad -->
+  <rect x="100" y="390" width="180" height="20" rx="3" stroke="#e0a030" stroke-width="1.5" fill="#3d3520"/>
+  <text x="190" y="406" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="10">VARMEMATTE</text>
+
+  <!-- Inkbird Controller -->
+  <rect x="420" y="140" width="200" height="180" rx="10" stroke="#dd3333" stroke-width="2" fill="#2d2d2d"/>
+  <text x="520" y="170" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="14" font-weight="bold">INKBIRD ITC-308</text>
+
+  <!-- Display -->
+  <rect x="450" y="185" width="140" height="50" rx="5" stroke="#444" stroke-width="1" fill="#111"/>
+  <text x="520" y="215" text-anchor="middle" fill="#5aaa5a" font-family="monospace" font-size="24" font-weight="bold">18.5°C</text>
+
+  <!-- Cooling/Heating labels -->
+  <rect x="450" y="250" width="60" height="25" rx="3" fill="#2040a0"/>
+  <text x="480" y="267" text-anchor="middle" fill="#8ab4f8" font-family="sans-serif" font-size="10" font-weight="bold">KJØLING</text>
+  <rect x="530" y="250" width="60" height="25" rx="3" fill="#a04020"/>
+  <text x="560" y="267" text-anchor="middle" fill="#f0a080" font-family="sans-serif" font-size="10" font-weight="bold">VARME</text>
+
+  <!-- Probe input -->
+  <rect x="470" y="285" width="100" height="20" rx="3" stroke="#4a90d9" stroke-width="1" fill="#1a2a3a"/>
+  <text x="520" y="299" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="9">TEMP SENSOR</text>
+
+  <!-- Wiring: Probe to Inkbird -->
+  <path d="M310 200 L420 200 L420 295 L470 295" stroke="#4a90d9" stroke-width="2" stroke-dasharray="6,3" fill="none"/>
+
+  <!-- Wiring: Inkbird cooling to fridge -->
+  <path d="M450 262 L380 262 L380 120 L190 120 L190 70" stroke="#8ab4f8" stroke-width="2" fill="none"/>
+  <text x="385" y="190" fill="#8ab4f8" font-family="sans-serif" font-size="9" transform="rotate(-90, 385, 190)">STRØM TIL KJØLESKAP</text>
+
+  <!-- Wiring: Inkbird heating to pad -->
+  <path d="M530 275 L530 400 L280 400" stroke="#f0a080" stroke-width="2" fill="none"/>
+  <text x="420" y="390" fill="#f0a080" font-family="sans-serif" font-size="9">STRØM TIL VARMEMATTE</text>
+
+  <!-- Power plug -->
+  <rect x="650" y="200" width="100" height="60" rx="8" stroke="#5aaa5a" stroke-width="2" fill="#2d3d2d"/>
+  <text x="700" y="225" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="11" font-weight="bold">230V</text>
+  <text x="700" y="245" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">STIKKONTAKT</text>
+
+  <!-- Power to Inkbird -->
+  <line x1="650" y1="230" x2="620" y2="230" stroke="#5aaa5a" stroke-width="2"/>
+
+  <!-- Legend -->
+  <rect x="420" y="380" width="350" height="90" rx="6" stroke="#444" stroke-width="1" fill="#222"/>
+  <text x="440" y="400" fill="#999" font-family="sans-serif" font-size="11" font-weight="bold">SLIK FUNGERER DET:</text>
+  <text x="440" y="420" fill="#8ab4f8" font-family="sans-serif" font-size="10">● For varmt → Inkbird slår på kjøleskap</text>
+  <text x="440" y="438" fill="#f0a080" font-family="sans-serif" font-size="10">● For kaldt → Inkbird slår på varmematte</text>
+  <text x="440" y="456" fill="#5aaa5a" font-family="sans-serif" font-size="10">● Sett mål-temp ±0.5°C for stabil gjæring</text>
+</svg>
