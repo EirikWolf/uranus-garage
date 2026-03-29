@@ -11,17 +11,16 @@ const categoryPaths: Record<string, string> = {
 };
 
 function ArticleThumb({ slug }: { slug: string }) {
-  // Try to load a thumbnail SVG — falls back gracefully if missing
   const src = `/articles/thumbs/${slug}.svg`;
   return (
     <div className="w-full h-32 rounded-t-lg overflow-hidden bg-secondary flex items-center justify-center">
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={src}
         alt=""
         width={200}
         height={140}
         className="w-full h-full object-cover"
-        onError={() => {}} // Silently fail if thumbnail doesn't exist
       />
     </div>
   );
