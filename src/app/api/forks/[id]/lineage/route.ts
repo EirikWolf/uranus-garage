@@ -71,7 +71,7 @@ async function getLineageTree(forkId: string): Promise<TreeNode[]> {
     LIMIT ${MAX_NODES}
   `;
 
-  return rows.map((row) => ({
+  return rows.map((row: RawTreeRow) => ({
     id: row.id,
     name: row.name,
     userName: row.user_name || "Ukjent",
