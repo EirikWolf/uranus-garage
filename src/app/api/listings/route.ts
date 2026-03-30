@@ -3,7 +3,6 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { createListingSchema } from "@/lib/validations";
 import { paginationParams, paginationMeta } from "@/lib/api-utils";
-import type { Prisma } from "@prisma/client";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -48,7 +47,7 @@ export async function GET(request: Request) {
     const search = searchParams.get("search");
     const { page, limit, skip } = paginationParams(request);
 
-    const where: Prisma.ListingWhereInput = { isActive: true };
+    const where: { isActive?: boolean; type?: string; OR?: { title?: object; description?: object; location?: object }[] } = { isActive: true };
     if (type && type !== "all") where.type = type;
     if (search) {
       where.OR = [
