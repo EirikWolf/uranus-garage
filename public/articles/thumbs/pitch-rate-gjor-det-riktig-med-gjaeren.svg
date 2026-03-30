@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Erlenmeyer flask -->
+  <path d="M88 20 L88 65 L60 115 L140 115 L112 65 L112 20 Z" fill="#1a2a1a" stroke="#5aaa5a" stroke-width="2"/>
+  <path d="M88 20 L88 65 L60 115 L140 115 L112 65 L112 20 Z" fill="#5aaa5a" opacity="0.1"/>
+  <!-- Yeast/liquid fill -->
+  <path d="M66 100 Q80 92 100 95 Q120 92 134 100 L140 115 L60 115 Z" fill="#5aaa5a" opacity="0.4"/>
+  <!-- Yeast cells (small circles) -->
+  <circle cx="82" cy="107" r="4" fill="#5aaa5a" opacity="0.7"/>
+  <circle cx="93" cy="103" r="3.5" fill="#5aaa5a" opacity="0.6"/>
+  <circle cx="104" cy="107" r="4" fill="#5aaa5a" opacity="0.7"/>
+  <circle cx="115" cy="104" r="3" fill="#5aaa5a" opacity="0.6"/>
+  <circle cx="88" cy="111" r="3" fill="#5aaa5a" opacity="0.5"/>
+  <circle cx="110" cy="111" r="3.5" fill="#5aaa5a" opacity="0.55"/>
+  <!-- Flask neck/stopper -->
+  <rect x="84" y="14" width="32" height="8" rx="3" fill="#555" stroke="#888" stroke-width="1"/>
+  <!-- Measurement arrow -->
+  <line x1="150" y1="95" x2="150" y2="115" stroke="#e0a030" stroke-width="2"/>
+  <line x1="145" y1="100" x2="150" y2="95" stroke="#e0a030" stroke-width="2"/>
+  <line x1="155" y1="100" x2="150" y2="95" stroke="#e0a030" stroke-width="2"/>
+  <text x="152" y="80" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="9" font-weight="bold">10⁶</text>
+  <text x="152" y="90" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="8">cells/ml</text>
+</svg>

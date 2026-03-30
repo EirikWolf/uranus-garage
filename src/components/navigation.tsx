@@ -54,6 +54,7 @@ export function Navigation() {
     { href: "/bryggelogg", label: t("brewLog") },
     { href: "/oppskrifter", label: t("recipes") },
     { href: "/bryggelaben", label: t("brewLab") },
+    { href: "/brew-twin", label: t("brewTwin") },
   ];
 
   const learnLinks = [

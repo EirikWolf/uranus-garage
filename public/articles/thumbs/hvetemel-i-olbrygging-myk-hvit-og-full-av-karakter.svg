@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Wheat stalk -->
+  <line x1="100" y1="120" x2="100" y2="20" stroke="#c8a850" stroke-width="2.5"/>
+  <!-- Wheat grains on stalk -->
+  <ellipse cx="100" cy="30" rx="7" ry="12" fill="#d4b460" stroke="#e0c878" stroke-width="1.2"/>
+  <ellipse cx="88" cy="45" rx="7" ry="11" fill="#c8a850" stroke="#d8b860" stroke-width="1.2" transform="rotate(-25 88 45)"/>
+  <ellipse cx="112" cy="45" rx="7" ry="11" fill="#c8a850" stroke="#d8b860" stroke-width="1.2" transform="rotate(25 112 45)"/>
+  <ellipse cx="84" cy="62" rx="7" ry="11" fill="#c0a048" stroke="#d0b058" stroke-width="1.2" transform="rotate(-30 84 62)"/>
+  <ellipse cx="116" cy="62" rx="7" ry="11" fill="#c0a048" stroke="#d0b058" stroke-width="1.2" transform="rotate(30 116 62)"/>
+  <ellipse cx="82" cy="80" rx="6" ry="10" fill="#b89840" stroke="#c8a850" stroke-width="1.2" transform="rotate(-35 82 80)"/>
+  <ellipse cx="118" cy="80" rx="6" ry="10" fill="#b89840" stroke="#c8a850" stroke-width="1.2" transform="rotate(35 118 80)"/>
+  <!-- Hazy beer glass hint -->
+  <path d="M148 60 L143 115 L163 115 L158 60 Z" fill="#2a2a1a" stroke="#888" stroke-width="1" opacity="0.6"/>
+  <path d="M148 60 L143 115 L163 115 L158 60 Z" fill="#f5f0d0" opacity="0.15"/>
+  <!-- Haze dots -->
+  <circle cx="152" cy="80" r="2" fill="#f5f0d0" opacity="0.3"/>
+  <circle cx="158" cy="92" r="1.5" fill="#f5f0d0" opacity="0.25"/>
+  <circle cx="150" cy="100" r="2" fill="#f5f0d0" opacity="0.2"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Copper coil (immersion chiller) -->
+  <ellipse cx="100" cy="55" rx="42" ry="14" fill="none" stroke="#c07820" stroke-width="3"/>
+  <ellipse cx="100" cy="70" rx="42" ry="14" fill="none" stroke="#c07820" stroke-width="3"/>
+  <ellipse cx="100" cy="85" rx="42" ry="14" fill="none" stroke="#c07820" stroke-width="3"/>
+  <ellipse cx="100" cy="100" rx="42" ry="14" fill="none" stroke="#c07820" stroke-width="3"/>
+  <!-- Cover back halves with bg to give 3D effect -->
+  <rect x="58" y="55" width="84" height="60" fill="#2d2d2d"/>
+  <ellipse cx="100" cy="55" rx="42" ry="14" fill="none" stroke="#c07820" stroke-width="3" stroke-dasharray="66 66" stroke-dashoffset="0"/>
+  <ellipse cx="100" cy="70" rx="42" ry="14" fill="none" stroke="#b06818" stroke-width="3" stroke-dasharray="66 66"/>
+  <ellipse cx="100" cy="85" rx="42" ry="14" fill="none" stroke="#c07820" stroke-width="3" stroke-dasharray="66 66"/>
+  <ellipse cx="100" cy="100" rx="42" ry="14" fill="none" stroke="#b06818" stroke-width="3" stroke-dasharray="66 66"/>
+  <!-- Inlet/outlet tubes -->
+  <line x1="58" y1="55" x2="44" y2="22" stroke="#c07820" stroke-width="3" stroke-linecap="round"/>
+  <line x1="142" y1="100" x2="156" y2="122" stroke="#4a90d9" stroke-width="3" stroke-linecap="round"/>
+  <!-- Water flow arrows -->
+  <circle cx="44" cy="18" r="5" fill="#4a90d9" opacity="0.7"/>
+  <circle cx="156" cy="126" r="5" fill="#4a90d9" opacity="0.5"/>
+</svg>

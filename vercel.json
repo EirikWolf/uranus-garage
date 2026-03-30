@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/rapt/poll",
+      "schedule": "*/15 * * * *"
+    }
+  ]
+}

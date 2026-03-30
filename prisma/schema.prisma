@@ -160,6 +160,41 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model BrewSession {
+  id          String          @id @default(cuid())
+  name        String          @unique
+  deviceName  String?
+  deviceId    String?
+  createdOn   DateTime
+  endingOn    DateTime?
+  og          Float?
+  fg          Float?
+  abv         Float?
+  numDays     Int?
+  isActive    Boolean         @default(false)
+  brewLogSlug String?
+  readings    SensorReading[]
+  importedAt  DateTime        @default(now())
+
+  @@index([isActive])
+}
+
+model SensorReading {
+  id          String       @id @default(cuid())
+  sessionId   String
+  session     BrewSession  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  timestamp   DateTime
+  temperature Float?
+  gravity     Float?
+  pressure    Float?
+  battery     Float?
+  rssi        Int?
+  createdAt   DateTime     @default(now())
+
+  @@unique([sessionId, timestamp])
+  @@index([sessionId, timestamp])
+}
+
 model Simulation {
   id              String      @id @default(cuid())
   name            String

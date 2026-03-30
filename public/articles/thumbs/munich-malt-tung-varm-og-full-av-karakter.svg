@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Munich malt grain (amber/warm tones) -->
+  <ellipse cx="100" cy="72" rx="26" ry="52" fill="#7a4510" stroke="#e0a030" stroke-width="2.5"/>
+  <ellipse cx="100" cy="63" rx="18" ry="40" fill="#924f15" stroke="#c07820" stroke-width="1.5"/>
+  <ellipse cx="100" cy="56" rx="11" ry="27" fill="#c07030"/>
+  <line x1="100" y1="18" x2="100" y2="126" stroke="#6a3a0a" stroke-width="2.5"/>
+  <path d="M84 50 Q100 43 116 50" stroke="#d08828" stroke-width="1.5" fill="none"/>
+  <path d="M82 70 Q100 63 118 70" stroke="#d08828" stroke-width="1.5" fill="none"/>
+  <path d="M84 92 Q100 85 116 92" stroke="#d08828" stroke-width="1.5" fill="none"/>
+  <!-- Warm glow hint -->
+  <circle cx="100" cy="72" rx="30" r="30" fill="#e0a030" opacity="0.05"/>
+  <!-- Small malt kernels scattered -->
+  <ellipse cx="155" cy="50" rx="7" ry="11" fill="#7a4510" stroke="#c07820" stroke-width="1" opacity="0.7" transform="rotate(20 155 50)"/>
+  <ellipse cx="150" cy="90" rx="6" ry="10" fill="#924f15" stroke="#c07820" stroke-width="1" opacity="0.6" transform="rotate(-15 150 90)"/>
+</svg>
