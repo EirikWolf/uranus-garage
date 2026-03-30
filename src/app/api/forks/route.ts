@@ -3,6 +3,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { createForkSchema } from "@/lib/validations";
 import { paginationParams, paginationMeta } from "@/lib/api-utils";
+import type { Prisma } from "@prisma/client";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -59,7 +60,7 @@ export async function GET(request: Request) {
 
   try {
     const session = await auth();
-    const where: Record<string, unknown> = { isPublic: true };
+    const where: Prisma.RecipeForkWhereInput = { isPublic: true };
     if (parentSanityId) where.parentSanityId = parentSanityId;
     if (parentForkId) where.parentForkId = parentForkId;
     if (userId) {
@@ -85,7 +86,7 @@ export async function GET(request: Request) {
     ]);
 
     // Batch-fetch average ratings for all forks in one query
-    const forkIds = forks.map((f: { id: string }) => f.id);
+    const forkIds = forks.map((f) => f.id);
     const avgRatings = forkIds.length > 0
       ? await prisma.rating.groupBy({
           by: ["forkId"],
