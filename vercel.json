@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/rapt/poll",
-      "schedule": "*/15 * * * *"
+      "schedule": "0 * * * *"
     }
   ]
 }
