@@ -85,7 +85,7 @@ export async function GET(request: Request) {
     ]);
 
     // Batch-fetch average ratings for all forks in one query
-    const forkIds = forks.map((f) => f.id);
+    const forkIds = forks.map((f: { id: string }) => f.id);
     const avgRatings = forkIds.length > 0
       ? await prisma.rating.groupBy({
           by: ["forkId"],
