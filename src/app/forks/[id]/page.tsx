@@ -10,6 +10,7 @@ import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { GitFork, Star } from "lucide-react";
 import type { ForkGrain, ForkHop, ForkYeast, ForkAddition, ForkProcessStep } from "@/lib/prisma-types";
+import { ForkScaler } from "@/components/fork-scaler";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -200,48 +201,16 @@ export default async function ForkDetailPage({
         </Card>
       )}
 
-      {/* Ingredients */}
-      <div className="space-y-6 mb-8">
-        {grains.length > 0 && (
-          <Card className="bg-card border-border">
-            <CardContent className="pt-6">
-              <h3 className="font-semibold mb-3">Malt</h3>
-              <div className="space-y-2">
-                {grains.map((g: ForkGrain, i: number) => (
-                  <div key={i} className="flex justify-between text-sm">
-                    <span>{g.name}</span>
-                    <span className="text-primary font-mono">{g.amount} {g.unit}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {hops.length > 0 && (
-          <Card className="bg-card border-border">
-            <CardContent className="pt-6">
-              <h3 className="font-semibold mb-3">Humle</h3>
-              <div className="space-y-2">
-                {hops.map((h: ForkHop, i: number) => (
-                  <div key={i} className="flex justify-between text-sm">
-                    <span>{h.name} ({h.alphaAcid}% AA)</span>
-                    <span className="text-primary font-mono">{h.amount}g @ {h.time === -1 ? "dry hop" : `${h.time} min`}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {yeast?.name && (
-          <Card className="bg-card border-border">
-            <CardContent className="pt-6">
-              <h3 className="font-semibold mb-3">Gjær</h3>
-              <p className="text-sm">{yeast.name} — {yeast.amount}</p>
-            </CardContent>
-          </Card>
-        )}
+      {/* Ingredients with scaling + BeerXML export */}
+      <div className="mb-8">
+        <ForkScaler
+          forkName={fork.name}
+          style={fork.style}
+          originalBatchSize={fork.batchSize}
+          grains={grains}
+          hops={hops}
+          yeast={yeast}
+        />
       </div>
 
       {/* Child forks */}

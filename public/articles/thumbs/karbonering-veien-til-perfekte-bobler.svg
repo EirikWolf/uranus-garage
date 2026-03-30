@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Beer glass -->
+  <path d="M72 30 L80 118 L120 118 L128 30 Z" fill="#2a1a00" stroke="#888" stroke-width="1.5"/>
+  <path d="M72 30 L80 118 L120 118 L128 30 Z" fill="#e0a030" opacity="0.25"/>
+  <!-- Foam head -->
+  <ellipse cx="100" cy="30" rx="28" ry="9" fill="#f5f5f5" opacity="0.85"/>
+  <ellipse cx="88" cy="28" rx="8" ry="6" fill="#ffffff" opacity="0.6"/>
+  <ellipse cx="110" cy="27" rx="7" ry="5" fill="#ffffff" opacity="0.6"/>
+  <!-- CO2 bubbles rising -->
+  <circle cx="90" cy="100" r="3" fill="#f5f5f5" opacity="0.5"/>
+  <circle cx="100" cy="82" r="2.5" fill="#f5f5f5" opacity="0.5"/>
+  <circle cx="108" cy="95" r="2" fill="#f5f5f5" opacity="0.4"/>
+  <circle cx="94" cy="65" r="3" fill="#f5f5f5" opacity="0.45"/>
+  <circle cx="106" cy="72" r="2" fill="#f5f5f5" opacity="0.4"/>
+  <circle cx="88" cy="50" r="2.5" fill="#f5f5f5" opacity="0.4"/>
+  <!-- CO2 label -->
+  <text x="152" y="72" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="13" font-weight="bold">CO₂</text>
+  <!-- Small bubbles outside -->
+  <circle cx="148" cy="85" r="3" fill="#4a90d9" opacity="0.4"/>
+  <circle cx="156" cy="92" r="2" fill="#4a90d9" opacity="0.35"/>
+  <circle cx="144" cy="96" r="2.5" fill="#4a90d9" opacity="0.3"/>
+</svg>

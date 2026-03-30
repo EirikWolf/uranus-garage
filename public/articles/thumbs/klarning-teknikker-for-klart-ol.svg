@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Two glasses showing before/after -->
+  <!-- Left glass (cloudy) -->
+  <path d="M38 30 L43 110 L73 110 L78 30 Z" fill="#5a4010" opacity="0.7" stroke="#888" stroke-width="1.5"/>
+  <path d="M38 30 L43 110 L73 110 L78 30 Z" fill="#e0a030" opacity="0.15"/>
+  <!-- Cloudy particles left -->
+  <circle cx="52" cy="55" r="3" fill="#c8962a" opacity="0.5"/>
+  <circle cx="62" cy="70" r="2.5" fill="#c8962a" opacity="0.45"/>
+  <circle cx="48" cy="80" r="3" fill="#c8962a" opacity="0.4"/>
+  <circle cx="65" cy="48" r="2" fill="#c8962a" opacity="0.5"/>
+  <circle cx="55" cy="92" r="2.5" fill="#c8962a" opacity="0.4"/>
+  <!-- Right glass (clear) -->
+  <path d="M122 30 L127 110 L157 110 L162 30 Z" fill="#1a2a3a" opacity="0.8" stroke="#888" stroke-width="1.5"/>
+  <path d="M122 30 L127 110 L157 110 L162 30 Z" fill="#4a90d9" opacity="0.2"/>
+  <!-- Clear liquid highlight -->
+  <line x1="133" y1="40" x2="133" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.15"/>
+  <!-- Arrow between glasses -->
+  <line x1="85" y1="70" x2="113" y2="70" stroke="#5aaa5a" stroke-width="2"/>
+  <line x1="108" y1="65" x2="113" y2="70" stroke="#5aaa5a" stroke-width="2"/>
+  <line x1="108" y1="75" x2="113" y2="70" stroke="#5aaa5a" stroke-width="2"/>
+  <!-- Sediment at bottom right -->
+  <path d="M128 103 Q142 100 156 103 L157 110 L127 110 Z" fill="#555" opacity="0.5"/>
+</svg>

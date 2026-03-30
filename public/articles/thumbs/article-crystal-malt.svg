@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" fill="none">
+  <rect width="200" height="140" fill="#2d2d2d"/>
+  <!-- Three malt kernels showing color range: light, medium, dark -->
+  <!-- Light crystal (Crystal 20) -->
+  <ellipse cx="60" cy="70" rx="18" ry="28" fill="#c09840" stroke="#e0c060" stroke-width="1.5" transform="rotate(-10 60 70)"/>
+  <ellipse cx="60" cy="66" rx="10" ry="18" fill="#d4a840" opacity="0.6" transform="rotate(-10 60 66)"/>
+  <!-- Medium crystal (Crystal 60) -->
+  <ellipse cx="100" cy="70" rx="18" ry="28" fill="#8a5a10" stroke="#c08020" stroke-width="1.5"/>
+  <ellipse cx="100" cy="65" rx="10" ry="18" fill="#a06818" opacity="0.7"/>
+  <!-- Dark crystal (Crystal 120) -->
+  <ellipse cx="140" cy="70" rx="18" ry="28" fill="#4a2008" stroke="#804010" stroke-width="1.5" transform="rotate(10 140 70)"/>
+  <ellipse cx="140" cy="66" rx="10" ry="18" fill="#622810" opacity="0.7" transform="rotate(10 140 66)"/>
+  <!-- Labels -->
+  <text x="60" y="112" text-anchor="middle" fill="#e0c060" font-family="sans-serif" font-size="8">20°L</text>
+  <text x="100" y="112" text-anchor="middle" fill="#c08020" font-family="sans-serif" font-size="8">60°L</text>
+  <text x="140" y="112" text-anchor="middle" fill="#804010" font-family="sans-serif" font-size="8">120°L</text>
+</svg>
