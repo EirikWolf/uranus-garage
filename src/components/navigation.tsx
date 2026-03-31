@@ -69,6 +69,7 @@ export function Navigation() {
     { href: "/verktoy/oppskriftsgenerator", label: t("recipeGenerator") },
     { href: "/verktoy/smaksassistent", label: t("sensoryMirror") },
     { href: "/verktoy/humle-erstatning", label: "Humle-erstatning" },
+    { href: "/verktoy/ingredienser", label: "Ingrediensdatabase" },
   ];
 
   const communityLinks = [

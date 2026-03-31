@@ -212,3 +212,59 @@ model Simulation {
   @@index([userId, createdAt])
   @@index([forkId])
 }
+
+model Fermentable {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  category      String?
+  type          String?
+  colorLovibond Float?
+  ppg           Float?
+  country       String?
+  manufacturer  String?
+  fermentable   Boolean  @default(true)
+  recipesCount  Int?
+  importedAt    DateTime @default(now())
+
+  @@index([category])
+  @@index([country])
+}
+
+model Hop {
+  id              String   @id @default(cuid())
+  name            String   @unique
+  category        String?
+  purpose         String?
+  country         String?
+  alphaAcid       String?
+  betaAcid        String?
+  characteristics String?
+  substitutes     String?
+  styleGuide      String?
+  description     String?
+  totalOil        String?
+  myrcene         String?
+  humulene        String?
+  importedAt      DateTime @default(now())
+
+  @@index([category])
+  @@index([country])
+}
+
+model Yeast {
+  id           String   @id @default(cuid())
+  name         String
+  displayName  String?  @unique
+  manufacturer String?
+  code         String?
+  category     String?
+  type         String?
+  flocculation String?
+  attenuation  String?
+  temperature  String?
+  description  String?
+  importedAt   DateTime @default(now())
+
+  @@index([manufacturer])
+  @@index([type])
+}
