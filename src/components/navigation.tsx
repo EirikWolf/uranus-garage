@@ -65,6 +65,7 @@ export function Navigation() {
   ];
 
   const toolsLinks = [
+    { href: "/verktoy", label: "Alle verktøy" },
     { href: "/verktoy/kalkulatorer", label: t("calculators") },
     { href: "/verktoy/oppskriftsgenerator", label: t("recipeGenerator") },
     { href: "/verktoy/smaksassistent", label: t("sensoryMirror") },
