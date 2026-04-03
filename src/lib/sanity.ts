@@ -19,7 +19,16 @@ export async function getBeerBySlug(slug: string): Promise<Beer | null> {
     `*[_type == "beer" && slug.current == $slug][0] {
       _id, name, slug, style, description, image,
       abv, ibu, srm, flavorTags, difficulty, status,
-      recipe->{_id, name, slug, style, difficulty, batchSize},
+      recipe->{
+        _id, name, slug, style, difficulty, batchSize,
+        grains[]{ name, amount, unit },
+        hops[]{ name, amount, time, alphaAcid },
+        yeast{ name, amount, type },
+        additions[]{ name, amount, time },
+        process[]{ step, description, temp, duration },
+        waterProfile{ calcium, magnesium, sodium, chloride, sulfate, bicarbonate, ph, notes },
+        fermentationProfile[]{ day, temp, description }
+      },
       "brewLogs": *[_type == "brewLog" && references(^._id)] | order(date desc) {
         _id, title, slug, date
       }
@@ -125,7 +134,8 @@ export async function getArticleBySlug(category: ArticleCategory, slug: string):
   return client.fetch(
     `*[_type == "article" && category == $category && slug.current == $slug][0] {
       _id, title, slug, category, publishedAt, body, tags, seoDescription,
-      author->{_id, name, slug, bio, image, role}
+      author->{_id, name, slug, bio, image, role},
+      "readTimeMinutes": round(length(pt::text(body)) / 1000)
     }`,
     { category, slug },
     revalidate,
@@ -136,6 +146,22 @@ export async function getAllArticleSlugs(category: ArticleCategory): Promise<{ s
   return client.fetch(
     `*[_type == "article" && category == $category] { "slug": slug.current }`,
     { category },
+    revalidate,
+  );
+}
+
+export async function getRelatedArticles(
+  slug: string,
+  tags: string[],
+  category: ArticleCategory,
+): Promise<Article[]> {
+  return client.fetch(
+    `*[_type == "article" && slug.current != $slug && category == $category && count(tags[@ in $tags]) > 0]
+    | order(publishedAt desc)[0...3] {
+      _id, title, slug, category, tags, publishedAt, seoDescription,
+      author->{_id, name, slug, image}
+    }`,
+    { slug, tags, category },
     revalidate,
   );
 }

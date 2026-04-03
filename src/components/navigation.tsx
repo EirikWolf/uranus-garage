@@ -70,6 +70,7 @@ export function Navigation() {
     { href: "/verktoy/smaksassistent", label: t("sensoryMirror") },
     { href: "/verktoy/humle-erstatning", label: "Humle-erstatning" },
     { href: "/verktoy/ingredienser", label: "Ingrediensdatabase" },
+    { href: "/verktoy/vannkjemi", label: "Vannkjemi" },
   ];
 
   const communityLinks = [

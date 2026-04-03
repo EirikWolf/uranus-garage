@@ -69,6 +69,23 @@ export interface ProcessStep {
   duration: number;
 }
 
+export interface WaterProfile {
+  calcium?: number;
+  magnesium?: number;
+  sodium?: number;
+  chloride?: number;
+  sulfate?: number;
+  bicarbonate?: number;
+  ph?: number;
+  notes?: string;
+}
+
+export interface FermentationStep {
+  day: number;
+  temp: number;
+  description?: string;
+}
+
 export interface Recipe {
   _id: string;
   name: string;
@@ -82,6 +99,8 @@ export interface Recipe {
   yeast: Yeast;
   additions: Addition[];
   process: ProcessStep[];
+  waterProfile?: WaterProfile;
+  fermentationProfile?: FermentationStep[];
   beer?: Beer;
   isClassic?: boolean;
   sourceAuthor?: string;
@@ -116,6 +135,7 @@ export interface Article {
   body: PortableTextBlock[];
   tags: string[];
   seoDescription: string;
+  readTimeMinutes?: number;
 }
 
 export interface Measurement {

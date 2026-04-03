@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { DifficultyBadge } from "@/components/difficulty-badge";
 import { getAllBeers, getBeerBySlug } from "@/lib/sanity";
+import { RecipeDetail } from "@/components/recipe-detail";
 import { urlFor } from "../../../../sanity/lib/client";
 
 export const revalidate = 60;
@@ -94,17 +95,20 @@ export default async function BeerPage({
       {/* Linked recipe */}
       {beer.recipe && (
         <section className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Oppskrift</h2>
-          <Link href={`/oppskrifter/${beer.recipe.slug.current}`}>
-            <Card className="bg-card hover:bg-accent transition-colors">
-              <CardContent className="pt-6">
-                <h3 className="font-bold">{beer.recipe.name}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {beer.recipe.style} — {beer.recipe.batchSize}L
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold">Oppskrift</h2>
+            <Link
+              href={`/oppskrifter/${beer.recipe.slug.current}`}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Se full oppskrift →
+            </Link>
+          </div>
+          <Card className="bg-card">
+            <CardContent className="pt-6">
+              <RecipeDetail recipe={beer.recipe} />
+            </CardContent>
+          </Card>
         </section>
       )}
 

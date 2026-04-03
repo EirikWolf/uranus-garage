@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calculator, Sparkles, Stethoscope, Leaf } from "lucide-react";
+import { Calculator, Sparkles, Stethoscope, Leaf, Droplets } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export const metadata = {
@@ -35,6 +35,12 @@ export default async function ToolsPage() {
       icon: Leaf,
       title: "Humle-erstatning",
       description: "Finn alternativer når du mangler en humlesort",
+    },
+    {
+      href: "/verktoy/vannkjemi",
+      icon: Droplets,
+      title: "Vannkjemi",
+      description: "Beregn mineraliltsetninger for å matche historiske vannprofiler",
     },
   ];
 

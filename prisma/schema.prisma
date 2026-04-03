@@ -21,6 +21,7 @@ model User {
   brewSwaps     BrewSwap[]
   swapSignups   SwapParticipant[]
   simulations   Simulation[]
+  articleComments ArticleComment[]
   createdAt     DateTime          @default(now())
 }
 
@@ -193,6 +194,17 @@ model SensorReading {
 
   @@unique([sessionId, timestamp])
   @@index([sessionId, timestamp])
+}
+
+model ArticleComment {
+  id              String   @id @default(cuid())
+  sanityArticleId String
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  body            String
+  createdAt       DateTime @default(now())
+
+  @@index([sanityArticleId, createdAt])
 }
 
 model Simulation {

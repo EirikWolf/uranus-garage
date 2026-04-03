@@ -137,6 +137,42 @@ export const recipe = defineType({
       ],
     }),
     defineField({
+      name: "waterProfile",
+      title: "Vannprofil",
+      type: "object",
+      fields: [
+        defineField({ name: "calcium", title: "Kalsium Ca²⁺ (ppm)", type: "number" }),
+        defineField({ name: "magnesium", title: "Magnesium Mg²⁺ (ppm)", type: "number" }),
+        defineField({ name: "sodium", title: "Natrium Na⁺ (ppm)", type: "number" }),
+        defineField({ name: "chloride", title: "Klorid Cl⁻ (ppm)", type: "number" }),
+        defineField({ name: "sulfate", title: "Sulfat SO₄²⁻ (ppm)", type: "number" }),
+        defineField({ name: "bicarbonate", title: "Bikarbonat HCO₃⁻ (ppm)", type: "number" }),
+        defineField({ name: "ph", title: "Meskevann pH", type: "number" }),
+        defineField({ name: "notes", title: "Merknad", type: "string" }),
+      ],
+    }),
+    defineField({
+      name: "fermentationProfile",
+      title: "Gjæringsprofil",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "day", title: "Dag", type: "number" }),
+            defineField({ name: "temp", title: "Temperatur (°C)", type: "number" }),
+            defineField({ name: "description", title: "Beskrivelse", type: "string" }),
+          ],
+          preview: {
+            select: { day: "day", temp: "temp", description: "description" },
+            prepare({ day, temp, description }) {
+              return { title: `Dag ${day}: ${temp}°C`, subtitle: description };
+            },
+          },
+        }),
+      ],
+    }),
+    defineField({
       name: "beer",
       title: "Tilhørende øl",
       type: "reference",

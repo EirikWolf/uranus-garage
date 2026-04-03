@@ -1,5 +1,5 @@
 import { getAllBrewLogs } from "@/lib/sanity";
-import { BrewLogCard } from "@/components/brew-log-card";
+import { BrewLogFilter } from "@/components/brew-log-filter";
 
 export const revalidate = 60;
 
@@ -20,11 +20,7 @@ export default async function BrewLogListPage() {
       {logs.length === 0 ? (
         <p className="text-muted-foreground">Ingen bryggelogger ennå.</p>
       ) : (
-        <div className="space-y-4">
-          {logs.map((log) => (
-            <BrewLogCard key={log._id} log={log} />
-          ))}
-        </div>
+        <BrewLogFilter logs={logs} />
       )}
     </div>
   );

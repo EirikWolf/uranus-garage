@@ -4,10 +4,12 @@ import { IbuCalculator } from "@/components/calculators/ibu-calculator";
 import { SrmCalculator } from "@/components/calculators/srm-calculator";
 import { PitchRateCalculator } from "@/components/calculators/pitch-rate-calculator";
 import { CarbonationCalculator } from "@/components/calculators/carbonation-calculator";
+import { HydrometerCalculator } from "@/components/calculators/hydrometer-calculator";
+import { StrikeWaterCalculator } from "@/components/calculators/strike-water-calculator";
 
 export const metadata = {
   title: "Kalkulatorer — Uranus Garage",
-  description: "Bryggkalkulatorer: ABV, IBU, SRM, Pitch Rate og Karbonering.",
+  description: "Bryggkalkulatorer: ABV, IBU, SRM, Pitch Rate, Karbonering, Hydrometerjustering og Innmeskingstemperatur.",
 };
 
 export default async function CalculatorsPage() {
@@ -18,7 +20,9 @@ export default async function CalculatorsPage() {
       <p className="text-muted-foreground mb-8">
         {t("subtitle")}
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+      <h2 className="text-lg font-semibold mb-4 text-muted-foreground uppercase tracking-wide text-sm">Resept</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
         <AbvCalculator />
         <IbuCalculator />
         <SrmCalculator />
@@ -26,6 +30,12 @@ export default async function CalculatorsPage() {
         <div className="lg:col-span-2">
           <CarbonationCalculator />
         </div>
+      </div>
+
+      <h2 className="text-lg font-semibold mb-4 text-muted-foreground uppercase tracking-wide text-sm">Prosess</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <HydrometerCalculator />
+        <StrikeWaterCalculator />
       </div>
     </div>
   );

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <text x="400" y="28" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="17" font-weight="bold">Klarning — Teknikker og effekt</text>
+
+  <!-- Step 1: Koket -->
+  <g transform="translate(30, 48)">
+    <rect x="0" y="0" width="170" height="360" rx="6" fill="#1e2a1e"/>
+    <text x="85" y="22" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="12" font-weight="bold">① KOKET</text>
+    <text x="85" y="40" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="11">Irish Moss / Whirlfloc</text>
+    <rect x="15" y="48" width="140" height="1" fill="#333"/>
+    <text x="85" y="66" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">Tilsettes siste 15 min</text>
+    <text x="85" y="82" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">1 tablett per batch</text>
+    <text x="85" y="106" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Proteiner koagulerer</text>
+    <text x="85" y="122" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Synker under kjøling</text>
+    <text x="85" y="138" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Ingen smakspåvirkning</text>
+    <rect x="15" y="156" width="140" height="1" fill="#333"/>
+    <text x="85" y="174" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="11">Rask nedkjøling</text>
+    <text x="85" y="192" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">Kjøl vørter raskt</text>
+    <text x="85" y="208" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">til gjæringstemperatur</text>
+    <text x="85" y="232" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ God cold break</text>
+    <text x="85" y="248" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Klarer vørter</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <text x="215" y="235" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="20">→</text>
+
+  <!-- Step 2: Cold Crash -->
+  <g transform="translate(228, 48)">
+    <rect x="0" y="0" width="170" height="360" rx="6" fill="#1a1a2a"/>
+    <text x="85" y="22" text-anchor="middle" fill="#9b6bc7" font-family="sans-serif" font-size="12" font-weight="bold">② COLD CRASH</text>
+    <text x="85" y="40" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="11">Etter gjæring</text>
+    <rect x="15" y="48" width="140" height="1" fill="#333"/>
+
+    <!-- Temperature bar -->
+    <text x="15" y="68" fill="#888" font-family="sans-serif" font-size="10">Temperatur:</text>
+    <rect x="15" y="72" width="140" height="16" rx="3" fill="#2a2a2a"/>
+    <rect x="15" y="72" width="30" height="16" rx="3" fill="#4a90d9"/>
+    <text x="85" y="84" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="10" font-weight="bold">0–4 °C</text>
+
+    <text x="15" y="106" fill="#888" font-family="sans-serif" font-size="10">Varighet:</text>
+    <rect x="15" y="110" width="140" height="16" rx="3" fill="#2a2a2a"/>
+    <rect x="15" y="110" width="95" height="16" rx="3" fill="#9b6bc7"/>
+    <text x="85" y="122" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="10" font-weight="bold">48–72 timer</text>
+
+    <rect x="15" y="134" width="140" height="1" fill="#333"/>
+    <text x="85" y="152" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Gjær sedimenterer</text>
+    <text x="85" y="168" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Proteiner faller ut</text>
+    <text x="85" y="184" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Bedre holdbarhet</text>
+    <text x="85" y="200" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Raskere kondisjonering</text>
+    <rect x="15" y="216" width="140" height="1" fill="#333"/>
+    <text x="85" y="234" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">De fleste kjøleskap</text>
+    <text x="85" y="250" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">fungerer perfekt</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <text x="413" y="235" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="20">→</text>
+
+  <!-- Step 3: Finings -->
+  <g transform="translate(426, 48)">
+    <rect x="0" y="0" width="170" height="360" rx="6" fill="#2a1a10"/>
+    <text x="85" y="22" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="12" font-weight="bold">③ KLARINGSMIDLER</text>
+    <text x="85" y="40" text-anchor="middle" fill="#f5f5f5" font-family="sans-serif" font-size="11">Etter cold crash</text>
+    <rect x="15" y="48" width="140" height="1" fill="#333"/>
+
+    <text x="15" y="66" fill="#e0a030" font-family="sans-serif" font-size="10" font-weight="bold">Gelatin</text>
+    <text x="15" y="80" fill="#888" font-family="sans-serif" font-size="10">1 g per 10 L i varmt vann</text>
+    <text x="15" y="94" fill="#888" font-family="sans-serif" font-size="10">24–48 timer ved 0–4 °C</text>
+    <text x="15" y="108" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Trekker med seg gjær</text>
+
+    <rect x="15" y="120" width="140" height="1" fill="#333"/>
+    <text x="15" y="138" fill="#e0a030" font-family="sans-serif" font-size="10" font-weight="bold">Irish Moss (vegetar)</text>
+    <text x="15" y="152" fill="#888" font-family="sans-serif" font-size="10">Brukes i koket</text>
+    <text x="15" y="166" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Ingen animalske prod.</text>
+
+    <rect x="15" y="178" width="140" height="1" fill="#333"/>
+    <text x="15" y="196" fill="#e0a030" font-family="sans-serif" font-size="10" font-weight="bold">Isinglass</text>
+    <text x="15" y="210" fill="#888" font-family="sans-serif" font-size="10">Fiskebasert, svært effektiv</text>
+    <text x="15" y="224" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Ligner på gelatin</text>
+
+    <rect x="15" y="236" width="140" height="1" fill="#333"/>
+    <text x="15" y="254" fill="#888" font-family="sans-serif" font-size="10">Filtrasjon = ikke nødv.</text>
+    <text x="15" y="270" fill="#888" font-family="sans-serif" font-size="10">for de fleste bryggere</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <text x="611" y="235" text-anchor="middle" fill="#4a90d9" font-family="sans-serif" font-size="20">→</text>
+
+  <!-- Result -->
+  <g transform="translate(624, 48)">
+    <rect x="0" y="0" width="146" height="360" rx="6" fill="#1a2a1a"/>
+    <text x="73" y="22" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="12" font-weight="bold">RESULTAT</text>
+    <rect x="10" y="34" width="126" height="1" fill="#333"/>
+
+    <!-- Beer glass illustration -->
+    <rect x="30" y="50" width="86" height="130" rx="4" fill="#e0a030" opacity="0.15"/>
+    <rect x="30" y="50" width="86" height="130" rx="4" fill="none" stroke="#e0a030" stroke-width="2"/>
+    <rect x="30" y="50" width="86" height="20" rx="4" fill="#f5f5f5" opacity="0.2"/>
+    <text x="73" y="125" text-anchor="middle" fill="#e0a030" font-family="sans-serif" font-size="28">🍺</text>
+
+    <rect x="10" y="194" width="126" height="1" fill="#333"/>
+    <text x="73" y="214" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Krystallklart øl</text>
+    <text x="73" y="230" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ Ren smak</text>
+    <text x="73" y="246" text-anchor="middle" fill="#5aaa5a" font-family="sans-serif" font-size="10">✓ God holdbarhet</text>
+    <rect x="10" y="260" width="126" height="1" fill="#333"/>
+    <text x="73" y="280" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">NEIPA/Hefe:</text>
+    <text x="73" y="296" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">Dis er ønskelig</text>
+    <text x="73" y="312" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="10">→ Hopp over step 3</text>
+  </g>
+
+  <!-- Bottom note -->
+  <text x="400" y="432" text-anchor="middle" fill="#555" font-family="sans-serif" font-size="10">Tips: Tålmodighet er det enkleste klaringsmiddelet. De fleste øl klarner av seg selv ved lav temperatur over tid.</text>
+</svg>

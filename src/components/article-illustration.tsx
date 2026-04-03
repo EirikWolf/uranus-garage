@@ -94,6 +94,22 @@ const illustrations: Record<string, Record<string, { src: string; alt: string }>
       src: "/articles/akademiet/feilsoeking.svg",
       alt: "Feilsøkingsflytskjema for vanlige bryggeproblemer",
     },
+    "gjaeringskontroll-nokkelen-til-godt-ol": {
+      src: "/articles/akademiet/gaering.svg",
+      alt: "Gjæringsfaser og temperaturkontroll for ale og lager",
+    },
+    "klarning-teknikker-for-klart-ol": {
+      src: "/articles/akademiet/klarning.svg",
+      alt: "Klarning — teknikker fra koket til ferdig øl",
+    },
+    "pitch-rate-gjor-det-riktig-med-gjaeren": {
+      src: "/articles/akademiet/pitch-rate.svg",
+      alt: "Pitch rate — gjærceller, tørrgjær og gjærstarterberegning",
+    },
+    "karbonering-veien-til-perfekte-bobler": {
+      src: "/articles/akademiet/karbonering.svg",
+      alt: "Karbonering — naturlig og tvungen karbonering med CO₂-volum per stil",
+    },
   },
 };
 
