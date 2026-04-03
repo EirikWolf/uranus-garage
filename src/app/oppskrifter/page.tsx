@@ -1,5 +1,5 @@
 import { getAllRecipes } from "@/lib/sanity";
-import { RecipeCard } from "@/components/recipe-card";
+import { RecipeFilter } from "@/components/recipe-filter";
 
 export const revalidate = 60;
 
@@ -20,11 +20,7 @@ export default async function RecipeArchivePage() {
       {recipes.length === 0 ? (
         <p className="text-muted-foreground">Ingen oppskrifter ennå.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recipes.map((recipe) => (
-            <RecipeCard key={recipe._id} recipe={recipe} />
-          ))}
-        </div>
+        <RecipeFilter recipes={recipes} />
       )}
     </div>
   );
