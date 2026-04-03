@@ -1,9 +1,12 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { PortableTextContent } from "@/components/portable-text";
 import { ArticleIllustration } from "@/components/article-illustration";
-import { getArticleBySlug, getAllArticleSlugs } from "@/lib/sanity";
+import { ArticleComments } from "@/components/article-comments";
+import { getArticleBySlug, getAllArticleSlugs, getRelatedArticles } from "@/lib/sanity";
 import { urlFor } from "../../../../../sanity/lib/client";
+import { auth } from "@/lib/auth";
 import type { ArticleCategory } from "@/lib/types";
 
 export const revalidate = 60;
@@ -38,6 +41,11 @@ export default async function ArticlePage({
   const article = await getArticleBySlug(category as ArticleCategory, slug);
   if (!article) notFound();
 
+  const [related, session] = await Promise.all([
+    getRelatedArticles(slug, article.tags ?? [], category as ArticleCategory),
+    auth(),
+  ]);
+
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
       <header className="mb-8">
@@ -45,15 +53,23 @@ export default async function ArticlePage({
           {categoryNames[category] || category}
         </p>
         <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
-        {article.publishedAt && (
-          <p className="text-muted-foreground text-sm">
-            {new Date(article.publishedAt).toLocaleDateString("no", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
-        )}
+        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+          {article.publishedAt && (
+            <span>
+              {new Date(article.publishedAt).toLocaleDateString("no", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
+          )}
+          {article.readTimeMinutes != null && article.readTimeMinutes > 0 && (
+            <>
+              <span>·</span>
+              <span>{article.readTimeMinutes} min lesetid</span>
+            </>
+          )}
+        </div>
 
         {article.author && (
           <div className="flex items-center gap-3 mt-4">
@@ -92,6 +108,38 @@ export default async function ArticlePage({
           <PortableTextContent value={article.body} />
         </div>
       )}
+
+      {/* Related articles */}
+      {related.length > 0 && (
+        <section className="mt-12 pt-8 border-t border-border">
+          <h2 className="text-xl font-bold mb-4">Les videre</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {related.map((a) => (
+              <Link
+                key={a._id}
+                href={`/laer/${a.category}/${a.slug.current}`}
+                className="group block rounded-lg border border-border bg-card p-4 hover:bg-accent transition-colors"
+              >
+                <p className="text-xs text-primary font-bold tracking-wider uppercase mb-1">
+                  {categoryNames[a.category] || a.category}
+                </p>
+                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors leading-snug">
+                  {a.title}
+                </h3>
+                {a.seoDescription && (
+                  <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{a.seoDescription}</p>
+                )}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Comments */}
+      <ArticleComments
+        articleId={article._id}
+        currentUserId={session?.user?.id ?? null}
+      />
     </article>
   );
 }

@@ -5,13 +5,13 @@ interface TimelineEvent {
 }
 
 const events: TimelineEvent[] = [
-  { year: "2020", title: "Garasjen åpner", description: "Første brygg i garasjen. Starten på Uranus Garage." },
-  { year: "2021", title: "Oppskriftene vokser", description: "Eksperimentering med IPA-er og belgiske stiler." },
-  { year: "2022", title: "Flere bryggere", description: "Teamet utvides. Faste bryggekvelder etableres." },
-  { year: "2023", title: "Bryggeloggen starter", description: "Dokumentering av hver eneste bryggesesjon begynner." },
-  { year: "2024", title: "Utstyr-upgrade", description: "Ny gryte, fermentor, og temperaturstyring." },
-  { year: "2025", title: "Community vokser", description: "Smakskvelder og events. Deling av oppskrifter." },
   { year: "2026", title: "Ny nettside", description: "Uranus Garage får sitt eget digitale hjem." },
+  { year: "2025", title: "Community vokser", description: "Smakskvelder og events. Deling av oppskrifter." },
+  { year: "2024", title: "Utstyr-upgrade", description: "Ny gryte, fermentor, og temperaturstyring." },
+  { year: "2023", title: "Bryggeloggen starter", description: "Dokumentering av hver eneste bryggesesjon begynner." },
+  { year: "2022", title: "Flere bryggere", description: "Teamet utvides. Faste bryggekvelder etableres." },
+  { year: "2021", title: "Oppskriftene vokser", description: "Eksperimentering med IPA-er og belgiske stiler." },
+  { year: "2020", title: "Garasjen åpner", description: "Første brygg i garasjen. Starten på Uranus Garage." },
 ];
 
 export function Timeline() {

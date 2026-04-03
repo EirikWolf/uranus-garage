@@ -65,7 +65,15 @@ export function Navigation() {
   ];
 
   const toolsLinks = [
-    { href: "/verktoy/kalkulatorer", label: t("calculators") },
+    { href: "/verktoy", label: "Alle verktøy" },
+    { href: "/verktoy/abv", label: "ABV" },
+    { href: "/verktoy/ibu", label: "IBU" },
+    { href: "/verktoy/srm", label: "SRM-farge" },
+    { href: "/verktoy/gjermengde", label: "Gjærmengde" },
+    { href: "/verktoy/karbonering", label: "Karbonering" },
+    { href: "/verktoy/hydrometer", label: "Hydrometer" },
+    { href: "/verktoy/innmesking", label: "Innmesking" },
+    { href: "/verktoy/vannkjemi", label: "Vannkjemi" },
     { href: "/verktoy/oppskriftsgenerator", label: t("recipeGenerator") },
     { href: "/verktoy/smaksassistent", label: t("sensoryMirror") },
     { href: "/verktoy/humle-erstatning", label: "Humle-erstatning" },
