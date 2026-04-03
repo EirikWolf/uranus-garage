@@ -22,6 +22,7 @@ model User {
   swapSignups   SwapParticipant[]
   simulations   Simulation[]
   articleComments ArticleComment[]
+  brewPosts       BrewPost[]
   createdAt     DateTime          @default(now())
 }
 
@@ -194,6 +195,32 @@ model SensorReading {
 
   @@unique([sessionId, timestamp])
   @@index([sessionId, timestamp])
+}
+
+model BrewPost {
+  id           String    @id @default(cuid())
+  title        String
+  body         String
+  images       String[]
+  brewDate     DateTime?
+  tags         String[]
+  source       String    @default("web") // "web" | "synthiq"
+
+  // Innlogget bruker (web)
+  userId       String?
+  user         User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  // Syntetisk / API-bruker
+  authorName   String?
+  authorAvatar String?
+
+  likes        Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([createdAt])
+  @@index([userId])
+  @@index([source])
 }
 
 model ArticleComment {

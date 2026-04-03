@@ -80,6 +80,7 @@ export function Navigation() {
   ];
 
   const communityLinks = [
+    { href: "/bryggeblogg", label: "Bryggeblogg" },
     { href: "/forks", label: t("forks") },
     { href: "/brew-swap", label: t("brewSwap") },
     { href: "/markedsplass", label: t("marketplace") },
